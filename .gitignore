@@ -1,0 +1,9 @@
+*.swp
+~
+*.tmp
+*.ps
+*.gz
+*.dvi
+*.aux
+*.log
+*.pdf
