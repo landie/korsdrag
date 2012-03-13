@@ -33,7 +33,7 @@ Joakim Olsson laggmonkei@gmail.com
 
 Johan Liljegren datanizze@gmail.com
 
-Title (preliminary): Comparison between current open source Enterprise Service Busses
+Title (preliminary): Comparison between current open source Enterprise Service Buses
 
 Academic Advisor:  
 
@@ -57,51 +57,58 @@ There are currently several open source options available \cite{mehta11} and the
 
 % {2-3 paragraphs giving more detailed background. Should answer: What has been done by others in this area? What is our current knowledge?}
 
-There has obviously been some measurement done by the producers of the ESBs however those are not very partial. Especially partial performance measurement are lacking, there are several reports made by the producers of some solutions. \cite{Perera07,mulevsjboss,mulevsglassfish,mulevsservicemix,mulesoft08} There has been some reasearch done in the area \cite{ESBthesis} however the number of ESB's tested are quite limited when compared to the most up to date list of popular ESBs \cite{mehta11}. Most importantly they do not explicitly declare what version they are using in their tests which makes their results hard to reproduce, judging by the dates on which their thesis was completed it is clear that all the ESBs that they use have recieved major upgrades which makes it even more important to produce new measurements.
+There has obviously been some measurement done by the producers of the ESBs however those are not very partial. Especially partial performance measurement are lacking, there are several reports made by the producers of some solutions. \cite{Perera07,mulevsjboss,mulevsglassfish,mulevsservicemix,mulesoft08} There has been some reasearch done in the area \cite{ESBthesis} however the number of ESB's tested are quite limited when compared to the most up to date list of popular ESBs \cite{mehta11}. Most importantly they do not explicitly declare what version they are using in their tests which makes their results hard to reproduce, judging by the dates on which their thesis was completed it is clear that all the ESBs that they use have received major upgrades which makes it even more important to produce new measurements.
 
 % {1 paragraph detailing the gap in our current knowledge. Should answer: What is missing in our current knowledge? What is the main purpose of doing this project? Overall, what will we do?}
-The main purpose of this thesis is to increase the knowledge of differences betwen modern open source ESBs. This wil hopefully lead to it being easier to further develop these software products and make it easier for end users to compare and evaluate based on its specific needs.
+The main purpose of this thesis is to increase the knowledge of differences between modern open source ESBs. This will hopefully lead to it being easier to further develop these software products and make it easier for end users to compare and evaluate based on its specific needs.
 
 
 \section*{Aims and objectives}
 % {1 sentence clearly stating the main aim of this thesis project.}
-Compare several enterprise service busses in a controlled environment covering a multitude of tests 
+Compare several enterprise service buses in a controlled environment covering a multitude of tests 
 
 % {3-7 objectives/sub-goals that follows from the main aim. By reaching them the main aim is fulfilled.}
 \begin{itemize}
+	\item Ease of use
 	\item Measure CPU usage
 	\item Measure memory usage
 	\item Usability during setup
-	\item  Five ESB
+	\item  Five ESB tested
 \end{itemize}
 
 
 \section*{Research questions}
 % {3-7 clearly stated and answerable research questions.}
 \begin{itemize}
-	\item R1:
-	\item R2:
-	\item R3:
-	\item R4:
+	\item R1: How does current open source ESBs stack up against each other? CPU/RAM/DISK comparison.
+	\item R2: How does current open source ESBs scale?
+	\item R3: How accurate is previous research? 
+	\item R4: What is the perceived usability and ease of use during testing and setup?
 \end{itemize}
 
 
 \section*{Expected outcomes}
 % {State the concrete results that will be the deliverables\slash output form the project. Should describe which form they are expected to take. Examples are: tables, models, guidelines, checklists, prototypes, designs, etc.}
-pretty pretty graphs with numbers and shiny figures and stuff
+The outcome will consist of large amount of graphs compiled from measurements during tests. There will also be a table compiled from subjective measurements regarding perceived usability and ease of use during the different stages of testing.
 
 
 \section*{Research Methodology}
 % {Describe the research methodology that you will use in different parts of your project to be able to answer the research questions and produce the expected outcomes and thus fulfill the objectives and the main aim. Should clearly answer: How will you get an answer to each of the research questions stated above?}
 
 	\subsection{Literature review}
-		We will read different pappers and those that we consider relevant will be used too support the thesis.
+	Proposals for search items:
+	\begin{itemize}
+		\item ESB, Enterprise Service Bus
+		\item Integration
+		\item MuleESB, WSO2, Servicemix, OpenESB, Blackbird ESB
+		\item Performance measurement
+	\end{itemize}
+	We will combine the above keywords into search strings which we will use on Google Scholar, IEEE Xplore, Elin and other relevant web archives.
+	We will primarily look at abstracts and results as a firstline filter in order to find relevant articles. Those articles found relevant will be further investigated and have its references checked for relevance.
 
 	\subsection{Post-mortem analysis design}
-
-
-\section*{Risks}
-% {State the main threats to your study. Also state how you will overcome them.}
+		We will conduct a post-mortem analysis based on data acquired from tests performed in a controlled environment. 
+		The data that will be collected will mainly be focused at CPU and RAM usage while measuring throughput. 
 
 \footnotesize
 \bibliographystyle{ieeetr}
@@ -109,3 +116,36 @@ pretty pretty graphs with numbers and shiny figures and stuff
 % {7-12 key references that are relevant for your particular project. The reference list should be complete with all expected information for all entries.}
  
  \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
