@@ -57,10 +57,15 @@ There are currently several open source options available \cite{mehta11} and the
 
 % {2-3 paragraphs giving more detailed background. Should answer: What has been done by others in this area? What is our current knowledge?}
 
-There has been some measurements and benchmarks done by the producers of the ESBs however these measurements have always been in favor of the ESB produced by the company making the measurements. Especially impartial performance measurement are lacking, there are several reports made by the producers of some solutions. \cite{Perera07,mulevsjboss,mulevsglassfish,mulevsservicemix,mulesoft08} There has been some reasearch done in the area \cite{ESBthesis} however the number of ESB's tested are quite limited when compared to the most up to date list of popular ESBs \cite{mehta11}. Most importantly they do not explicitly declare what version they are using in their tests which makes their results hard to reproduce. Judging by the dates on which their thesis was completed it is clear that all the ESBs that they use have received major upgrades which makes it even more important to produce new measurements.
+There has been some measurements and benchmarks done by the producers of the ESBs however these measurements have always been in favor of the ESB produced by the company making the measurements. 
+Impartial performance measurement are especially lacking, there are several reports made by the producers of some solutions. \cite{Perera07,mulevsjboss,mulevsglassfish,mulevsservicemix,mulesoft08}
+There has been some reasearch done in the area \cite{ESBthesis} however the number of ESB's tested are quite limited when compared to the most up to date list of popular ESBs \cite{mehta11}.
+Most importantly they do not explicitly declare what version they are using in their tests which makes their results hard to reproduce. 
+Judging by the dates on which their papaer was completed it is clear that all the ESBs that they use have received major upgrades which makes it even more important to produce new measurements.
 
 % {1 paragraph detailing the gap in our current knowledge. Should answer: What is missing in our current knowledge? What is the main purpose of doing this project? Overall, what will we do?}
-The main purpose of this thesis is to increase the knowledge of differences between modern open source ESBs. This will hopefully lead to it being easier to further develop these software products and make it easier for end users to compare and evaluate based on its specific needs.
+The main purpose of this thesis is to increase the knowledge of differences between modern open source ESBs. 
+This will hopefully lead to it being easier to further develop these software products and make it easier for end users to compare and evaluate based on its specific needs.
 
 
 \section*{Aims and objectives}
@@ -69,11 +74,11 @@ Compare several enterprise service buses in a controlled environment covering a 
 
 % {3-7 objectives/sub-goals that follows from the main aim. By reaching them the main aim is fulfilled.}
 \begin{itemize}
-	\item Ease of use
+	\item Measure Ease of use
 	\item Measure CPU usage
 	\item Measure memory usage
 	\item Usability during setup
-	\item  Five ESB tested
+	\item  Test five ESB (Mule, WSO2, Servicemix and two others)
 \end{itemize}
 
 
@@ -82,15 +87,17 @@ Compare several enterprise service buses in a controlled environment covering a 
 \begin{itemize}
 	\item R1: How does current open source ESBs stack up against each other? CPU/RAM/DISK comparison.
 	\item R2: How does current open source ESBs scale?
-	\item R3: How accurate is previous research? 
+	\item R3: How accurate and up to date is our current knowledge? 
 	\item R4: What is the perceived usability and ease of use during testing and setup?
 \end{itemize}
 
 
 \section*{Expected outcomes}
 % {State the concrete results that will be the deliverables\slash output form the project. Should describe which form they are expected to take. Examples are: tables, models, guidelines, checklists, prototypes, designs, etc.}
-The outcome will consist of large amount of graphs compiled from measurements during tests. There will also be a table compiled from subjective measurements regarding perceived usability and ease of use during the different stages of testing.
-It is important that the test methods used will be transparently reported and easily reproducable making "second opinions" for test confirmation a trivial task. This will improve the thesis validity in the sense that all facts and data are available making partial/twisted outcomes harder.
+The outcome will consist of large amount of graphs compiled from measurements during tests.
+There will also be a table compiled from subjective measurements regarding perceived usability and ease of use during the different stages of testing.
+It is important that the test methods used will be transparently reported and easily reproducable making "second opinions" for test confirmation a trivial task. 
+This will improve the thesis validity in the sense that all facts and data are available making partial/twisted outcomes harder.
 
 
 \section*{Research Methodology}
@@ -105,11 +112,13 @@ It is important that the test methods used will be transparently reported and ea
 		\item Performance measurement
 	\end{itemize}
 	We will combine the above keywords into search strings which we will use on Google Scholar, IEEE Xplore, Elin and other relevant web archives.
-	We will primarily look at abstracts and results as a firstline filter in order to find relevant articles. Those articles found relevant will be further investigated and have its references checked for relevance.
+	We will primarily look at abstracts and results as a first line filter in order to find relevant articles. Those articles found relevant will be further investigated and have its references checked for relevance.
+	We will also be mindful of tests found during the review in order to populate our own test suite with interesting, broad and most importantly unbiased tests.
 
 	\subsection{Post-mortem analysis design}
 		We will conduct a post-mortem analysis based on data acquired from tests performed in a controlled environment. 
-		The data that will be collected will mainly be focused at CPU and RAM usage while measuring throughput. 
+		The data that will be collected will mainly be focused on CPU and RAM usage during different amounts of throughput. 
+		The measurements are subject too change depending on discoveries made during literature review.
 
 \footnotesize
 \bibliographystyle{ieeetr}
