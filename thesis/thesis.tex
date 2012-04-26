@@ -6,7 +6,7 @@
 \usepackage{tabularx}
 \usepackage{subfig}
 
-
+% TODO: fixa en grammatiskt korrekt titel :)
 \title{Performance measurements on enterprise service bus}
 \author{Joakim Olsson \inst{1} \and Johan Liljegren\inst{1}}
 
@@ -23,7 +23,7 @@
 Hola!
 \end{abstract}
 
-\section{Introduction}
+\section{Introduction} % TODO: add references
 % Introduction sets focus for thesis and make reader motivated to continue reading. to do that you have to clearly explain what's being investigated, why it is relevant and what value the thesis gives to the world.
 % kan säkert slänga lite av detta i abstract sen...
 The magic world of integration is upon us, it has long been a great part of the industry but never taken quite seriously.
@@ -67,8 +67,77 @@ TODO: easier to do when we have some content to descibe.
 
 \section{Background}
 \label{sec:background}
+% used to explain and present concepts and terms important to understand the thesis... alltså bakgrundsinfo om integration, esb, xml, xpath osv.
+% Also used to further explain problem/issue that we want to investigate and motivate importance of by f.e. showing what are the gaps in the currently available body of knowledge and that you are intending to fill in some of those gaps with knowledge gathered from our research.
+
+% should contain the following parts:
+% detailed information on the background concepts necessary to understand and evaluate your results - aka ge tillräckligt med info för att någon som inte alls är insatt så de kan förstå sisisisisen.
+% An overview of the related literature and state-of-the-art research in order to identify the gap and motivate the need for our research.
+
+Enterprise Service Buses (ESB) provides a platform for integration, connecting existing platforms and products with familiar protocols \cite{falko07} . Before integration became an integral part of developing systems these now integrated parts where operating on its own without any interaction with other platforms/products. This can be viewed as ``independent islands of computing''. The ESBs task is to bring communication between these islands thus integrating them.
+
+ESBs are pivotal in software integration and are becoming extremely important in company software solutions and infrastructures, future and ancient alike \cite{fenner03}.
+
+As such it is very important to accurately and repeatedly measure the performance of integration solutions available. 
+There are currently several open source options available \cite{mehta11} and the current body of knowledge regarding their different performance aspects is severely lacking. 
+
+% {2-3 paragraphs giving more detailed background. Should answer: What has been done by others in this area? What is our current knowledge?}
+
+There has been some measurements and benchmarks done by the producers of the ESBs however these measurements have always been in favor of the ESB produced by the company making the measurements. 
+Impartial performance measurement are especially lacking, there are several reports made by the producers of some solutions \cite{Perera07,mulevsjboss,mulevsglassfish,mulevsservicemix,mulesoft08}.
+There has been some reasearch done in the area \cite{ESBthesis} however the number of ESB's tested are quite limited when compared to the most up to date list of popular ESBs \cite{mehta11}.
+
+Most importantly they do not explicitly declare what versions they are using in their tests which makes their results hard to reproduce. 
+Judging by the dates on which their paper was completed it is clear that all the ESBs that they use have received major upgrades which makes it even more important to produce new measurements.
+
+% {1 paragraph detailing the gap in our current knowledge. Should answer: What is missing in our current knowledge? What is the main purpose of doing this project? Overall, what will we do?}
+The main purpose of this thesis is to increase the knowledge of differences between modern open source ESBs. 
+This will hopefully lead to it being easier to further develop these software products and make it easier for end users to compare and evaluate based on their specific needs.
+
 
 \section{Research question and research design}
+%Chapter 3 – Research questions and research design
+\subsection{State your research questions}
+TODO: formulate the research questions better...
+\begin{itemize}
+	\item R1: How does current open source ESBs stack up against each other? CPU/RAM/DISK comparison.
+	\item R2: How does current open source ESBs scale?
+	\item R3: How accurate and up to date is our current knowledge, what has been done and how?
+\end{itemize}
+%Present clearly how the research questions will be answered. Some of the questions will be answered through the literature review, some through the experiment/interview/survey and some through both.
+%Present the design of your literature survey: 
+%How did you conduct the literature search? 
+\subsection{What search engines and scientific databases were used}
+\begin{itemize}
+	\item ieee
+	\item google
+	\item google scholar
+	\item bths generellla sökmotor för uppsatser
+\end{itemize}
+
+\subsection{What search string combinations were used?}
+
+\begin{itemize}
+	\item ESB
+	\item Enterprise Service Bus
+	\item Enterprise Application Integration
+	\item Integration
+	\item Integration measurement
+	\item Integration comparison
+	\item Mule esb
+	\item WSO2
+	\item Testing
+\end{itemize}
+
+\subsection{How did you select the papers that are included in your literature review? What were the selection criteria?}
+Läste abstract, skummade igenom  thesis för att se om där fanns något intressant, om något intressant funnes så läste lite djupare och om det lät vettigt så hamnade skiten här
+
+\subsection{Present the design for your experiment/interviews/Survey}
+%Here you should describe in detail how the experiment will be conducted, which valuables will be measured, How the experiment environment will be set up and controlled. 
+%If you are planning to do a interview or survey you should present what questions u going to ask and how the questions will be formulated. You should also present who will be answering the questions and how many answers you are planning to receive.
+
+\subsection{Describe the limitations and possible validity threats of the selected research approach.}
+
 \label{sec:method}
 \section{Literature review results}
 \label{sec:litrev}
@@ -111,5 +180,4 @@ Our literature review shows a very clear lack of performance tests conducted by 
 
 \bibliographystyle{ieeetr}
 \bibliography{refs}
-% {7-12 key references that are relevant for your particular project. The reference list should be complete with all expected information for all entries.}
 \end{document}
