@@ -100,18 +100,22 @@ This will hopefully lead to it being easier to further develop these software pr
 \subsection{State your research questions}
 TODO: formulate the research questions better...
 \begin{itemize}
-	\item R1: How does current open source ESBs stack up against each other? CPU/RAM/DISK comparison.
-	\item R2: How does current open source ESBs scale?
-	\item R3: How accurate and up to date is our current knowledge, what has been done and how?
+	\item RQ1: How does current open source ESBs stack up against each other? CPU/RAM/DISK comparison.
+	\item RQ2: How does current open source ESBs scale?
+	\item RQ3: How accurate and up to date is our current knowledge, what has been done and how?
 \end{itemize}
 %Present clearly how the research questions will be answered. Some of the questions will be answered through the literature review, some through the experiment/interview/survey and some through both.
-%Present the design of your literature survey: 
+RQ1 and RQ2 will be answered through experiments and measurements while RQ3 will mainly be answered through the literature review. However the results from RQ1-2 will take part in answering RQ3.
+
+%Present the design of your literature survey:
 %How did you conduct the literature search? 
+The survey design consisted of searching the different search engines listed below with the listed search strings.
+
 \subsection{What search engines and scientific databases were used}
 \begin{itemize}
-	\item ieee
-	\item google
-	\item google scholar
+	\item IEEE Xplore
+	\item Google
+	\item Google Scholar
 	\item bths generellla sökmotor för uppsatser
 \end{itemize}
 
@@ -130,13 +134,15 @@ TODO: formulate the research questions better...
 \end{itemize}
 
 \subsection{How did you select the papers that are included in your literature review? What were the selection criteria?}
-Läste abstract, skummade igenom  thesis för att se om där fanns något intressant, om något intressant funnes så läste lite djupare och om det lät vettigt så hamnade skiten här
+During the literature search abstracts were read and if the abstract suited our criterias (Evaluations of open source ESBs, performance measurements, ESB comparisons amongst others) a quick look through the actual content to see if the abstract did indeed sum up the content in a fair way. If then the quick view through the paper gave any value it was read more thoroughly and then added to the list of accepted papers to use in this thesis.
 
 \subsection{Present the design for your experiment/interviews/Survey}
 %Here you should describe in detail how the experiment will be conducted, which valuables will be measured, How the experiment environment will be set up and controlled. 
-%If you are planning to do a interview or survey you should present what questions u going to ask and how the questions will be formulated. You should also present who will be answering the questions and how many answers you are planning to receive.
+RQ1 and RQ2 will be performed in a controlled computer environment where the involved ESBs will be tested with the same tasks/tests coded for each ESB.
+TODO: write something about how RQ3 will be conducted.
 
 \subsection{Describe the limitations and possible validity threats of the selected research approach.}
+Limitiations that could arise is poor knowledge of how to write qual code for the different ESBs in the sense that one test is not ``badly'' coded for one ESB and the same test i coded with some automatic optimization giving that ESB an unfair advantage. The intentions is to take care of this by using as much standard ways of coding for each respective ESB.
 
 \label{sec:method}
 \section{Literature review results}
@@ -181,3 +187,4 @@ Our literature review shows a very clear lack of performance tests conducted by 
 \bibliographystyle{ieeetr}
 \bibliography{refs}
 \end{document}
+
