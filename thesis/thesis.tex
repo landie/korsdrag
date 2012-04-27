@@ -26,21 +26,21 @@ Hola!
 \section{Introduction} % TODO: add references
 % Introduction sets focus for thesis and make reader motivated to continue reading. to do that you have to clearly explain what's being investigated, why it is relevant and what value the thesis gives to the world.
 
-Since the dawn of software engineering we have come a long way in developing applications and platforms. The leaps forward has been greatly benificial for everyday tasks but since more and more of these applications and platforms needs to communicate with each other it has become clear that the industry did had not kept up with integrating platforms. Enter the Enterprise Service Bus (ESB). To address these integration issues terms like Enterprise Application Integration (EAI) and Service Oriented Architecture (SOA) have been visualized. The ESB is a ``next step'' in this direction, taking what's good from SOA and EAI to bring a complete platform for integration.
+Since the dawn of software engineering we have come a long way in developing applications and platforms. The leaps forward has been greatly beneficial for everyday tasks but since more and more of these applications and platforms needs to communicate with each other it has become clear that the industry had not kept up with integrating platforms. Enter the Enterprise Service Bus (ESB). To address these integration issues terms like Enterprise Application Integration (EAI) and Service Oriented Architecture (SOA) have been visualized. The ESB is a ``next step'' in this direction, taking what's good from SOA and EAI to bring a complete platform for integration.
 
-Where early manual integration between different platforms (often referred to as ``independent islands of computing'') was done by point to point integration, that is, for each new platform to integrate all existing platforms had to build separate interfaces to communicate with the new one. This is a very cumberstone way to do it resulting in messy integration with a lot of dependencies in the end. This type of integration is referred to as ``spaghetti code'' since connections are made from everything to everything. This is where the ESB comes in. The ESB acts a mediator, translator and monitor amongst many things. The main task for the ESB is to step in and take over communications between all involved platforms. This is done by changing the involved platforms so they connect to the ESB and only to the ESB \cite{ESBthesis}. The main advantages of this is that the esb takes care of where to send data between the platforms making the platforms agnostic to what to send and where, they just send it to the ESB and the ESB takes care of forwarding it to the right destination with the right data at the right place in the right language.
+Where early manual integration between different platforms (often referred to as ``independent islands of computing'') was done by point to point integration, that is, for each new platform to integrate all existing platforms had to build separate interfaces to communicate with the new one. This is a very cumbersome way to do it resulting in messy integration with a lot of dependencies in the end. This type of integration is referred to as ``spaghetti code'' since connections are made from everything to everything. This is where the ESB comes in. The ESB acts a mediator, translator and monitor amongst many things. The main task for the ESB is to step in and take over communications between all involved platforms. This is done by changing the involved platforms so they connect to the ESB and only to the ESB \cite{Sanjay2011}. The main advantages of this is that the esb takes care of where to send data between the platforms making the platforms agnostic to what to send and where, they just send it to the ESB and the ESB takes care of forwarding it to the right destination with the right data at the right place in the right language.
 
-The research focus will be on testing a number of ESB solutions' performance in the most essential tasks a ESB provides. The expections of the outcome is to give a clear overview of the most popular ESBs' performance at the latest versions currently available.
+The research focus will be on testing a number of ESB solutions' performance in the most essential tasks a ESB provides. The expectations of the outcome is to give a clear overview of the most popular ESBs' performance at the latest versions currently available.
 
 When choosing an ESB to use a lot of parameters needs to be filled, ease of use, documentation, features and performance is a couple of things needed to make an educated decision what to use. This thesis focuses on performance since there are no current and unbiased resources about the most popular ESBs' performance.
 
 % - problem definition: its nature and scope, why this problem? why is it important? (review relevant literature)
-The nature of this thesis is to clearly define tests and results of what currenct ESBs have to offer in the area of performance. This was chosen since the performance of an ESB plays a mayor role in perceived overall value of an esb since its job is broad and it handles just about every call between integrated platforms. This merges well with the aims of the thesis, which is to get a grip of current ESBs performance and to evaluate what already exists and how relevant that is
+The nature of this thesis is to clearly define tests and results of what current ESBs have to offer in the area of performance. This was chosen since the performance of an ESB plays a mayor role in perceived overall value of an ESB since its job is broad and it handles just about every call between integrated platforms. This merges well with the aims of the thesis, which is to get a grip of current ESBs performance and to evaluate what already exists and how relevant that is
 
 % - method of investigation: why this method?
 The chosen method of investigation is to create an environment where tests can be performed, singling out performance differences in the different ESB solution offerings.
+We will review literature available on the Internet in order to get a good understanding of the current body of knowledge and ascertain a need for increasing that body of knowledge. This also allows us to review how previous performance measurements have been done in this field of software design which will ensure that our test suite does not deviate or alienate previous research as well as has a somewhat well anchored position in the current software design community.
 
-TODO: add how we're going to investigate academia/industry literature...
 
 % - expected outcome: value and intended audience
 The expected outcome of this thesis is to give a defined test bed with performance results from a controlled test environment for the involved ESB solutions.
@@ -49,7 +49,7 @@ The expected outcome of this thesis is to give a defined test bed with performan
 %\subsection{Limitations}
 
 % - thesis overview: what is presented in the following chapters and in what order
-TODO: thesis overview: easier to do when we have some content to descibe.
+TODO: thesis overview: easier to do when we have some content to describe.
 % Vi får väl fixa här när vi skrivit lite mer
 
 \section{Background}
@@ -72,7 +72,7 @@ There are currently several open source options available \cite{mehta11} and the
 
 There has been some measurements and benchmarks done by the producers of the ESBs however these measurements have always been in favor of the ESB produced by the company making the measurements. 
 Impartial performance measurement are especially lacking, there are several reports made by the producers of some solutions \cite{Perera07,mulevsjboss,mulevsglassfish,mulevsservicemix,mulesoft08}.
-There has been some reasearch done in the area \cite{ESBthesis} however the number of ESB's tested are quite limited when compared to the most up to date list of popular ESBs \cite{mehta11}.
+There has been some research done in the area \cite{Sanjay2011} however the number of ESB's tested are quite limited when compared to the most up to date list of popular ESBs \cite{mehta11}.
 
 Most importantly they do not explicitly declare what versions they are using in their tests which makes their results hard to reproduce. 
 Judging by the dates on which their paper was completed it is clear that all the ESBs that they use have received major upgrades which makes it even more important to produce new measurements.
@@ -87,11 +87,10 @@ This will hopefully lead to it being easier to further develop these software pr
 The research questions are as follows:
 \begin{itemize}
 	\item RQ1: How does current open source ESBs stack up against each other? CPU/RAM/DISK comparison.
-	\item RQ2: How does current open source ESBs scale?
-	\item RQ3: How accurate and up to date is our current knowledge, what has been done and how?
+	\item RQ2: How accurate and up to date is our current knowledge, what has been done and how?
 \end{itemize}
 %Present clearly how the research questions will be answered. Some of the questions will be answered through the literature review, some through the experiment/interview/survey and some through both.
-RQ1 and RQ2 will be answered through experiments and measurements while RQ3 will mainly be answered through the literature review. However the results from RQ1-2 will take part in answering RQ3.
+RQ1 will be answered through experiments and measurements while RQ3 will mainly be answered through the literature review. However the results from RQ1 will take part in answering RQ2.
 
 %Present the design of your literature survey:
 %How did you conduct the literature search? 
@@ -102,7 +101,7 @@ The survey design consisted of searching the different search engines listed bel
 	\item IEEE Xplore
 	\item Google
 	\item Google Scholar
-	\item bths generellla sökmotor för uppsatser
+	\item BTHs general search engine for documents
 \end{itemize}
 
 {\bf Search strings used (and combined):}
@@ -118,15 +117,15 @@ The survey design consisted of searching the different search engines listed bel
 	\item Testing
 \end{itemize}
 
-During the literature survey abstracts were read and if the abstract suited our criterias (Evaluations of open source ESBs, performance measurements, ESB comparisons amongst others) a quick look through the actual content to see if the abstract did indeed sum up the content in a fair way. If then the quick view through the paper gave any value it was read more thoroughly and then added to the list of accepted papers to use in this thesis.
+During the literature survey abstracts were read and if the abstract suited our criteria (Evaluations of open source ESBs, performance measurements, ESB comparisons amongst others) a quick look through the actual content to see if the abstract did indeed sum up the content in a fair way. If then the quick view through the paper gave any value it was read more thoroughly and then added to the list of accepted papers to use in this thesis.
 
 
 %Here you should describe in detail how the experiment will be conducted, which valuables will be measured, How the experiment environment will be set up and controlled. 
-RQ1 and RQ2 will be performed in a controlled computer environment where the involved ESBs will be tested with the same tasks/tests coded for each ESB.
-TODO: write something about how RQ3 will be conducted.
+RQ1 will be performed in a controlled computer environment where the involved ESBs will be tested with the same tasks/tests coded for each ESB.
+RQ2 will provide the answers regarding what test and procedures that we should follow in order to adequately answer RQ1.
 
 
-Limitiations that could arise is poor knowledge of how to write qual code for the different ESBs in the sense that one test is not ``badly'' coded for one ESB and the same test i coded with some automatic optimization giving that ESB an unfair advantage. The intentions is to take care of this by using as much standard ways of coding for each respective ESB.
+Limitations that could arise is poor knowledge of how to write qual code for the different ESBs in the sense that one test is not ``badly'' coded for one ESB and the same test i coded with some automatic optimization giving that ESB an unfair advantage. The intentions is to take care of this by using as much standard ways of coding for each respective ESB.
 
 \label{sec:method}
 \section{Literature review results}
@@ -136,7 +135,7 @@ The literature review has focused on what the academic world knows and what the 
 
 % - Present the papers that you have identified as your information source. Describe them, what type of papers they are, from what period; what do they have in common etc.
 \subsection{Academia}
-"Enterprise Service Bus"\cite{falko07} by Falko Menge is a paper that explains the fundamentals of an ESB as well as introduces Mule with an example. Published in 2007 its example has become obsolete and outdated however the fundamentals still hold true as seen by later papers such as "Research of Enterprise Application Integration Based-on ESB" \cite{Jieming2010} by Jieming Wu and Xiaoli Tao as well as "Integration of Distributed Enterprise Applications: A Survey" \cite{HeIntegration} by Wu He and Li Da Xu are papers that focus on describing the history and evolution of software integration. They were published in 2010 and give an in depth view on how an ESB  operates.
+"Enterprise Service Bus"\cite{falko07} by Falko Menge is a paper that explains the fundamentals of an ESB as well as introduces Mule with an example. Published in 2007 its example has become obsolete and outdated however the fundamentals still hold true as seen by later papers such as "Research of Enterprise Application Integration Based-on ESB" \cite{Jieming2010} by Jieming Wu and Xiaoli Tao as well as "Integration of Distributed Enterprise Applications: A Survey" \cite{HeIntegration} by Wu He and Li Da Xu these are papers that focus on describing the history and evolution of software integration. They were published in 2010 and give an in depth view on how an ESB  operates.
 
 
 "An Interoperability  Study  ofESB for C4I  Systems " \cite{Alghamdi2010} by Abdullah Alghamdi, Muhammad Nasir, Iftikhar Ahmad and Khalid A. Nafjan and  "Adopting and Evaluating Service Oriented Architecture in Industry" by Khalid Adam Nasr, Hans-Gerhard Gross and Arie van Deursen are papers showing the importance of ESBs in the modern world. Published in 2010 they represent a modern necessity for ESBs in industry.
@@ -147,11 +146,11 @@ The literature review has focused on what the academic world knows and what the 
 "Evaluating Open Source Enterprise Service Bus" \cite{Garcia2010} by F. J. García-Jiménez and M. A. Martínez-Carreras, A. F. is the first paper found that performs a performance test however the test is limited in variation and magnitude. The paper was published in 2010 which makes the test outdated since all ESBs in the test has received major updates since 2010.
 
 
-"Enterprise Service Bus: A Performance Evaluation" \cite{Sanjay2011} by Sanjay P. Ahuja and Amit Patel  is the only paper found that performs a perfomance test directly aimed at the differnt ESBs with a varied testsuite and varied measurements. Published in 2011 it is also the most recent paper found however all ESBs tested has received major updates since then and as such needs to be retested.
+"Enterprise Service Bus: A Performance Evaluation" \cite{Sanjay2011} by Sanjay P. Ahuja and Amit Patel  is the only paper found that performs a performance test directly aimed at the different ESBs with a varied test suite and varied measurements. Published in 2011 it is also the most recent paper found however all ESBs tested has received major updates since then and as such needs to be retested.
 
 % - Present your approach for analyzing selected papers in order to find concepts/topics/data/events/experiences that are relevant for answering your research questions
-The above papers has as per the literature review design first been identified by its abstract and then read in detail to find those that describe the concept of an ESB and those that test ESBs in various ways. We have selected papers according too three topics. First is basic ESB understanding and explanation inorder to assert an understanding of how an ESB works and its history. We consider this important since inorder to understand the importance of a software it is imperative one has a firm understanding of its fundamentals. After that fundamental has been established we concentrated on papers that shows a use for ESBs in real world industry and organisations. This inorder to convey a sense of the use and importance of ESBs and research concerning it.
-Finally we focused on papers that performs any kind of tests inorder to establish an understanding of the current body of knowledge in the academic world. Most important were papers testing ESBs and not solutions, performance and not overall feature checks.
+The above papers has as per the literature review design first been identified by its abstract and then read in detail to find those that describe the concept of an ESB and those that test ESBs in various ways. We have selected papers according too three topics. First is a basic ESB understanding and explanation in order to assert an understanding of how an ESB works and its history. We consider this important since in order to understand the importance of a software it is imperative one has a firm understanding of its fundamentals. After that fundamental has been established we concentrated on papers that shows a use for ESBs in real world industry and organizations. This in order to convey a sense of the use and importance of ESBs and research concerning it.
+Finally we focused on papers that performs any kind of tests in order to establish an understanding of the current body of knowledge in the academic world. Most important were papers testing ESBs and not solutions, performance and not overall feature checks.
 
 % - Present and describe the findings from your literature survey and their relation to your research questions
 % - Discuss your findings and conclude literature survey results.
@@ -161,7 +160,7 @@ The fact that we have only found two papers performing tests is a very clear ind
 
 \subsection{Industry}
 
-First of all we found an article\cite{metha11} which listed what the author thought were the best ESBs available in 2011. This is important as it provides us with a list of ESBs that we can pick and choose from when selecting candidates for our performance test and it provides us with focus points on where to start searching for performance tests performed by ESBs themselves. This is also the most recent article of its kind aswell as the largest that we found.
+First of all we found an article\cite{mehta11} which listed what the author thought were the best ESBs available in 2011. This is important as it provides us with a list of ESBs that we can pick and choose from when selecting candidates for our performance test and it provides us with focus points on where to start searching for performance tests performed by ESBs themselves. This is also the most recent article of its kind aswell as the largest that we found.
 
 In 2007 WSO02 started with a series of three performance tests against other leading ESBs \cite{Perera07,Perera07R2,Perera07R3}. In the third they compare against Mule ESB which in turn responds with a performance test of their own \cite{mulesoft08}. The tests performed in these tests are sensible and aim to present an understanding of how the different ESBs perform while doing basic tasks. A problem however is that the results are from 2008 and later which mean that they are extremely out of date and maybe even more important is that they are biased.
 
@@ -174,15 +173,16 @@ The industry seem to have a good understanding of how to test their products how
 
 \subsubsection{Literature review conclusion}
 
-It is apparent that the academic world is seriously lacking any kind of performance tests regarding the ESB field of software engineering. We found one paper\cite{Sanjay11} that produced a test suite with a good enough scope and focus. It is however becoming out dated due too the fast pace of the industry and there are no collaborating papers supporting the results produced and as such it by itself hold little value. The industry has made a good effort in providing sensible tests that focuses on the basic performance but those results are old and outdated. 
-It is therefore our conclusion in regards to R3 that the current body of knowledge is very inaccurate and outdated. We believe that \cite{Sanjay11} and \cite{Perera07,Perera07R2,Perera07R3,mulesoft08}still holds some merit in regards to how tests should be performed but the actual results they have produced have not been confirmed by other independent sources and are now too old for reproduction.
+It is apparent that the academic world is seriously lacking any kind of performance tests regarding the ESB field of software engineering. We found one paper\cite{Sanjay2011} that produced a test suite with a good enough scope and focus. It is however becoming out dated due too the fast pace of the industry and there are no collaborating papers supporting the results produced and as such it by itself hold little value. The industry has made a good effort in providing sensible tests that focuses on the basic performance but those results are old and outdated. 
+It is therefore our conclusion in regards to R3 that the current body of knowledge is very inaccurate and outdated. We believe that \cite{Sanjay2011} and \cite{Perera07,Perera07R2,Perera07R3,mulesoft08}still holds some merit in regards to how tests should be performed but the actual results they have produced have not been confirmed by other independent sources and are now too old for reproduction.
 
 \section{Performance test}
-It is important to define what tests are done in our references aswell as define what we would like to define as a sensible testing routine.
+TODO: needs further indepth analysis \\
+It is important to define what tests are done in our references as well as define what we would like to define as a sensible testing routine.
 \subsection{What is a performance test?}
-----basic basic---- \\
-measurements conducted on machines running software while the software is undergoing a controlled amount of traffic/load with the goal to find breakpoints in the software and hardware. the hardware should remain the same troughout the test inorder to minimize errors in measurements and the machines producing the traffic/load should also be controlled and verified that they produce the correct load. 
-\subsection{Test walktrough}
+
+measurements conducted on machines running software while the software is undergoing a controlled amount of traffic/load with the goal to find breakpoints in the software and hardware. the hardware should remain the same throughout the test in order to minimize errors in measurements and the machines producing the traffic/load should also be controlled and verified that they produce the correct load. 
+\subsection{Test walk trough}
 	\subsection{Mule ESB}
 	\subsection{WSO2}
 	\subsection{Servicemix}
