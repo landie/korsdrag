@@ -50,14 +50,6 @@
 	howpublished = "http://www.mulesoft.org/comparing-mule-vs-servicemix-fuse-esb"
 }
 
-@misc{ESBthesis,
-	author = "Sanjay P. Ahuja, Amit Patel",
-	title = {{}},
-	year = "2011",
-	howpublished = "http://www.scirp.org/Journal/PaperInformation.aspx?paperID=6768"
-
-}
-
 @misc{forrester11,
 	author = "Ken Vollmer",
 	title = {{The Forrester Wave™: Enterprise Service Bus, Q2 2011}},
@@ -72,8 +64,19 @@
 %	year = "",
 %	howpublished = ""
 %}
-@ARTICLE{evaluatingOpenSourceESB,
-	author = {Garci´a-Jime´nez, F.J. ,Marti´nez-Carreras, M.A. and  Go´mez-Skarmeta, A.F.},
+
+@ARTICLE{Sanjay2011,
+	author = {Sanjay P. Ahuja and Amit Patel},
+	title = {Enterprise Service Bus: A Performance Evaluation},
+	journal = {Communications and Network},
+	issn = {1949-2421},
+	year = {2011},
+	pages = {133-140},
+	abstract = {The flexibility offered by an Enterprise Service Bus (ESB) in enabling various applications to exchange data makes it a very important middleware layer that is responsible for transporting data in a Service-Oriented Architecture (SOA). The popularity of the ESB has given rise to a number of commercial off the shelf (COTS) products as well as open source ESBs. In this study, we evaluated three open source ESBs and compared them both qualitatively and quantitatively. The empirical results were statistically tested to determine the statistical significance of the results.}
+}
+
+@ARTICLE{Garcia2010,
+	author = {Garcia-Jimenez, F.J. ,Marti´nez-Carreras, M.A. and  Gomez-Skarmeta, A.F.},
 	title = {Evaluating Open Source Enterprise Service Bus},
 	journal = {e-Business Engineering (ICEBE), 2010 IEEE 7th International Conference},
 	year = {10-12 Nov. 2010},
@@ -81,7 +84,7 @@
 	abstract = {Nowadays integration and interoperability studies and research have become hot topics in business field, providing technologies which enable Enterprise Application Integration (EAI). In this sense, Enterprise ServiceBus (ESB) products have gained a significant prominence as the mechanisms for supporting EAI. As a consequence, several ESB products from both commercial and open source have emerged. Due to the importance of using open source solutions for several areas, such as business and research field, studies about some open ESB products should be done. Moreover, in these studies the integration of existing services and processes should be studied. The aim of this paper is to evaluate some of the most important open ESBs by indicating the main features and the performance differences between them concerning the integration of existing services and processes in each of the ESBs analyzed.}
 }
 
-@ARTICLE{interoperabilityStudyofESBforC4LSystem,
+@ARTICLE{Alghamdi2010,
 	author = {Alghamdi, A. ,Nasir, M. ,  Ahmad, I. and  Nafjan, K.A.},
 	title = {An interoperability study of ESB for C4I systems},
 	journal = {Information Technology (ITSim), 2010 International Symposium},
@@ -90,7 +93,7 @@
 	abstract = {Ever since the inception of the idea of collaborating the enterprise systems, the need of an Enterprise ServiceBus (ESB) has been a relentless need of the market, the bigger the systems get after collaboration the failures of the ESB's was inevitable. Things moved to more gravity when the bulkiest of the systems like Defense architectures came into picture, with the advent of this not of the efficiency but also the factors like stability, reliability, resource utilization were also of pivotal importance. This paper reviews a critical and comparative analysis of the current ESB's keeping in view the C4I System as a base, so as to ascertain which ESB fulfills the requirements of the system of systems. In comparison we try to analyze Mule ESB, GlassFish ESB and Fuse ESBwith respect to interoperability. This study demonstrates that Mule is more feasible to C4I systems because it is simple, easy to integrate, no adopter requirement and flexible.}
 }
 
-@ARTICLE{serviceOrientedModelingOfMuleESB,
+@ARTICLE{Brebner2009,
 	author = {Brebner, P.},
 	title = {Service-Oriented Performance Modeling the MULE Enterprise Service Bus (ESB) Loan Broker Application},
 	journal = {Software Engineering and Advanced Applications, 2009. SEAA '09. 35th Euromicro Conference},
@@ -99,7 +102,7 @@
 	abstract = {Since 2006 NICTA has been developing and trialing service-oriented performance modeling (SOPM), a method and tool support for performance modeling of large-scale heterogeneous service oriented architectures (SOAs). This technology enables software architects to rapidly build performance models of SOAs directly in terms of servicecompositions. Enterprise service buses (ESBs) are an increasingly common style of SOA infrastructure and implementation technology that we have encountered and modeled in e-government SOA projects. In this paper we show the application of our SOPM approach to the MULE enterprise service bus loan broker application in a laboratory context. We give a high-level outline of the SOPM method, and introduce the MULE ESB and loan broker application. We describe how a SOPM of the loan broker application is built in terms of applicationbusiness-logic services and MULE infrastructure service components, and parameterized with measurements from an experimental test-bed. We demonstrate the validity of the approach in an initial scenario, and then explore the modeling of alternative deployment and application scenarios.}
 }
 
-@ARTICLE{integrationofDistributedEnterpriseApplications,
+@ARTICLE{HeIntegration,
 	author = {He, W. and Xu, L.D.},
 	title = {Integration of Distributed Enterprise Applications: A Survey},
 	journal = {Industrial Informatics, IEEE Transactions},
@@ -108,7 +111,7 @@
 	abstract = {Many industrial enterprises acquire disparate systems and applications over the years. The need to integrate these different systems and applications is often prominent for satisfying business requirements and needs. In an effort to help researchers in industrial informatics understand the state-of-the-art of the enterprise applicationintegration, this paper discusses the architectures and key technologies used for integrating distributedenterprise applications, illustrates their strengths and weaknesses, and identifies research trends and opportunities in this increasingly important area.}
 }
 
-@ARTICLE{adoptingAndEvaluatingSOA,
+@ARTICLE{Nasr2010,
 	author = {Nasr, K.A. ,Gross, H. and van Deursen, A.},
 	title = {Adopting and Evaluating Service Oriented Architecture in Industry},
 	journal = {Software Maintenance and Reengineering (CSMR), 2010 14th European Conference},
@@ -117,7 +120,7 @@
 	abstract = {In this paper, we present a descriptive case study covering the re-engineering and further evolution of adoptingservice oriented architecture (SOA) in industry. The goal of this case study is to identify the possible benefits and bottlenecks of adopting SOA, as well as to come up with best practices and research directions based on real-life experience gained in IT industry. The case involves an application portfolio of over 700 systems for a company in the transport sector. First, the case study involves the engineering of a portal application involving the integration of various services via the Enterprise Service Bus (ESB). Second, the case study is concerned with the setting up of a central coordination point within the organization to deal with SOA-related integrationrequests and requirements coming from different business units. Finally, the case discusses the actual implementation and integration of a service through the ESB. From this case study, a list of lessons learned and research directions is obtained.}
 }
 
-@ARTICLE{researchofEnterpriseApplication,
+@ARTICLE{Jieming2010,
 	author = {Jieming Wu and Xiaoli Tao},
 	title = {Research of enterprise application integration based-on ESB},
 	journal = {Advanced Computer Control (ICACC), 2010 2nd International Conference},
@@ -125,39 +128,4 @@
 	volume = {5},
 	pages = {90-93},
 	abstract = {Enterprise Service Bus (ESB) is a kind of SOA-based software infrastructure for business application integration. In this paper, it firstly analyses the current state of enterprise integration and the drawbacks of the hub-and-spoke topology, then it introduces a new design approach for EAI base on ESB called EAI-ESB. The EAI-ESBapproach which contains Message construction, Messaging channels, Listener, Decryptor, Validator, Enricher, Transformer and Router eight steps ensures consistent and validated data will be routed throughout the ESBbetween several applications. HTTP Binding SOAP message is one of important decisions in the EAI-ESBapproach. At last we summarize the advantages of the EAI-ESB approach and conclude EAI-ESB approach is one of the efficient ways to implement enterprise application integrations.}
-}
-
-
-@ARTICLE{Madeyski2010,
-	author = {Madeyski, L. and Radyk, N.},
-	title = {{Judy - A Mutation Testing Tool for Java}},
-	journal = {IET Software},
-	year = {2010},
-	volume = {4},
-	pages = {32--42},
-	number = {1},
-	abstract = {Popular code coverage measures, such as branch coverage, are indicators
-		of the thoroughness rather than the fault detection capability of
-			test suites. Mutation testing is a fault-based technique that measures
-			the effectiveness of test suites for fault localisation. Unfortunately,
-		use of mutation testing in the software industry is rare because
-			generating and running vast numbers of mutants against the test cases
-			is time-consuming and difficult to do without an automated, fast
-			and reliable tool. Our objective is to present an innovative approach
-			to mutation testing that takes advantage of a novel aspect-oriented
-			programming mechanism, called `pointcut and advice`, to avoid multiple
-			compilation of mutants and, therefore, to speed up mutation testing.
-			An empirical comparison of the performance of the developed tool,
-		called <span class='snippet'>Judy</span>, with the MuJava mutation
-			testing tool on 24 open-source projects demonstrates the value of
-			the presented approach. The results show that there is a statistically
-			significant (<i>t</i>(23) = -12.28, <i>p</i> &lt; 0.0005, effect
-					size <i>d</i> = 3.43) difference in the number of mutants generated
-			per second between MuJava (<i>M</i> = 4.15, SD = 1.42) and <span
-			class='snippet'>Judy</span> (<i>M</i> = 52.05, SD = 19.69). Apart
-			from being statistically significant, this effect is considered very
-			large and, therefore, represents a substantive finding. This therefore
-			allows us to estimate the fault detection effectiveness of test suites
-			of much larger systems.},
-	doi = {10.1049/iet-sen.2008.0038},
 }
