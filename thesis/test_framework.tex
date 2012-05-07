@@ -63,7 +63,7 @@ This separating and designating of roles to machines minimizes different hardwar
 It also means that if other machines are used in other tests the data produced can be compared to ours and as such validate the data or identify faults in the tests. This validation can be in two ways. First is to run the same software versions and compare the results. They should be similar deviating only in magnitude. The second way is if using a newer or old software version the values when put in a graph will either have the same shape or show areas in which performance has changed, if it is the same shape but the magnitude is higher then that is most likely caused by faster machines being used and vice versa if its the same magnitude except in certain areas then that shows an improvement in the software.
 
 \subsection{Measurements}
-Whats interesting to see here is the response time and throughput on the client. Those are the most interesting numbers too know in a real world application as those are extremely noticable to an end user/system. Monitoring the CPU and RAM usage on the ESB and Web service machines is somewhat important so that the tests are ruined by some hardware limitation. It could also be important if two ESBs show similar response time and throughput results but one has a significatly smaller CPU and RAM footprint hinting at a more optimized software.
+Whats interesting to see here is the response time and throughput on the client. Those are the most interesting numbers too know in a real world application as those are extremely noticable to an end user/system. Monitoring the CPU and RAM usage on the ESB and Web service machines is somewhat important so that the tests are ruined by some hardware limitation. We will also use the CPU metrics from the ESB machine inorder to calculate relative performance on each ESB.
 
 \begin{tabular}{| c | l |}
 	\hline
@@ -77,7 +77,7 @@ Whats interesting to see here is the response time and throughput on the client.
 \section{Test walktrough}
 The tests described below are aimed at measuring the very basic roles of any ESB. They are very simple with the specific goal of producing a baseline for future tests.
 
-All tests will be performed ten times 
+All tests will be performed ten times and the collected data will then be statistically analyzed.
 \\
 ------------------------ \\
 TODO \\
@@ -89,7 +89,7 @@ A comparative test can be performed here as well and that is to not use the ESB 
 
 
 \subsection{Routing}
-In this test the ESB will depending on the context of an incoming request from the Client send the request to an appropriate web service which will append some data and return the request to the ESB which will send it to the Client.
+In this test the ESB wil,l depending on the context of an incoming request from the Client, send the request to an appropriate web service which will append some data and return the request to the ESB which will send it to the Client.
 
 This represents the ability to have several system behind an ESB all showing the same front to the outside.
 
