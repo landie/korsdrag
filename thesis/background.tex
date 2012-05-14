@@ -1,0 +1,28 @@
+\section{Background}
+\label{sec:background}
+% used to explain and present concepts and terms important to understand the thesis... alltså bakgrundsinfo om integration, esb, xml, xpath osv.
+% Also used to further explain problem/issue that we want to investigate and motivate importance of by f.e. showing what are the gaps in the currently available body of knowledge and that you are intending to fill in some of those gaps with knowledge gathered from our research.
+
+% should contain the following parts:
+% detailed information on the background concepts necessary to understand and evaluate your results - aka ge tillräckligt med info för att någon som inte alls är insatt så de kan förstå sisisisisen.
+% An overview of the related literature and state-of-the-art research in order to identify the gap and motivate the need for our research.
+
+Enterprise Service Buses (ESB) provides a platform for integration, connecting existing platforms and products with familiar protocols \cite{falko07} . Before integration became an integral part of developing systems these now integrated parts where operating on its own without any interaction with other platforms/products. This can be viewed as ``independent islands of computing''. The ESBs task is to bring communication between these islands thus integrating them.
+
+ESBs are pivotal in software integration and are becoming extremely important in company software solutions and infrastructures, future and ancient alike \cite{fenner03}.
+
+As such it is very important to accurately and repeatedly measure the performance of integration solutions available. 
+There are currently several open source options available \cite{mehta11} and the current body of knowledge regarding their different performance aspects is severely lacking. 
+
+% {2-3 paragraphs giving more detailed background. Should answer: What has been done by others in this area? What is our current knowledge?}
+
+There has been some measurements and benchmarks done by the producers of the ESBs however these measurements have always been in favor of the ESB produced by the company making the measurements. 
+Impartial performance measurement are especially lacking, there are several reports made by the producers of some solutions \cite{Perera07,mulevsjboss,mulevsglassfish,mulevsservicemix,mulesoft08}.
+There has been some research done in the area \cite{Sanjay2011} however the number of ESB's tested are quite limited when compared to the most up to date list of popular ESBs \cite{mehta11}.
+
+Most importantly they do not explicitly declare what versions they are using in their tests which makes their results hard to reproduce. 
+Judging by the dates on which their paper was completed it is clear that all the ESBs that they use have received major upgrades which makes it even more important to produce new measurements.
+
+% {1 paragraph detailing the gap in our current knowledge. Should answer: What is missing in our current knowledge? What is the main purpose of doing this project? Overall, what will we do?}
+The main purpose of this thesis is to increase the knowledge of differences between modern open source ESBs. 
+This will hopefully lead to it being easier to further develop these software products and make it easier for end users to compare and evaluate based on their specific needs.

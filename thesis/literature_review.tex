@@ -1,0 +1,59 @@
+﻿\section{Literature review results}
+\label{sec:litrev}
+
+The literature review has focused on what the academic world knows and what the industrial world knows and as such we will present them separate and then conclude.
+
+% - Present the papers that you have identified as your information source. Describe them, what type of papers they are, from what period; what do they have in common etc.
+\subsection{Academia}
+"Enterprise Service Bus"\cite{falko07} by Falko Menge is a paper that explains the fundamentals of an ESB as well as introduces Mule with an example. Published in 2007 its example has become obsolete and outdated however the fundamentals still hold true as seen by later papers such as "Research of Enterprise Application Integration Based-on ESB" \cite{Jieming2010} by Jieming Wu and Xiaoli Tao as well as "Integration of Distributed Enterprise Applications: A Survey" \cite{HeIntegration} by Wu He and Li Da Xu these are papers that focus on describing the history and evolution of software integration. They were published in 2010 and give an in depth view on how an ESB  operates.
+
+
+"An Interoperability  Study  ofESB for C4I  Systems " \cite{Alghamdi2010} by Abdullah Alghamdi, Muhammad Nasir, Iftikhar Ahmad and Khalid A. Nafjan and  "Adopting and Evaluating Service Oriented Architecture in Industry" by Khalid Adam Nasr, Hans-Gerhard Gross and Arie van Deursen are papers showing the importance of ESBs in the modern world. Published in 2010 they represent a modern necessity for ESBs in industry.
+
+
+"Service-Oriented Performance Modeling the MULE Enterprise Service Bus (ESB) Loan Broker Application " \cite{Brebner2009} by Paul Brebner is a paper from 2009 going trough how the author builds a integration solution and tests it, however the author tests the entire solution which isn't general enough for what we consider a performance test of an ESB. The author does however discuss some aspects of testing that are vital such as how and where to measure.
+
+"Evaluating Open Source Enterprise Service Bus" \cite{Garcia2010} by F. J. Garcia-Jimenez and M. A. Martinez-Carreras, A. F. is the first paper found that performs a performance test however the test is limited in variation and magnitude. The paper was published in 2010 which makes the test outdated since all ESBs in the test has received major updates since 2010.
+
+
+"Enterprise Service Bus: A Performance Evaluation" \cite{Sanjay2011} by Sanjay P. Ahuja and Amit Patel  is the only paper found that performs a performance test directly aimed at the different ESBs with a varied test suite and varied measurements. Published in 2011 it is also the most recent paper found however all ESBs tested has received major updates since then and as such needs to be retested.
+
+% - Present your approach for analyzing selected papers in order to find concepts/topics/data/events/experiences that are relevant for answering your research questions
+The above papers has as per the literature review design first been identified by its abstract and then read in detail to find those that describe the concept of an ESB and those that test ESBs in various ways. We have selected papers according too three topics. First is a basic ESB understanding and explanation in order to assert an understanding of how an ESB works and its history. We consider this important since in order to understand the importance of a software it is imperative one has a firm understanding of its fundamentals. After that fundamental has been established we concentrated on papers that shows a use for ESBs in real world industry and organizations. This in order to convey a sense of the use and importance of ESBs and research concerning it.
+Finally we focused on papers that performs any kind of tests in order to establish an understanding of the current body of knowledge in the academic world. Most important were papers testing ESBs and not solutions, performance and not overall feature checks.
+
+% - Present and describe the findings from your literature survey and their relation to your research questions
+% - Discuss your findings and conclude literature survey results.
+
+The fact that we have only found two papers performing tests is a very clear indication that the academic world does not perform performance test/analysis on ESBs. The ones we have found are all considered old in a rapidly changing world and all but one performs a test that we find adequate.
+
+
+\subsection{Industry}
+
+First of all we found an article\cite{mehta11} which listed what the author thought were the best ESBs available in 2011. This is important as it provides us with a list of ESBs that we can pick and choose from when selecting candidates for our performance test and it provides us with focus points on where to start searching for performance tests performed by ESBs themselves. This is also the most recent article of its kind aswell as the largest that we found.
+
+In 2007 WSO02 started with a series of three performance tests against other leading ESBs \cite{Perera07,Perera07R2,Perera07R3}. In the third they compare against Mule ESB which in turn responds with a performance test of their own \cite{mulesoft08}. The tests performed in these tests are sensible and aim to present an understanding of how the different ESBs perform while doing basic tasks. A problem however is that the results are from 2008 and later which mean that they are extremely out of date and maybe even more important is that they are biased.
+
+
+Mule has published a few articles that are not performance test but instead some kind of sales comparison with a number of other ESBs\cite{mulevsjboss,mulevsglassfish,mulevsservicemix}.
+
+And finally we have read the Forrester report \cite{forrester11} from 2011 which is a industry initiated report that further visualizes the need for ESBs in modern software development, It is not performance oriented and includes non open-source ESBs.
+
+The industry seem to have a good understanding of how to test their products however they do not seem to update their results and as such they hold little value.
+
+\subsubsection{Core ESB functionality}
+There are a few different views on what the core functionality of ESBs are however they all seem to contain three similar functions. Those functions are proxying, routing and mediation. 
+
+\begin{description}
+	\item[Proxying] \hfill \\
+			The ability to 
+	\item[Routing] \hfill \\
+			The ability to based on incoming requests route the request to the correct recipient.
+	\item[Mediation] \hfill \\
+			The ability to transform incoming requests from one message protocoll(SOAP, REST, JSON) into another protocoll that the recipiant requires.
+\end{description}
+
+\subsubsection{Literature review conclusion}
+
+It is apparent that the academic world is seriously lacking any kind of performance tests regarding the ESB field of software engineering. We found one paper\cite{Sanjay2011} that produced a test suite with a good enough scope and focus. It is however becoming out dated due too the fast pace of the industry and there are no collaborating papers supporting the results produced and as such it by itself hold little value. The industry has made a good effort in providing sensible tests that focuses on the basic performance but those results are old and outdated. 
+It is therefore our conclusion in regards to R3 that the current body of knowledge is very inaccurate and outdated. We believe that \cite{Sanjay2011} and \cite{Perera07,Perera07R2,Perera07R3,mulesoft08}still holds some merit in regards to how tests should be performed but the actual results they have produced have not been confirmed by other independent sources and are now too old for reproduction.
