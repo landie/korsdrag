@@ -84,13 +84,15 @@ This will hopefully lead to it being easier to further develop these software pr
 
 \section{Research question and research design}
 %Chapter 3 – Research questions and research design
-The research questions are as follows:
+The research questions are as follows: 
 \begin{itemize}
-	\item RQ1: How does current open source ESBs stack up against each other? CPU/RAM/DISK comparison.
-	\item RQ2: How accurate and up to date is our current knowledge, what has been done and how?
+	\item RQ1: How accurate and up to date is our current knowledge in the academic world, what tests has been done and how/what did they measure?
+	\item RQ2: How accurate and up to date is our current knowledge in the industry, what tests has been done and how/what did they measure?
+	\item RQ3: What are core functionalities of an enterprise service bus?
+	\item RQ4: Is it possible to produce a testing framework that provides a foundation for future testing in a transparent and unbiased way?
 \end{itemize}
 %Present clearly how the research questions will be answered. Some of the questions will be answered through the literature review, some through the experiment/interview/survey and some through both.
-RQ1 will be answered through experiments and measurements while RQ2 will mainly be answered through the literature review. However the results from RQ1 will take part in answering RQ2.
+RQ4 will be answered through experiments and measurements while RQ1-3 will be answered through the literature review. 
 
 %Present the design of your literature survey:
 %How did you conduct the literature search? 
@@ -121,11 +123,8 @@ During the literature survey abstracts were read and if the abstract suited our 
 
 
 %Here you should describe in detail how the experiment will be conducted, which valuables will be measured, How the experiment environment will be set up and controlled. 
-RQ1 will be performed in a controlled computer environment where the involved ESBs will be tested with the same tasks/tests coded for each ESB.
-RQ2 will provide the answers regarding what test and procedures that we should follow in order to adequately answer RQ1.
 
-
-Limitations that could arise is poor knowledge of how to write qual code for the different ESBs in the sense that one test is not ``badly'' coded for one ESB and the same test i coded with some automatic optimization giving that ESB an unfair advantage. The intentions is to take care of this by using as much standard ways of coding for each respective ESB.
+\input{test_framework.tex}
 
 \label{sec:method}
 \section{Literature review results}
@@ -171,13 +170,25 @@ And finally we have read the Forrester report \cite{forrester11} from 2011 which
 
 The industry seem to have a good understanding of how to test their products however they do not seem to update their results and as such they hold little value.
 
+\subsubsection{Core ESB functionality}
+There are a few different views on what the core functionality of ESBs are however they all seem to contain three similar functions. Those functions are proxying, routing and mediation. 
+
+\begin{description}
+	\item[Proxying] \hfill \\
+			The ability to 
+	\item[Routing] \hfill \\
+			The ability to based on incoming requests route the request to the correct recipient.
+	\item[Mediation] \hfill \\
+			The ability to transform incoming requests from one message protocoll(SOAP, REST, JSON) into another protocoll that the recipiant requires.
+\end{description}
+
 \subsubsection{Literature review conclusion}
 
 It is apparent that the academic world is seriously lacking any kind of performance tests regarding the ESB field of software engineering. We found one paper\cite{Sanjay2011} that produced a test suite with a good enough scope and focus. It is however becoming out dated due too the fast pace of the industry and there are no collaborating papers supporting the results produced and as such it by itself hold little value. The industry has made a good effort in providing sensible tests that focuses on the basic performance but those results are old and outdated. 
 It is therefore our conclusion in regards to R3 that the current body of knowledge is very inaccurate and outdated. We believe that \cite{Sanjay2011} and \cite{Perera07,Perera07R2,Perera07R3,mulesoft08}still holds some merit in regards to how tests should be performed but the actual results they have produced have not been confirmed by other independent sources and are now too old for reproduction.
 
 \section{Performance test}
-TODO: needs further indepth analysis \\
+%TODO: needs further indepth analysis 
 It is important to define what tests are done in our references as well as define what we would like to define as a sensible testing routine.
 \subsection{What is a performance test?}
 

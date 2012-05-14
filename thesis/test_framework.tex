@@ -1,69 +1,9 @@
-% !TEX TS-program = pdflatex
-% !TEX encoding = UTF-8 Unicode
-
-% This is a simple template for a LaTeX document using the "article" class.
-% See "book", "report", "letter" for other types of document.
-
-\documentclass[11pt]{article} % use larger type; default would be 10pt
-
-\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
-
-%%% Examples of Article customizations
-% These packages are optional, depending whether you want the features they provide.
-% See the LaTeX Companion or other references for full information.
-
-%%% PAGE DIMENSIONS
-\usepackage{geometry} % to change the page dimensions
-\geometry{a4paper} % or letterpaper (US) or a5paper or....
-% \geometry{margin=2in} % for example, change the margins to 2 inches all round
-% \geometry{landscape} % set up the page for landscape
-%   read geometry.pdf for detailed page layout information
-
-\usepackage{graphicx} % support the \includegraphics command and options
-
-% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
-
-%%% PACKAGES
-\usepackage{booktabs} % for much better looking tables
-\usepackage{array} % for better arrays (eg matrices) in maths
-\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
-\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
-\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
-% These packages are all incorporated in the memoir class to one degree or another...
-
-%%% HEADERS & FOOTERS
-\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
-\pagestyle{fancy} % options: empty , plain , fancy
-\renewcommand{\headrulewidth}{0pt} % customise the layout...
-\lhead{}\chead{}\rhead{}
-\lfoot{}\cfoot{\thepage}\rfoot{}
-
-%%% SECTION TITLE APPEARANCE
-\usepackage{sectsty}
-\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
-% (This matches ConTeXt defaults)
-
-%%% ToC (table of contents) APPEARANCE
-\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
-\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
-\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
-\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
-
-%%% END Article customizations
-
-%%% The "real" document content comes below...
-
-\begin{document}
-\section{System setup}
- In order to minimize the amount of factors that interfere in the tests we consider having at least three similar state of the art computers connected to a high-speed network essential.
-It might not be of the greatest importance that the computers are state of the art but in order to not reach a hardware ceiling while testing, such machines are recommended. Whats most important is that one computer is designated to run ESBs, one is designated to generate traffic(called Client) while the others are simple servers responding to the traffic generated (called Web service). 
-
-This separating and designating of roles to machines minimizes different hardware affecting test results as the same machines perform the same roles in all tests and the only thing changed is the ESB. 
-
-It also means that if other machines are used in other tests the data produced can be compared to ours and as such validate the data or identify faults in the tests. This validation can be in two ways. First is to run the same software versions and compare the results. They should be similar deviating only in magnitude. The second way is if using a newer or old software version the values when put in a graph will either have the same shape or show areas in which performance has changed, if it is the same shape but the magnitude is higher then that is most likely caused by faster machines being used and vice versa if its the same magnitude except in certain areas then that shows an improvement in the software.
+\section{Testing framework}
+This testing framework aims to answer RQ4. The goal is to produce a transparent and sound way of testing core functionality \cite{lit review} performance of any ESB. 
+We have gathered much inspiration from \cite{Sanyanj} regarding what measurements and tests we should perform however we have focused our efforts on providing source code and transparency in order for the tests to be repeatable as well as having the ability to discuss how to improve testing.
 
 \subsection{Measurements}
-Whats interesting to see here is the response time and throughput on the client. Those are the most interesting numbers too know in a real world application as those are extremely noticable to an end user/system. Monitoring the CPU and RAM usage on the ESB and Web service machines is somewhat important so that the tests are ruined by some hardware limitation. We will also use the CPU metrics from the ESB machine inorder to calculate relative performance on each ESB.
+This section will describe what metrics will be collected and why.
 
 \begin{tabular}{| c | l |}
 	\hline
@@ -73,15 +13,18 @@ Whats interesting to see here is the response time and throughput on the client.
 	ESB & CPU and RAM \\ \hline
 	Web service &  CPU \\ \hline
 \end{tabular}
+\subsubsection{Response time}
+The amount of time elapsed since a request was sent to the time a reply was received.
+\subsubsection{Throughput}
+Amount of successful transactions performed per second. A transaction is counted as successful if the response matches the expected values.
 
-\section{Test walktrough}
+
+Response time and throughput are the most interesting numbers to look at as they are very important for end users and systems. CPU and RAM information will be collected inorder to be able to perform relative performance comparisons aswell as making sure no hardware limitations occur during testing. The CPU on the web service is only collected to make sure that it doesn't act as a bottleneck while testing. 
+
+\section{Test walk trough}
 The tests described below are aimed at measuring the very basic roles of any ESB. They are very simple with the specific goal of producing a baseline for future tests.
 
-All tests will be performed ten times and the collected data will then be statistically analyzed.
-\\
------------------------- \\
-TODO \\
-Måste titta på hur vi ska analysera resultaten, typ som "Student’s Paired T-Test"
+%TODO Måste titta på hur vi ska analysera resultaten, typ som "Student’s Paired T-Test"
 
 \subsection{Pure throughput}
 The ESB will in this test not manipulate any data but instead will forward all requests as fast as possible. 
@@ -89,11 +32,49 @@ A comparative test can be performed here as well and that is to not use the ESB 
 
 
 \subsection{Routing}
-In this test the ESB wil,l depending on the context of an incoming request from the Client, send the request to an appropriate web service which will append some data and return the request to the ESB which will send it to the Client.
+In this test the ESB will, depending on the context of an incoming request from the Client, send the request to an appropriate web service which will append some data and return the request to the ESB which will send it to the Client.
 
 This represents the ability to have several system behind an ESB all showing the same front to the outside.
 
 \subsection{Message transformation}
-The ESB will convert an incoming request to a different format and send it to a web service which will append some data and return the request to the ESB which will transform it back into the format the Client originally sent it. This second transform is meant to mimic how a real world application works, you do not send and receive using different protocols unless you're really forced too. 
+The ESB will convert an incoming request to a different format and send it to a web service which will append some data and return the request to the ESB which will transform it back into the format the Client originally sent it.
 
-\end{document}
+\subsection{Artifacts and tools}
+\begin{itemize}
+	\item Client: Grinder \cite{grinder kod}
+	\item ESB: Mule \cite{Mule kod}
+	\item Web service: Jax-WS \cite{Jax-ws kod}
+	\item OS: Windows 7, 6.1.7600 build 7600
+\end{itemize}
+
+\subsection{Hardware setup}
+ In order to minimize the amount of factors that interfere in the tests we consider having at least three similar state of the art computers, connected to a high-speed network, essential.
+It might not be of the greatest importance that the computers are state of the art but in order to not reach a hardware ceiling while testing, such machines are recommended. Whats most important is that one computer is designated to run ESBs, one is designated to generate traffic(called Client) while the others are simple servers responding to the traffic generated (called Web service). 
+
+
+%--- LÄGG IN BILD PÅ SYSTEM LAYOUTEN---
+
+This separating and designating of roles to machines minimizes different hardware affecting test results as the same machines perform the same roles in all tests and the only thing changed is the ESB. 
+
+It also means that if other machines are used in other tests the data produced can be compared to ours and as such validate the data or identify faults in the tests. This validation can be done in two ways. First is to run the same software versions and compare the results. They should be similar deviating only in magnitude. The second is if using a newer or old software version the values when put in a graph will either have the same shape or show areas in which performance has changed, if it is the same shape but the magnitude is higher then that is most likely caused by faster machines being used and vice versa if its the same magnitude except in certain areas then that shows an improvement in the software.
+
+\subsection{Variables and variable control}
+We foresee no limiting or problematic variables except hardware and network limitations.
+Hardware and network loads should be monitored so they are not close too 100\% as that would mean there is a major bottleneck present. 
+We are using the same operating system on all machines. 
+\subsection{Experiment schedule and execution sequence}
+The three tests have two different focuses. First is to test scalability with an increasing amount of simulated clients (1, 20, 40, 80, 160) sending concurrent requests. 
+The other is to test load-handling where a single client will send varying sizes of payload, 1KB, 50KB, 100KB, 500KB and 1MB.
+\subsection{Validity threats}
+This section discusses different validity threats.
+\subsubsection{Different operating systems}
+%Different operating system will effect testresults 
+%TODO säkerställ att unix inte påverkar resultaten nämnvärt
+kan påvera men vi kommer att köra testerna på lite olika system så vi har ett hum om vilka förändringar det innebär i datan.
+\subsubsection{Different hardware}
+%TODO kör testerna en gång på /// så vi inte påverkas för mycket av hårdvara
+se "different operating systems"
+\subsubsection{Inefficient code}
+We are not expert in the various programming languages and systems used to perform these tests and as such our code might be inefficient and even wrong. Inefficient code is not a problem as long as the same code is used in all tests. Erroneous code however is unmaintainable code and as such will require too be changed in the future and that will most likely affect the test results and test history. 
+We have limited the possibilities of erroneous code by focusing the tests on very simple and basic functionality that doesn't require expert knowledge of the ESB in order to get results.
+By actually providing the source code we have opened up the possibility of improvements and additions of more advanced tests which we feel is extremely important for a consistent testing framework used in academia and industry.
