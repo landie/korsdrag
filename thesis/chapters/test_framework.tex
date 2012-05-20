@@ -5,28 +5,30 @@ We have gathered much inspiration from Sanjay \cite{Sanjay} regarding what measu
 \subsection{Measurements}
 This section will describe what metrics will be collected and why.\\
 
-\begin{tabular}{c l}
-	\multicolumn{2}{c}{Metrics captured} \\
-	\hline
-	Client & Response time and throughput \\
-	ESB & CPU \\ 
-	Web service &  CPU \\
-	\hline
-\end{tabular} \\
+\begin{table}
+	\caption{Metric captured}
+	\begin{tabular}{c l}
+		\multicolumn{2}{c}{Metrics captured} \\
+		\hline
+		Client & Response time and throughput \\
+		ESB & CPU \\ 
+		Web service &  CPU \\
+		\hline
+	\end{tabular} \\
 
-Computer specifications \\
-
-\begin{tabular}{c l}
-	Component & Specification \\ 
-	\hline
-	CPU & Intel Core i7 920 @ 2.67GHz  \\
-	RAM &  6,00 GB Triple-Channel DDR3 @ 533MHz (7-7-7-20) \\
-	Network &  Intel(R) 82567LM-2 Gigabit Network Connection \\
-	Motherboard &  Intel Corporation DX58SO (J1PR) \\
-	Graphics &  256MB GeForce 7600 GS (MSI) \\
-	Hard Drive &  488GB Western Digital WDC WD5001AALS-00L3B2 ATA Device (SATA) \\
-	\hline
-\end{tabular} 
+	
+	\begin{tabular}{c l}
+		Component & Specification \\ 
+		\hline
+		CPU & Intel Core i7 920 @ 2.67GHz  \\
+		RAM &  6,00 GB Triple-Channel DDR3 @ 533MHz (7-7-7-20) \\
+		Network &  Intel(R) 82567LM-2 Gigabit Network Connection \\
+		Motherboard &  Intel Corporation DX58SO (J1PR) \\
+		Graphics &  256MB GeForce 7600 GS (MSI) \\
+		Hard Drive &  488GB Western Digital WDC WD5001AALS-00L3B2 ATA Device (SATA) \\
+		\hline
+	\end{tabular} 
+\end{table}
 \subsubsection{Response time}
 The amount of time elapsed since a request was sent to the time a response was received. 
 The response time is measured because this is what a single user will be affected by the most, if the response time is very low the user will perceive the system as very fast and vice versa if the response time is too high.
@@ -65,19 +67,32 @@ This could make an ESB invaluable since the ESB would take care of receiving the
 
 \centerline{\includegraphics[scale=0.43]{img/transformation}}
 \subsection{Artifacts and tools}
-\begin{itemize}
-	\item Client: Grinder \cite{whatisgrinder, kod}
-	\item ESB: Mule \cite{whatismule, kod}
-	\item Web service: Jax-WS \cite{whatisjaxws, kod}
-	\item OS: Windows 7, 6.1.7600 build 7600
-\end{itemize}
+\begin{table}
+	\caption{Software and tools}
+	\begin{itemize}
+		\item Client: Grinder \cite{whatisgrinder, kod}
+		\item ESB: Mule \cite{whatismule, kod}
+		\item Web service: Jax-WS \cite{whatisjaxws, kod}
+		\item OS: Windows 7, 6.1.7600 build 7600
+	\end{itemize}
 
-\subsection{Hardware setup}
+
+	\caption{Hardware configuration}
+	\begin{tabular}{c l}
+		Component & Specification \\ 
+		\hline
+		CPU & Intel Core i7 920 @ 2.67GHz  \\
+		RAM &  6,00 GB Triple-Channel DDR3 @ 533MHz (7-7-7-20) \\
+		Network &  Intel(R) 82567LM-2 Gigabit Network Connection \\
+		Motherboard &  Intel Corporation DX58SO (J1PR) \\
+		Graphics &  256MB GeForce 7600 GS (MSI) \\
+		Hard Drive &  488GB Western Digital WDC WD5001AALS-00L3B2 ATA Device (SATA) \\
+		\hline
+	\end{tabular} 
+\end{table}
 In order to minimize the amount of factors that interfere in the tests we consider having at least three similar state of the art computers, connected to a high-speed network, essential.
 It might not be of the greatest importance that the computers are state of the art but in order to not reach a hardware ceiling while testing, such machines are recommended. 
 What's most important is that one computer is designated to run ESBs, one is designated to generate traffic(called Client) while the others are simple servers responding to the traffic generated (called Web service). 
-
-% TODO: fixa en lista över hårdvaran (CPU,RAM,HDD osv osv)
 
 This separating and designating of roles to machines minimizes different hardware affecting test results as the same machines perform the same roles in all tests and the only thing changed is the ESB. 
 
