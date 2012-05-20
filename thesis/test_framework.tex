@@ -24,21 +24,22 @@ Response time and throughput are the most interesting numbers to look at as they
 \section{Test walk trough}
 The tests described below are aimed at measuring the very basic roles of any ESB. They are very simple with the specific goal of producing a baseline for future tests.
 
-%TODO Måste titta på hur vi ska analysera resultaten, typ som "Student’s Paired T-Test"
-
 \subsection{Pure throughput}
 The ESB will in this test not manipulate any data but instead will forward all requests as fast as possible. 
 A comparative test can be performed here as well and that is to not use the ESB which will show what performance impact the ESB adds. 
 
+\includegraphics[scale=0.5]{img/direct_proxy}
 
 \subsection{Routing}
 In this test the ESB will, depending on the context of an incoming request from the Client, send the request to an appropriate web service which will append some data and return the request to the ESB which will send it to the Client.
 
 This represents the ability to have several system behind an ESB all showing the same front to the outside.
 
+\includegraphics[scale=0.5]{img/Routing}
 \subsection{Message transformation}
 The ESB will convert an incoming request to a different format and send it to a web service which will append some data and return the request to the ESB which will transform it back into the format the Client originally sent it.
 
+\includegraphics[scale=0.5]{img/transformation}
 \subsection{Artifacts and tools}
 \begin{itemize}
 	\item Client: Grinder \cite{grinder kod}
@@ -50,9 +51,6 @@ The ESB will convert an incoming request to a different format and send it to a 
 \subsection{Hardware setup}
  In order to minimize the amount of factors that interfere in the tests we consider having at least three similar state of the art computers, connected to a high-speed network, essential.
 It might not be of the greatest importance that the computers are state of the art but in order to not reach a hardware ceiling while testing, such machines are recommended. Whats most important is that one computer is designated to run ESBs, one is designated to generate traffic(called Client) while the others are simple servers responding to the traffic generated (called Web service). 
-
-
-%--- LÄGG IN BILD PÅ SYSTEM LAYOUTEN---
 
 This separating and designating of roles to machines minimizes different hardware affecting test results as the same machines perform the same roles in all tests and the only thing changed is the ESB. 
 
