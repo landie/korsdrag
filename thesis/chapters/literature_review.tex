@@ -5,39 +5,8 @@ The literature review has focused on what the academic world knows and what the 
 
 % - Present the papers that you have identified as your information source. Describe them, what type of papers they are, from what period; what do they have in common etc.
 \subsection{Academia}
+This section will summaries our findings in academia. Beginning with a short presentation of papers found followed by a summary and analysis of the tests found within the papers.
 
-\begin{tabular}{| c | c | c | c | c | c |}
-	\hline
-	Ref to paper & Year & Performance & Evaluation & ESBs \\ 
-	\hline	
-	\cite{Nasr2010} & 2010 & - & - & - \\ 
-	\hline
-	\cite{Alghamdi2010} & 2010 & - & X & Mule, Glassfish, Fuse\\
-	\hline
-	\cite{Sanjay2011} & 2011 & X & X & mule, servicemix, wso2 \\ 
-	\hline
-	\cite{Garcia2010} & 2010 & X & X & Mule, Fuse, Petals \\
-	\hline
-	\cite{HeIntegration} & 2011 & - & - & -\\
-	\hline
-	\cite{Jieming2010} & 2010 & - & - & - \\
-	\hline
-	\cite{Brebner2009} & 2009 & - & - & Mule \\
-	\hline
-\end{tabular}
-This table shows a very clear lack of performance focused research in academia.
-
-
-\begin{tabular}{| c | c | c | c |}
-	\hline
-	Test scenarios & Scenario 1 & Scenario 2 & Scenario 3 \\
-	\hline	
-	\cite{Sanjay2011} & Direct proxy & Routing & Mediation \\ 
-	\hline	
-	\cite{Garcia2010} & Direct proxy with security header & JMS bus & - \\ 
-	\hline	
-\end{tabular}
-This table is a collection of the tests performed in the papers we have found. 
 
 "Enterprise Service Bus"\cite{falko07} by Falko Menge is a paper that explains the fundamentals of an ESB as well as introduces Mule with an example. Published in 2007 its example has become obsolete and outdated however the fundamentals still hold true as seen by later papers such as "Research of Enterprise Application Integration Based-on ESB" \cite{Jieming2010} by Jieming Wu and Xiaoli Tao as well as "Integration of Distributed Enterprise Applications: A Survey" \cite{HeIntegration} by Wu He and Li Da Xu these are papers that focus on describing the history and evolution of software integration. They were published in 2010 and give an in depth view on how an ESB  operates.
 
@@ -59,55 +28,54 @@ Finally we focused on papers that performs any kind of tests in order to establi
 % - Present and describe the findings from your literature survey and their relation to your research questions
 % - Discuss your findings and conclude literature survey results.
 
+\subsubsection{Academia summary}
+This section is a summary of tests and scenarios found in our academic sources.
+
+\begin{table}
+	\caption{Summary of academic papers and what test they perform}
+	\begin{tabular}{| c | c | c | c | c | c |}
+		\hline
+		Ref to paper & Year & Performance & Evaluation & ESBs \\ 
+		\hline	
+		\cite{Nasr2010} & 2010 & - & - & - \\ 
+		\hline
+		\cite{Alghamdi2010} & 2010 & - & X & Mule, Glassfish, Fuse\\
+		\hline
+		\cite{Sanjay2011} & 2011 & X & X & mule, servicemix, wso2 \\ 
+		\hline
+		\cite{Garcia2010} & 2010 & X & X & Mule, Fuse, Petals \\
+		\hline
+		\cite{HeIntegration} & 2011 & - & - & -\\
+		\hline
+		\cite{Jieming2010} & 2010 & - & - & - \\
+		\hline
+		\cite{Brebner2009} & 2009 & - & - & Mule \\
+		\hline
+	\end{tabular}
+	\\
+	This table is a collection of the sources we have found and the essential information they contain.
+
+	\caption{Summary of the scenarios in the academic performance tests}
+	\begin{tabular}{| c | c | c | c |}
+		\hline
+		Test scenarios & Scenario 1 & Scenario 2 & Scenario 3 \\
+		\hline	
+		\cite{Sanjay2011} & Direct proxy & Routing & Mediation \\ 
+		\hline	
+		\cite{Garcia2010} & Direct proxy with security header & JMS bus & - \\ 
+		\hline	
+	\end{tabular}
+	\\
+	This table is a collection of the scenarios performed in the sources we have found.
+\end{table}
+
+
 The fact that we have only found two papers performing tests is a very clear indication that the academic world does not perform performance test/analysis on ESBs. The ones we have found are all considered old in a rapidly changing world and all but one performs a test that we find adequate.
 
 
 \subsection{Industry}
 First of all we found an article\cite{mehta11} which listed what the author thought were the best ESBs available in 2011. This is important as it provides us with a list of ESBs that we can pick and choose from when selecting candidates for our performance test and it provides us with focus points on where to start searching for performance tests performed by ESBs themselves. This is also the most recent article of its kind aswell as the largest that we found.
 
-\begin{tabular}{| c | c | c | c | c |}
-	\hline
-	Ref to paper & Year & Performance & Evaluation & ESBs \\ 
-	\hline	
-	\cite{falko07} & 2007 & - & - & - \\ 
-	\hline	
-	\cite{fenner03} & 2003 & - & - & - \\
-	\hline	
-	\cite{mulesoft08} & 2008 & X & - & Mule, WSO2\\
-	\hline	
-	\cite{Perera07} & 2007 & X & - & WSO2 \\
-	\hline	
-	\cite{Perera07R2} & 2007 & X & - & WSO2, Mule, Servicemix\\
-	\hline	
-	\cite{Perera07R3} & 2007 & x & - & WSO2, Proprietary, Mule, WSO2, Servicemix \\
-	\hline	
-	\cite{mulevsjboss} & 2010 & - & X & Mule, Jboss ESB\\
-	\hline	
-	\cite{mulevsglassfish} & 2010 & - & X & Mule, Glassfish \\
-	\hline	
-	\cite{mulevsservicemix} & 2010 & - & X & Mule, Servicemix \\
-	\hline
-	\cite{forrester11} & 2011 & - & X & Proprietary, Fuse, WSO2, Mule and more\\
-	\hline
-\end{tabular}
-This table is a collection of the sources we have found and the essential information they contain. The latter sources from Mule are primarily commercial pamphlets that contain unbiased comparisons however we feel it is important to show the current knowledge.
-
-
-
-\begin{tabular}{| c | c | c | c |}
-	\hline
-	Test scenarios & Scenario 1 & Scenario 2 & Scenario 3 \\
-	\hline
-	\cite{mulesoft08} & Direct proxy & Routing & Mediation \\
-	\hline
-	\cite{Perera07} & Direct proxy & Routing & Mediation \\
-	\hline
-	\cite{Perera07R2} & Direct proxy & Routing & Mediation \\
-	\hline
-	\cite{Perera07R3} & Direct proxy & Routing & Mediation \\
-	\hline
-\end{tabular}
-This table is a collection of the tests performed in the sources we have found. 
 
 In 2007 WSO02 started with a series of three performance tests against other leading ESBs \cite{Perera07,Perera07R2,Perera07R3}. In the third they compare against Mule ESB which in turn responds with a performance test of their own \cite{mulesoft08}. The tests performed in these tests are sensible and aim to present an understanding of how the different ESBs perform while doing basic tasks. A problem however is that the results are from 2008 and later which mean that they are extremely out of date and maybe even more important is that they are biased.
 
@@ -116,21 +84,66 @@ Mule has published a few articles that are not performance test but instead some
 
 And finally we have read the Forrester report \cite{forrester11} from 2011 which is a industry initiated report that further visualizes the need for ESBs in modern software development, It is not performance oriented and includes non open-source ESBs.
 
+\subsubsection{Industry summary}
+This section is a summary of tests and scenarios found in our industrial sources.
+
+\begin{table}
+	\caption{Summary of industrial papers and what tests they perform}
+	\begin{tabular}{| c | c | c | c | c |}
+		\hline
+		Ref to paper & Year & Performance & Evaluation & ESBs \\ 
+		\hline	
+		\cite{falko07} & 2007 & - & - & - \\ 
+		\hline	
+		\cite{fenner03} & 2003 & - & - & - \\
+		\hline	
+		\cite{mulesoft08} & 2008 & X & - & Mule, WSO2\\
+		\hline	
+		\cite{Perera07} & 2007 & X & - & WSO2 \\
+		\hline	
+		\cite{Perera07R2} & 2007 & X & - & WSO2, Mule, Servicemix\\
+		\hline	
+		\cite{Perera07R3} & 2007 & x & - & WSO2, Proprietary, Mule, WSO2, Servicemix \\
+		\hline	
+		\cite{mulevsjboss} & 2010 & - & X & Mule, Jboss ESB\\
+		\hline	
+		\cite{mulevsglassfish} & 2010 & - & X & Mule, Glassfish \\
+		\hline	
+		\cite{mulevsservicemix} & 2010 & - & X & Mule, Servicemix \\
+		\hline
+		\cite{forrester11} & 2011 & - & X & Proprietary, Fuse, WSO2, Mule and more\\
+		\hline
+	\end{tabular}
+	\\
+	This table is a collection of the sources we have found and the essential information they contain.
+
+	\caption{Summary of the scenarios in the industrial performance tests}
+	\begin{tabular}{| c | c | c | c |}
+		\hline
+		Test scenarios & Scenario 1 & Scenario 2 & Scenario 3 \\
+		\hline
+		\cite{mulesoft08} & Direct proxy & Routing & Mediation \\
+		\hline
+		\cite{Perera07} & Direct proxy & Routing & Mediation \\
+		\hline
+		\cite{Perera07R2} & Direct proxy & Routing & Mediation \\
+		\hline
+		\cite{Perera07R3} & Direct proxy & Routing & Mediation \\
+		\hline
+	\end{tabular}
+	\\
+	This table is a collection of the scenarios performed in the sources we have found. 
+\end{table}
+
 The industry seem to have a good understanding of how to test their products however they do not seem to update their results and as such they hold little value.
+There also seems to be quite alot of rivalry in the different tests. It seems WSO2 started by doing a series of performance tests where Mule did not perform as well as Mule themselves think they should and such they did they're own test where the results pointed in their favour.
+This shows a need for a third independent party too perform the testing as it will otherwise turn in to a slugfest where no results can be trusted. 
 
-\subsubsection{Core ESB functionality}
-There are a few different views on what the core functionality of ESBs are however they all seem to contain three similar functions. Those functions are proxying, routing and mediation. 
 
-\begin{description}
-	\item[Proxying] \hfill \\
-			The ability to 
-	\item[Routing] \hfill \\
-			The ability to based on incoming requests route the request to the correct recipient.
-	\item[Mediation] \hfill \\
-			The ability to transform incoming requests from one message protocoll(SOAP, REST, JSON) into another protocoll that the recipiant requires.
-\end{description}
+\subsection{Literature review conclusion}
 
-\subsubsection{Literature review conclusion}
-
-It is apparent that the academic world is seriously lacking any kind of performance tests regarding the ESB field of software engineering. We found one paper\cite{Sanjay2011} that produced a test suite with a good enough scope and focus. It is however becoming out dated due too the fast pace of the industry and there are no collaborating papers supporting the results produced and as such it by itself hold little value. The industry has made a good effort in providing sensible tests that focuses on the basic performance but those results are old and outdated. 
+It is apparent that the academic world is seriously lacking any kind of performance tests regarding the ESB field of software engineering. 
+We found one paper\cite{Sanjay2011} that produced a test suite with a good enough scope and focus. 
+It is however becoming out dated due too the fast pace of the industry and there are no collaborating papers supporting the results produced and as such it by itself hold little value. We have also during our own testing found their results very odd and since they have not presented the environment in which they performed the tests it's impossible to figure out why their numbers are strange. Further detail will be given regarding this in our analysis of our own data \cite{vår test resultat analys}.
+ The industry has made a good effort in providing sensible tests that focuses on the basic performance but those results are old, outdated and most importantly biased. 
 It is therefore our conclusion in regards to R3 that the current body of knowledge is very inaccurate and outdated. We believe that \cite{Sanjay2011} and \cite{Perera07,Perera07R2,Perera07R3,mulesoft08}still holds some merit in regards to how tests should be performed but the actual results they have produced have not been confirmed by other independent sources and are now too old for reproduction.
