@@ -1,6 +1,6 @@
 \section{Testing framework}
 This testing framework aims to answer RQ4. The goal is to produce a transparent and sound way of testing core functionality \cite{lit review} performance of any ESB. 
-We have gathered much inspiration from \cite{Sanyanj} regarding what measurements and tests we should perform however we have focused our efforts on providing source code and transparency in order for the tests to be repeatable as well as having the ability to discuss how to improve testing.
+We have gathered much inspiration from Sanjay \cite{Sanjay} regarding what measurements and tests we should perform however we have focused our efforts on providing source code and transparency in order for the tests to be repeatable as well as having the ability to discuss how to improve testing.
 
 \subsection{Measurements}
 This section will describe what metrics will be collected and why.
@@ -19,9 +19,9 @@ The amount of time elapsed since a request was sent to the time a reply was rece
 Amount of successful transactions performed per second. A transaction is counted as successful if the response matches the expected values.
 
 
-Response time and throughput are the most interesting numbers to look at as they are very important for end users and systems. CPU and RAM information will be collected inorder to be able to perform relative performance comparisons aswell as making sure no hardware limitations occur during testing. The CPU on the web service is only collected to make sure that it doesn't act as a bottleneck while testing. 
+Response time and throughput are the most interesting numbers to investigate as they are very important for end users and systems. CPU and RAM data will be collected in order to be able to perform relative performance comparisons as well as making sure no hardware limitations occur during testing. The CPU on the web service is only collected to make sure that it doesn't act as a bottleneck while testing. 
 
-\section{Test walk trough}
+\section{Test walktrough}
 The tests described below are aimed at measuring the very basic roles of any ESB. They are very simple with the specific goal of producing a baseline for future tests.
 
 %TODO Måste titta på hur vi ska analysera resultaten, typ som "Student’s Paired T-Test"
@@ -41,9 +41,9 @@ The ESB will convert an incoming request to a different format and send it to a 
 
 \subsection{Artifacts and tools}
 \begin{itemize}
-	\item Client: Grinder \cite{grinder kod}
-	\item ESB: Mule \cite{Mule kod}
-	\item Web service: Jax-WS \cite{Jax-ws kod}
+	\item Client: Grinder \cite{whatisgrinder, kod}
+	\item ESB: Mule \cite{whatismule, kod}
+	\item Web service: Jax-WS \cite{whatisjaxws, kod}
 	\item OS: Windows 7, 6.1.7600 build 7600
 \end{itemize}
 
@@ -68,7 +68,7 @@ The other is to test load-handling where a single client will send varying sizes
 \subsection{Validity threats}
 This section discusses different validity threats.
 \subsubsection{Different operating systems}
-%Different operating system will effect testresults 
+%Different operating system will effect test results 
 %TODO säkerställ att unix inte påverkar resultaten nämnvärt
 kan påvera men vi kommer att köra testerna på lite olika system så vi har ett hum om vilka förändringar det innebär i datan.
 \subsubsection{Different hardware}
