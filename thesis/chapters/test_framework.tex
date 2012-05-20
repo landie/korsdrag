@@ -27,31 +27,40 @@ Computer specifications \\
 	Hard Drive &  488GB Western Digital WDC WD5001AALS-00L3B2 ATA Device (SATA) \\ \hline
 \end{tabular} 
 \subsubsection{Response time}
-The amount of time elapsed since a request was sent to the time a response was received.
+The amount of time elapsed since a request was sent to the time a response was received. 
+The response time is measured because this is what a single user will be affected by the most, if the response time is very low the user will perceive the system as very fast and vice versa if the response time is too high.
 \subsubsection{Throughput}
 Amount of successful transactions performed per second (tps). A transaction is counted as successful if the response matches the expected values.
+The value of throughput lays in how many users the system can serve in a single point of time. If the throughput is high the system will be able to handle many simultaneous users making the system efficient at handling a high load.
 
 
-Response time and throughput are the most interesting numbers to investigate as they are very important for end users and systems. 
-CPU and RAM data will be measured in order to be able to make sure no hardware limitations occur during testing. The CPU on the web service is only collected to make sure that it doesn't act as a bottleneck while testing. 
+
+Response time and throughput are the most interesting numbers to investigate as they are very important for end users and systems. The more users a system can handle and the faster it does so the higher value the system will get in terms of scalability and performance per processing unit which in turn equals a lower operating cost where the system is able to handle a high amount of users whilst keeping the costs down.
+CPU and RAM data will be measured in order to be able to make sure no hardware limitations occur during testing. The CPU on the web service is only collected to make sure that it doesn't act as a bottleneck while testing. Although this might not be the case in real world scenarios the aim is not to cap any hardware limitations because that would not give fair test results since the hardware would limit the performance of the system being tested and since the framework is supposed to give the involved system(s) free roam hardware limitations would be in straight contrast to what the framework is about.
 
 \section{Test walktrough}
-The tests described below are aimed at measuring the very basic roles of any ESB. They are very simple with the specific goal of producing a baseline for future tests.
+The tests described below are aimed at measuring the very basic roles of any ESB. 
+The tests are very simple with the specific goal of producing a baseline for future tests. 
+These basic tests have been chosen since anyone with the development knowledge of an ESB should be able to produce an ESB project capable of delivering a runnable project which exposes these basic funtionalities.
 
 \subsection{Pure throughput}
-No manipulation of the data will be done by the ESB in this test. The ESB will purely forward all request to the target web service as fast as possible.
+No manipulation of the data will be done by the ESB in this test. The ESB will purely forward all request to the target web service as fast as possible. 
+This test could simulate a service where the ESB exposes an inbound endpoint for other system to connect to, modularizing which service is running in the background thus giving a separation of concerns where the requesting client does not have to know about the responding web service, just that a web service is made available by the ESb.
 A comparative test can be performed here as well and that is to not use the ESB which will show what performance impact the ESB adds. 
 
 \centerline{\includegraphics[scale=0.43]{img/direct_proxy}}
 
 \subsection{Routing}
 In this test the ESB will, depending on the context of an incoming request from the Client, send the request to an appropriate web service which will append some data and return the request to the ESB which will send the response to the Client.
-
 This represents the ability to have several systems behind an ESB all showing the same front to the outside.
+This test is deemed basic because it is what an should do, separate the systems integration with each other, stepping in as a ``middle-man'' directing requests on behalf of the systems being integrated making the need for changing the systems minimal and just focus on the ESB. 
+A test like this could simulate a load balancer where the ESB is a front for two or more systems each running an instance of the same service. Another thing this could simulate is different systems handling different (but similar) data, for example one system behind the ESB is handling user registrations and another one is handling user logins. The ESB can then look at the request payload and decide what user interaction is happening and thus mediate the request to the appropriate system.
 
 \centerline{\includegraphics[scale=0.43]{img/Routing}}
 \subsection{Message transformation}
 The ESB will convert an incoming request to a different format and send it to a web service which will append some data and return the request to the ESB which will transform it back into the format the Client originally sent it.
+Transformation is a huge deal for any ESB since two systems to be integrated probably will not speak the same language (XML, json etc) and even if they do they may not have the same format. Of course the systems need to be able to communicate with each others, without an ESB this could become cumbersome since all involved systems would have to be changed in order to understand what the others where saying, just imagine an old system written in COBOL or Assembler and making it communicate with a new system like a web service using REST \cite{whatisrest}. Integration like this cost both money and time and probably won't be future friendly with regards to maintenance.
+This could make an ESB invaluable since the ESB would take care of receiving the incoming request in one format, decide where the request is to be sent, transform it to a format which the receiving system can understand, get a response back and transforming it to a format the original system which sent the request will understand.
 
 \centerline{\includegraphics[scale=0.43]{img/transformation}}
 \subsection{Artifacts and tools}
