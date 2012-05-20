@@ -33,22 +33,22 @@ This section is a summary of tests and scenarios found in our academic sources.
 
 \begin{table}
 	\caption{Summary of academic papers and what test they perform}
-	\begin{tabular}{| c | c | c | c | c | c |}
-		\hline
+	\begin{tabular}{c | c | c | c | c}
+
 		Ref to paper & Year & Performance & Evaluation & ESBs \\ 
-		\hline	
+		\hline
 		Nasr \cite{Nasr2010} & 2010 & - & - & - \\ 
-		\hline
+
 		Alghamdi \cite{Alghamdi2010} & 2010 & - & X & Mule, Glassfish, Fuse\\
-		\hline
+
 		Sanjay \cite{Sanjay2011} & 2011 & X & X & mule, servicemix, wso2 \\ 
-		\hline
+
 		Garcia \cite{Garcia2010} & 2010 & X & X & Mule, Fuse, Petals \\
-		\hline
+
 		He \cite{HeIntegration} & 2011 & - & - & -\\
-		\hline
+
 		Jieming \cite{Jieming2010} & 2010 & - & - & - \\
-		\hline
+
 		Brebner \cite{Brebner2009} & 2009 & - & - & Mule \\
 		\hline
 	\end{tabular}
@@ -56,17 +56,30 @@ This section is a summary of tests and scenarios found in our academic sources.
 	This table is a collection of the sources we have found and the essential information they contain.
 
 	\caption{Summary of the scenarios in the academic performance tests}
-	\begin{tabular}{| c | c | c | c |}
-		\hline
+	\begin{tabular}{c | c | c | c}
+
 		Test scenarios & Scenario 1 & Scenario 2 & Scenario 3 \\
-		\hline	
+		\hline
 		Sanjay \cite{Sanjay2011} & Direct proxy & Routing & Mediation \\ 
-		\hline	
+
 		Garcia \cite{Garcia2010} & Direct proxy with security header & JMS bus & - \\ 
-		\hline	
+		\hline
 	\end{tabular}
 	\\
 	This table is a collection of the scenarios performed in the sources we have found.
+	
+	\caption{Summary of metrics captured}
+	\begin{tabular}{ c | c | c | c }
+
+	Metrics &  Client & ESB & Web service \\
+	\hline
+	CPU & - & Sanjay \cite{Sanjay2011} & Sanjay \cite{Sanjay2011}\\
+	RAM & - & - & - \\
+	Throughput & Sanjay \cite{Sanjay2011} & - & - \\
+	Response time & Garcia \cite{Garcia2010} Sanjay \cite{Sanjay2011} & - & - \\
+	Standard deviation & Garcia \cite{Garcia2010} & - & - \\
+	\hline
+	\end{tabular}
 \end{table}
 
 The fact that we have only found two papers performing tests is a very clear indication that the academic world does not perform performance test/analysis on ESBs. The ones we have found are all considered old in a rapidly changing world and all but one performs a test that we find adequate.
@@ -142,6 +155,7 @@ This shows a need for a third independent party to perform the testing as it wil
 
 
 \subsection{Literature review conclusion}
+In this section we will answer RQ 1 and 2 aswell as provide a foundation for answering RQ3.
 
 It is apparent that the academic world is seriously lacking any kind of performance tests regarding the ESB field of software engineering. 
 We found one paper\cite{Sanjay2011} that produced a test suite with a good enough scope and focus. 
