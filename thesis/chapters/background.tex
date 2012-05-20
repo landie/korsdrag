@@ -17,8 +17,44 @@ ESBs are pivotal in software integration and are becoming extremely important in
 As such it is very important to accurately and repeatedly measure the performance of integration solutions available. 
 There are currently several open source options available \cite{mehta11} and the current body of knowledge regarding their different performance aspects is severely lacking. 
 
-% {2-3 paragraphs giving more detailed background. Should answer: What has been done by others in this area? What is our current knowledge?}
+\subsection{Core functionality}
+There are several different views on what the core functionalities of an ESB are. The most comprehensive list we have found was from Jieming \cite{Jieming2010}. 
 
+
+	\begin{description}
+		\item[Location transparency] \hfill \\
+			Seperates the service consumer from the service provider allowing the provider to centralize hardware while still providing regional services.
+		\item[Transport protocoll conversion] \hfill \\
+			Understanding several communication standards allows for several system to be integrated. Especially old legacy systems can be connected to new modern systems.
+		\item[Message transformation] \hfill \\
+			Being able to translate between communication standards also helps with integrating different systems.
+		\item[Message routing] \hfill \\ 
+			Being able to send an incoming message to the right system is vital for integrating systems as they can be seperated by location, age, protocoll, country and many more criterias.
+		\item[Message enhancement] \hfill \\
+			The ability to add information to incoming messages allow the ESB to connect services and send their combined message to other services, ultimately adding longevity to all services.
+		\item[Security] \hfill \\
+			The ability to handle security is vital as the ESBs purpose is to connect several systems and as such is often the first and last defence.
+		\item[Monitoring and management] \hfill \\
+			Efficiency is key and as such being able to monitor and manage an ESB is necessary
+	\end{description}
+
+From this list we can extract a shorter more concise list of core performance functions.
+
+	\begin{description}
+		\item[Direct proxy] \hfill \\
+			The ability to transfer incoming messages to a specific service.
+		\item[Routing] \hfill \\
+			Being able to look at incoming requests and based on their specifik content forward them to different systems.
+		\item[Mediation/Transformation] \hfill \\
+			Translating between different inbound and outbound protocolls.
+	\end{description}
+
+These three functionalities are the very basic fundamental building blocks that all other ESB functionality depends on. 
+An even better explanation of these core functions is that they represent an end to end flow trough the ESB. This means that one could simply replace the ESB with another ESB and the flow should be implementable without any disturbance to any other systems.
+Security features aswell as monitoring features are then layered ontop of this flow and as such they could be considered extras or ESB specific.  
+
+
+% {2-3 paragraphs giving more detailed background. Should answer: What has been done by others in this area? What is our current knowledge?}
 There has been some measurements and benchmarks done by the producers of the ESBs however these measurements have always been in favor of the ESB produced by the company making the measurements. 
 Impartial performance measurement are especially lacking, there are several reports made by the producers of some solutions \cite{Perera07,mulevsjboss,mulevsglassfish,mulevsservicemix,mulesoft08}.
 There has been some research done in the area \cite{Sanjay2011} however the number of ESB's tested are quite limited when compared to the most up to date list of popular ESBs \cite{mehta11}.
