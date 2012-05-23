@@ -104,9 +104,9 @@ By actually providing the source code we have opened up the possibility for impr
 %TODO: fixa bättre start på texten.
 
 We have used the framework to provide a test usage of it by benchmarkign a project created with mule.
-First up is the computers used, the tests below where run on four different computers, all with the same specifications (see table \ref{table:hw-spec}).
+First up is the computers used, the tests below where run on four different computers, all with the same specifications (see table \ref{table:hw-spec}). 
 
-\begin{table}
+\begin{table}[htpb]
 	\caption{Hardware configuration}
 	\label{table:hw-spec}
 	\begin{tabular}{c l}
@@ -122,74 +122,102 @@ First up is the computers used, the tests below where run on four different comp
 	\end{tabular} 
 \end{table}
 
-\begin{figure}
+The results have been obtained by running each test in a period of 5 minutes, that is, 5 minutes for each data point in each of the following graphs.
+This showed to be a sufficient amount of time since the amount of requests made in each test ranged from at least 350 to more than 30 000 which was deemed sufficient for liable test results. 
+
+In the following sections the results have been analyzed for each scenario summing it up with an overall analysis of the performed test scenarios.
+
+\subsubsection{Direct proxy results/analysis}
+
+%TODO kolla upp cxf proxy mule skiten.
+The first test for the proxy with a single client sending an increased amount of data. Mule seems to handle this quite well, peaking at about 64 transfers per second (TPS) which seems to be a limit in mule's cxf proxy endpoint which was used. When a single client is sending a very small payload (1KB) it seems like the network is the worst bottleneck since all scenarios where affected by this, limiting the throughput to about two TPS. Overall mule is handling the direct proxy well and it's handling regular sized payloads with ease only beginning to throttle when the payload size is growing beyond 50KB.
+
+\begin{figure}[htpb]
 	\centerline{\includegraphics{img/proxy_fu_ip_tps}}
 	\caption{TPS for direct proxy.}
 	\label{fig:proxy-1-1}
 \end{figure}
 
-\begin{figure}
+The mean response time for the proxy keeps low throughtout the entire test scenario where the largest peak is at the 1KB payload which has been attributed to an unknown network limitation.
+
+\begin{figure}[htpb]
 	\centerline{\includegraphics{img/proxy_fu_ip_resp}}
 	\caption{Mean response time for direct proxy.}
 	\label{fig:proxy-1-2}
 \end{figure}
 
-\begin{figure}
+Using a fixed payload of 100KB and an increasing number of clients the throughput is peaking at 98 TPS. Mule handles the increasing number of clients well, keeping up with a reasonable response time only to slow down when the client count increases beyond 160 which resulted in an almost exponential increase in mean response time.
+
+\begin{figure}[htpb]
 	\centerline{\includegraphics{img/proxy_fp_iu_tps}}
 	\caption{TPS for direct proxy.}
 	\label{fig:proxy-2-1}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htpb]
 	\centerline{\includegraphics{img/proxy_fp_iu_resp}}
 	\caption{Mean response time for direct proxy.}
 	\label{fig:proxy-2-2}
 \end{figure}
 
-\begin{figure}
+The content-based routing proxy behaved exactly as the direct proxy just differing in the magnitude which was predictable since it is just making a simple choice by looking at the payload to decide on where to send the request, thus no complex computing is performed by mule.
+
+\begin{figure}[htpb]
 	\centerline{\includegraphics{img/mediation_fu_ip_tps}}
 	\caption{TPS for content-based routing.}
 	\label{fig:mediation-1-1}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htpb]
 	\centerline{\includegraphics{img/mediation_fu_ip_resp}}
 	\caption{Mean response time for content-based routing.}
 	\label{fig:mediation-1-2}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htpb]
 	\centerline{\includegraphics{img/mediation_fp_iu_tps}}
 	\caption{TPS for content-based routing.}
 	\label{fig:mediation-2-1}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htpb]
 	\centerline{\includegraphics{img/mediation_fp_iu_resp}}
 	\caption{Mean response time for content-based routing.}
 	\label{fig:mediation-2-2}
 \end{figure}
 
-\begin{figure}
+The first test with a single client sending an increasing amount of data in the transformation scenario almost mirrors the direct proxy except for when the client was sending a 25KB data payload. The 25KB part of this test was rerun three times with the same result.
+A conclusion was reached that this might be a bug in the mule software since the throughtput went up again when the payload was increased to 50KB.
+The only other thing noted was a higher decrease in throughput when the payload reached the larger sizes, this was concluded to be caused by mule having a hard time transforming such large amounts of data from json to xml and back again.
+
+\begin{figure}[htpb]
 	\centerline{\includegraphics{img/transform_fu_ip_tps}}
 	\caption{TPS for content transformation proxy.}
 	\label{fig:transform-1-1}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htpb]
 	\centerline{\includegraphics{img/transform_fu_ip_resp}}
 	\caption{Mean response time for content transformation proxy.}
 	\label{fig:transform-1-2}
 \end{figure}
 
-\begin{figure}
+The second test in the transformation scenario shows that sending mule is quite capable of handling transformation of many requests. Note that the throughput is higher for 160 clients with this scenario than in the direct proxy scenario. 
+
+\begin{figure}[htpb]
 	\centerline{\includegraphics{img/transform_fp_iu_tps}}
 	\caption{TPS for content transformation proxy.}
 	\label{fig:transform-2-1}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htpb]
 	\centerline{\includegraphics{img/transform_fp_iu_resp}}
 	\caption{Mean response time for content transformation proxy.}
 	\label{fig:transform-2-2}
 \end{figure}
+
+\subsubsection{Overall analysis of performed tests}
+\label{sec:test-final-analysis}
+
+%TODO kanske diskutera om hurvida ramverket bör ändras så att 1 usr + 1kb inte längre finns med, om det är värt att testa?
+The low throughput seen in all of the tests when a single user is sending a very small amount of data (1KB) is something TODO EXPLAIN!!!.
