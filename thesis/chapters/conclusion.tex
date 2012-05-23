@@ -1,5 +1,18 @@
 \section{Conclusion}
 
 %1: answer RQs
+The current body of knowledge is severely lacking in academia and industry. We found only two papers doing performance tests in academia and a larger number of outdated and biased industrial papers.
+There is enough papers for us to atleast get a foundation of testing to build upon which is what we do in our test framework. The framework consists of a series of scenarios aimed at testing the core functionality of any ESB and we have used Mule ESB as verification that the framework works as expected. 
+
+
 %2:	our contribution
+The largest contribution done in this thesis is that there is an apparent lack of testing being done in academia. 
+Most importantly the papers we have found \cite{Sanjay2011} lack a reproducibility which is, possibly, even more important than an unbiased test. 
+We have also started a humble attempt at creating a testing framework that could serve the foundation for future tests. 
+
 %3: future work
+One of the more interesting suggestions we would like to make is to include the ESB manufactureres themselves and have them produce the ESB code that is then tested using the framework. 
+This would allow a larger number of ESBs to be tested and the code would contain less faults due to the testers inexperience of a particular ESB. 
+It would require some secrecy as otherwise the ESB manufacturers could optimize the code in an unnatural manner and that would skew the results. 
+Recieving optimized code from the manufacturers would also create a baseline that could be used inorder for the tests to be made more advanced and complex.
+Increased complexity of the tests could result in more accurate performance tests as the hardware is pushed closer to being maxed out. 
