@@ -8,7 +8,7 @@ We have gathered much inspiration from Sanjay \cite{Sanjay} regarding what measu
 \subsection{Measurements}
 This section will describe what metrics will be collected and why.\\
 
-\begin{table}
+\begin{table}[H]
 	\caption{Metric captured}
 	\begin{tabular}{c l}
 		\multicolumn{2}{c}{Metrics captured} \\
@@ -19,6 +19,7 @@ This section will describe what metrics will be collected and why.\\
 		\hline
 	\end{tabular} \\
 \end{table}
+
 \subsubsection{Response time}
 The amount of time elapsed since a request was sent to the time a response was received. 
 The response time is measured because this is what a single user will be affected by the most, if the response time is very low the user will perceive the system as very fast and vice versa if the response time is too high.
@@ -41,7 +42,10 @@ No manipulation of the data will be done by the ESB in this test. The ESB will p
 This test could simulate a service where the ESB exposes an inbound endpoint for other system to connect to, modularizing which service is running in the background thus giving a separation of concerns where the requesting client does not have to know about the responding web service, just that a web service is made available by the ESb.
 A comparative test can be performed here as well and that is to not use the ESB which will show what performance impact the ESB adds. 
 
-\centerline{\includegraphics[scale=0.43]{img/direct_proxy}}
+\begin{figure}[H]
+	\centerline{\includegraphics[scale=0.43]{img/direct_proxy}}
+	\caption{Direct proxy structural diagram}
+\end{figure}
 
 \subsection{Routing}
 In this test the ESB will, depending on the context of an incoming request from the Client, send the request to an appropriate web service which will append some data and return the request to the ESB which will send the response to the Client.
@@ -49,15 +53,23 @@ This represents the ability to have several systems behind an ESB all showing th
 This test is deemed basic because it is what an should do, separate the systems integration with each other, stepping in as a ``middle-man'' directing requests on behalf of the systems being integrated making the need for changing the systems minimal and just focus on the ESB. 
 A test like this could simulate a load balancer where the ESB is a front for two or more systems each running an instance of the same service. Another thing this could simulate is different systems handling different (but similar) data, for example one system behind the ESB is handling user registrations and another one is handling user logins. The ESB can then look at the request payload and decide what user interaction is happening and thus mediate the request to the appropriate system.
 
-\centerline{\includegraphics[scale=0.43]{img/Routing}}
+\begin{figure}[H]
+	\centerline{\includegraphics[scale=0.43]{img/Routing}}
+	\caption{Routing structural diagram}
+\end{figure}
+
 \subsection{Message transformation}
 The ESB will convert an incoming request to a different format and send it to a web service which will append some data and return the request to the ESB which will transform it back into the format the Client originally sent it.
 Transformation is a huge deal for any ESB since two systems to be integrated probably will not speak the same language (XML, json etc) and even if they do they may not have the same format. Of course the systems need to be able to communicate with each others, without an ESB this could become cumbersome since all involved systems would have to be changed in order to understand what the others where saying, just imagine an old system written in COBOL or Assembler and making it communicate with a new system like a web service using REST \cite{whatisrest}. Integration like this cost both money and time and probably won't be future friendly with regards to maintenance.
 This could make an ESB invaluable since the ESB would take care of receiving the incoming request in one format, decide where the request is to be sent, transform it to a format which the receiving system can understand, get a response back and transforming it to a format the original system which sent the request will understand.
 
-\centerline{\includegraphics[scale=0.43]{img/transformation}}
+\begin{figure}[H]
+	\centerline{\includegraphics[scale=0.43]{img/transformation}}
+	\caption{Transformation structural diagram}
+\end{figure}
+
 \subsection{Artifacts and tools}
-\begin{table}
+\begin{table}[H]
 	\caption{Software and tools}
 	\begin{itemize}
 		\item Client: Grinder \cite{whatisgrinder, kod}
@@ -87,13 +99,6 @@ The three tests have two different focuses. First is to test scalability with an
 The other is to test load-handling where a single client will send varying sizes of payload, 1KB, 50KB, 100KB, 500KB and 1MB.
 \subsection{Validity threats}
 This section discusses different validity threats.
-\subsubsection{Different operating systems}
-%Different operating system will effect test results 
-%TODO säkerställ att unix inte påverkar resultaten nämnvärt
-kan påvera men vi kommer att köra testerna på lite olika system så vi har ett hum om vilka förändringar det innebär i datan.
-\subsubsection{Different hardware}
-%TODO kör testerna en gång på /// så vi inte påverkas för mycket av hårdvara
-see "different operating systems"
 \subsubsection{Inefficient code}
 We are not expert in the various programming languages and systems used to perform these tests and as such our code might be inefficient and even wrong. Inefficient code is not a problem as long as the same code is used in all tests. Erroneous code however is unmaintainable code and as such will require too be changed in the future and that will most likely affect the test results and test history. 
 The possibilities of erroneous code has been limited by focusing the tests on very simple and basic functionality that doesn't require expert knowledge of the ESB in order to get results.
@@ -103,10 +108,10 @@ By actually providing the source code we have opened up the possibility for impr
 
 %TODO: fixa bättre start på texten.
 
-We have used the framework to provide a test usage of it by benchmarkign a project created with mule.
-First up is the computers used, the tests below where run on four different computers, all with the same specifications (see table \ref{table:hw-spec}). 
+This section describes our attempt at running the testing framework with an analysis of the results.
+First up is the hardware specification on the four computers used, the scenarios where run with one computer acting as the client, one as the ESB and three as web services.(see table \ref{table:hw-spec}). 
 
-\begin{table}[htpb]
+\begin{table}[H]
 	\caption{Hardware configuration}
 	\label{table:hw-spec}
 	\begin{tabular}{c l}
