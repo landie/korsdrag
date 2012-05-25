@@ -19,7 +19,7 @@ url0 = 'http://ADDRESS:8081'
 # reference to the HTTPRequest with an instrumented version.
 # You can access the unadorned instance using request101.__target__.
 request101 = HTTPRequest(url=url0)
-request101 = Test(101, 'POST Echo').wrap(request101)
+request101 = Test(101, 'POST EchoService').wrap(request101)
 
 class TestRunner:
   """A TestRunner instance is created for each worker thread."""
@@ -40,8 +40,8 @@ class TestRunner:
       mesg = mesg + adder
       cnt = cnt + 1
 
-    result = request101.POST('/Echo',
-      '<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.webservice.korsdrag.datanizze.se/\"><soapenv:Header/><soapenv:Body><ws:echoMessage><id>' + str(val) + '</id><message>' + mesg + '</message></ws:echoMessage></soapenv:Body>\r\n</soapenv:Envelope>',
+    result = request101.POST('/EchoService',
+      '<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.webservice.korsdrag.datanizze.se/\"><soapenv:Header/><soapenv:Body><ws:echoMessage><id>' + str(val) + '</id><message>' + mesg + '</message></ws:echoMessage></soapenv:Body></soapenv:Envelope>',
       ( NVPair('Accept-Encoding', 'gzip,deflate'),
         NVPair('Content-Type', 'text/xml;charset=UTF-8'),
         NVPair('User-Agent', 'Apache-HttpClient/4.1.1 (java 1.5)'), ))
