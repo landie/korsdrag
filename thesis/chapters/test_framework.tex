@@ -137,57 +137,57 @@ In the following sections the results have been analyzed for each scenario summi
 %TODO kolla upp cxf proxy mule skiten.
 The first test for the proxy with a single client sending an increased amount of data. Mule seems to handle this quite well, peaking at about 64 transfers per second (TPS) which seems to be a limit in mule's cxf proxy endpoint which was used. When a single client is sending a very small payload (1KB) it seems like the network is the worst bottleneck since all scenarios where affected by this, limiting the throughput to about two TPS. Overall mule is handling the direct proxy well and it's handling regular sized payloads with ease only beginning to throttle when the payload size is growing beyond 50KB.
 
-\begin{figure}[htpb]
-	\centerline{\includegraphics{img/proxy_fu_ip_tps}}
+\begin{figure}[H]
 	\caption{TPS for direct proxy.}
+	\centerline{\includegraphics{img/proxy_fu_ip_tps}}
 	\label{fig:proxy-1-1}
 \end{figure}
 
 The mean response time for the proxy keeps low throughtout the entire test scenario where the largest peak is at the 1KB payload which has been attributed to an unknown network limitation.
 
-\begin{figure}[htpb]
-	\centerline{\includegraphics{img/proxy_fu_ip_resp}}
+\begin{figure}[H]
 	\caption{Mean response time for direct proxy.}
+	\centerline{\includegraphics{img/proxy_fu_ip_resp}}
 	\label{fig:proxy-1-2}
 \end{figure}
 
 Using a fixed payload of 100KB and an increasing number of clients the throughput is peaking at 98 TPS. Mule handles the increasing number of clients well, keeping up with a reasonable response time only to slow down when the client count increases beyond 160 which resulted in an almost exponential increase in mean response time.
 
-\begin{figure}[htpb]
-	\centerline{\includegraphics{img/proxy_fp_iu_tps}}
+\begin{figure}[H]
 	\caption{TPS for direct proxy.}
+	\centerline{\includegraphics{img/proxy_fp_iu_tps}}
 	\label{fig:proxy-2-1}
 \end{figure}
 
-\begin{figure}[htpb]
-	\centerline{\includegraphics{img/proxy_fp_iu_resp}}
+\begin{figure}[H]
 	\caption{Mean response time for direct proxy.}
+	\centerline{\includegraphics{img/proxy_fp_iu_resp}}
 	\label{fig:proxy-2-2}
 \end{figure}
 
 The content-based routing proxy behaved exactly as the direct proxy just differing in the magnitude which was predictable since it is just making a simple choice by looking at the payload to decide on where to send the request, thus no complex computing is performed by mule.
 
-\begin{figure}[htpb]
-	\centerline{\includegraphics{img/mediation_fu_ip_tps}}
+\begin{figure}[H]
 	\caption{TPS for content-based routing.}
+	\centerline{\includegraphics{img/mediation_fu_ip_tps}}
 	\label{fig:mediation-1-1}
 \end{figure}
 
-\begin{figure}[htpb]
-	\centerline{\includegraphics{img/mediation_fu_ip_resp}}
+\begin{figure}[H]
 	\caption{Mean response time for content-based routing.}
+	\centerline{\includegraphics{img/mediation_fu_ip_resp}}
 	\label{fig:mediation-1-2}
 \end{figure}
 
-\begin{figure}[htpb]
-	\centerline{\includegraphics{img/mediation_fp_iu_tps}}
+\begin{figure}[H]
 	\caption{TPS for content-based routing.}
+	\centerline{\includegraphics{img/mediation_fp_iu_tps}}
 	\label{fig:mediation-2-1}
 \end{figure}
 
-\begin{figure}[htpb]
-	\centerline{\includegraphics{img/mediation_fp_iu_resp}}
+\begin{figure}[H]
 	\caption{Mean response time for content-based routing.}
+	\centerline{\includegraphics{img/mediation_fp_iu_resp}}
 	\label{fig:mediation-2-2}
 \end{figure}
 
@@ -195,34 +195,73 @@ The first test with a single client sending an increasing amount of data in the 
 A conclusion was reached that this might be a bug in the mule software since the throughtput went up again when the payload was increased to 50KB.
 The only other thing noted was a higher decrease in throughput when the payload reached the larger sizes, this was concluded to be caused by mule having a hard time transforming such large amounts of data from json to xml and back again.
 
-\begin{figure}[htpb]
-	\centerline{\includegraphics{img/transform_fu_ip_tps}}
+\begin{figure}[H]
 	\caption{TPS for content transformation proxy.}
+	\centerline{\includegraphics{img/transform_fu_ip_tps}}
 	\label{fig:transform-1-1}
 \end{figure}
 
-\begin{figure}[htpb]
-	\centerline{\includegraphics{img/transform_fu_ip_resp}}
-	\caption{Mean response time for content transformation proxy.}
+\begin{figure}[H]
 	\label{fig:transform-1-2}
+	\caption{Mean response time for content transformation proxy.}
+	\centerline{\includegraphics{img/transform_fu_ip_resp}}
 \end{figure}
 
-The second test in the transformation scenario shows that sending mule is quite capable of handling transformation of many requests. Note that the throughput is higher for 160 clients with this scenario than in the direct proxy scenario. 
+The second test in the transformation scenario shows that sending mule is quite capable of handling transformation of many requests. Note that the throughput is higher for 160 clients with this scenario than in the direct proxy scenario.
 
-\begin{figure}[htpb]
-	\centerline{\includegraphics{img/transform_fp_iu_tps}}
+\begin{figure}[H]
 	\caption{TPS for content transformation proxy.}
+	\centerline{\includegraphics{img/transform_fp_iu_tps}}
 	\label{fig:transform-2-1}
 \end{figure}
 
-\begin{figure}[htpb]
-	\centerline{\includegraphics{img/transform_fp_iu_resp}}
+\begin{figure}[H]
 	\caption{Mean response time for content transformation proxy.}
+	\centerline{\includegraphics{img/transform_fp_iu_resp}}
 	\label{fig:transform-2-2}
 \end{figure}
+
 
 \subsubsection{Overall analysis of performed tests}
 \label{sec:test-final-analysis}
 
+
 %TODO kanske diskutera om hurvida ramverket bör ändras så att 1 usr + 1kb inte längre finns med, om det är värt att testa?
-The low throughput seen in all of the tests when a single user is sending a very small amount of data (1KB) is something TODO EXPLAIN!!!.
+The low throughput seen in all of the tests when a single user is sending a very small amount of data (1KB) is something we found very strange. 
+To get som clarity we ran all tests without involving mule, a direct connection between the client (Grinder) and the web service (EchoService). As seen in Figures \ref{fig:direct-1-1}, \ref{fig:direct-1-2}, \ref{fig:direct-2-1}, \ref{fig:direct-2-2} the test results are quite different where the only similar graphs (ignoring magnitude) being the Mean response time.
+
+Running the direct tests with 160+ users sending 100KB requests throttled the network, therefore the peak is at approximately 400 TPS. As seen in figure \ref{fig:direct-2-3} this network is at around 320 Megabits per second on average (which is only half the network capacity since the web service is echoing everything sent to it instantly doubling the network load).
+
+Since the 1 user 1KB test's TPS as shown in figure \ref{fig:direct-1-1} is much higher than in the direct proxy (fig. \ref{fig:proxy-1-1}) our conclusion regarding a limitation/bug in mule seems to fit.
+
+Noting these major differences in test results with and without mule we concluded that it is not necessarily our framework that need refinement but that our skills programming an integration bus is lacking. This is what our framework is about, not about testing the different busses but to delegate the integration bus part to others, with the right competence to integrate with our endpoints (client and web service) in a way that makes optimal use of the ESB.
+
+\begin{figure}[H]
+	\caption{Mean response time for client direct to web service.}
+	\centerline{\includegraphics{img/direct_fu_ip_tps}}
+	\label{fig:direct-1-1}
+\end{figure}
+
+\begin{figure}[H]
+	\caption{TPS for client direct to web service.}
+	\centerline{\includegraphics{img/direct_fu_ip_resp}}
+	\label{fig:direct-1-2}
+\end{figure}
+
+\begin{figure}[H]
+	\caption{Mean response time for client direct to web service.}
+	\centerline{\includegraphics{img/direct_fp_iu_tps}}
+	\label{fig:direct-2-1}
+\end{figure}
+
+\begin{figure}[H]
+	\caption{TPS for client direct to web service.}
+	\centerline{\includegraphics{img/direct_fp_iu_resp}}
+	\label{fig:direct-2-2}
+\end{figure}
+
+\begin{figure}[H]
+	\caption{Mean response time for client direct to web service.}
+	\centerline{\includegraphics{img/direct_fp_iu_kbs}}
+	\label{fig:direct-2-3}
+\end{figure}
