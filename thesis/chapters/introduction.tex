@@ -5,15 +5,15 @@ Since the beginning of software engineering the industry have come a long way in
 This progress has been greatly beneficial for everyday tasks and for fulfilling industrial needs. 
 The progress has been staggering but some in some areas the industry have had a harder time. 
 The issue lies in connecting these applications and platforms, making them communicate with each others. This is where the Enter the Enterprise Service Bus (ESB) \cite{falko07} comes in. 
-To address these integration issues terms like Enterprise Application Integration (EAI) and Service Oriented Architecture (SOA) have been visualized in the past. 
+To address these integration issues terms like Enterprise Application Integration (EAI) \cite{Du2008} and Service Oriented Architecture (SOA) \cite{Abuosba2008} have been visualized in the past. 
 The ESB is a ``next step'' in this direction, taking what's good from SOA and EAI to bring a more complete platform for integration.
 
 Early manual integration between different platforms (often referred to as ``independent islands of computing'') was done by point to point integration, that is, for each new platform to integrate all existing platforms had to build separate interfaces to communicate with the new one. 
 This is a very cumbersome way to do it resulting in messy integration ending up with a lot of dependencies between all nodes.
 This type of integration is referred to as ``spaghetti code'' since connections are made from everything to everything. 
-This is where the ESB comes in. The ESB acts a mediator, translator and monitor amongst many things. The main task for the ESB is to step in and take over communications between all involved platforms. 
+This is where the ESB comes in. The ESB acts a mediator, translator and monitor amongst many other things. The main task for the ESB is to step in and take over communications between all involved platforms. 
 This is done by changing the involved platforms so they connect to the ESB and only to the ESB \cite{Sanjay2011}. 
-The main advantages of this is that the esb takes care of where to send data between the platforms making the platforms agnostic to what to send and where, they just send it to the ESB and the ESB takes care of forwarding it to the right destination with the right data at the right place in the right language.
+The main advantages of this is that the esb takes care of where to send data between the platforms making the platforms agnostic to what to send in regards to formatting/data structure and where, they just send it to the ESB and the ESB takes care of forwarding it to the right destination with the right data at the right place in the right language.
 
 The research focus will be on how to write a test framework to make it easier for others to test different ESBs in a transparent and unbiased way. 
 Another focus is to evaluate what is currently available in both academia and in industry to provide a review of what has been done and how is has been done.
@@ -22,7 +22,7 @@ When choosing an ESB to use a lot of parameters needs to be filled, ease of use,
 This thesis focuses not on giving a list of which to use but to make it easier for others to make their own decision depending on their needs.
 
 % - problem definition: its nature and scope, why this problem? why is it important? (review relevant literature)
-The nature of this thesis is to clearly define what is available regarding testing of ESBs and how it could be done in a more transparent way that makes future testing easy and reliable for readers since the transparency makes manipulating test results harder. 
+The nature of this thesis is to clearly define what is available regarding ESB testing and how it could be done in a more transparent way that makes future testing easy and reliable for readers since the transparency makes manipulating test results harder. 
 This merges well with the aims of the thesis, which is to evaluate what already exists and how relevant it is.
 
 % - method of investigation: why this method?
@@ -35,4 +35,4 @@ The expected outcome of this thesis is to give a defined test framework with sam
 % - thesis overview: what is presented in the following chapters and in what order
 The thesis starts of with a literature review that examines the current body of knowledge in academia and industry, ending in a summary and conclusion regarding what tests this body contain.
 After the literature review we present our version of a testing framework followed by the results gathered from a live run of said framework.
-The whole thing is rounded up with a conclusion discussing the answers to the research questions asked, the contribution and the proposed future work.
+The whole thing is rounded up with a conclusion discussing the answers to the research questions asked, the contribution and proposed future work.

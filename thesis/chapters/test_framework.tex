@@ -1,9 +1,8 @@
-%TODO: \begin{figure} på alla bilder.. måste även bestämma om caption ska över eller under figure/table.
-
-
+%TODO: Länk till github nånstans... vet inte var den passar bäst in... (länken är för övrigt: https://github.com/Datanizze/korsdrag-thesis-files)
 \section{Testing framework}
-This testing framework aims to answer RQ3. The goal is to produce a transparent and sound way of testing core functionality \cite{lit review} performance of any ESB. 
-We have gathered much inspiration from Sanjay \cite{Sanjay} regarding what measurements and tests that should be performed however the focus of our efforts is to provide source code and transparency in order for the tests to be repeatable as well as having the ability to discuss how to improve testing.
+This testing framework aims to answer RQ3. The goal is to produce a transparent and sound way of testing core functionality (see section \ref{sec:core-functionality}) performance of any ESB. 
+% TODO: vet inte hur du tänkte med ref till lit.rev. men lade en ref till background där de tre sakerna listas.
+We have gathered much inspiration from Sanjay \cite{Sanjay2011} regarding what measurements and tests that should be performed however the focus of our efforts is to provide source code and transparency in order for the tests to be repeatable as well as having the ability to discuss how to improve testing.
 
 \subsection{Measurements}
 This section will describe what metrics will be collected and why.\\
@@ -24,13 +23,13 @@ This section will describe what metrics will be collected and why.\\
 The amount of time elapsed since a request was sent to the time a response was received. 
 The response time is measured because this is what a single user will be affected by the most, if the response time is very low the user will perceive the system as very fast and vice versa if the response time is too high.
 \subsubsection{Throughput}
-Amount of successful transactions performed per second (tps). A transaction is counted as successful if the response matches the expected values.
-The value of throughput lays in how many users the system can serve in a single point of time. If the throughput is high the system will be able to handle many simultaneous users making the system efficient at handling a high load.
+The amount of successful transactions performed per second (tps). A transaction is counted as successful if the response matches the expected values.
+The value of throughput lies in how many users the system can serve in a specific timeframe. If the throughput is high the system will be able to handle many simultaneous users making the system efficient at handling a high load.
 
 
 
 Response time and throughput are the most interesting numbers to investigate as they are very important for end users and systems. The more users a system can handle and the faster it does so the higher value the system will get in terms of scalability and performance per processing unit which in turn equals a lower operating cost where the system is able to handle a high amount of users whilst keeping the costs down.
-CPU and RAM data will be measured in order to be able to make sure no hardware limitations occur during testing. The CPU on the web service is only collected to make sure that it doesn't act as a bottleneck while testing. Although this might not be the case in real world scenarios the aim is not to cap any hardware limitations because that would not give fair test results since the hardware would limit the performance of the system being tested and since the framework is supposed to give the involved system(s) free roam hardware limitations would be in straight contrast to what the framework is about.
+CPU  will be measured in order to be able to make sure no hardware limitations occur during testing. The CPU on the web service is only collected to make sure that it doesn't act as a bottleneck while testing. Although this might not be the case in real world scenarios the aim is not to cap any hardware limitations because that would not give fair test results since the hardware would limit the performance of the system being tested and since the framework is supposed to give the involved system(s) free roam hardware limitations would be in straight contrast to what the framework is about.
 
 \section{Test walktrough}
 The tests described below are aimed at measuring the very basic roles of any ESB. 
@@ -38,47 +37,51 @@ The tests are very simple with the specific goal of producing a baseline for fut
 These basic tests have been chosen since anyone with the development knowledge of an ESB should be able to produce an ESB project capable of delivering a runnable project which exposes these basic funtionalities.
 
 \subsection{Pure throughput}
-No manipulation of the data will be done by the ESB in this test. The ESB will purely forward all request to the target web service as fast as possible. 
-This test could simulate a service where the ESB exposes an inbound endpoint for other system to connect to, modularizing which service is running in the background thus giving a separation of concerns where the requesting client does not have to know about the responding web service, just that a web service is made available by the ESb.
+No manipulation of the data will be done by the ESB in this test. The ESB will purely forward all request to the target web service (as fast as possible) (fig.\ref{fig:proxy-diagram}). 
+This test could simulate a service where the ESB exposes an inbound endpoint for other system to connect to, modularizing which service is running in the backend thus giving a separation of concern where the requesting client does not have to know about the responding web service, just that a web service is made available by the ESB.
 A comparative test can be performed here as well and that is to not use the ESB which will show what performance impact the ESB adds. 
 
+% TODO: ny bild där det inte står RAM i metrics för ESBn.
 \begin{figure}[H]
 	\centerline{\includegraphics[scale=0.43]{img/direct_proxy}}
 	\caption{Direct proxy structural diagram}
+	\label{fig:proxy-diagram}
 \end{figure}
 
 \subsection{Routing}
-In this test the ESB will, depending on the context of an incoming request from the Client, send the request to an appropriate web service which will append some data and return the request to the ESB which will send the response to the Client.
-This represents the ability to have several systems behind an ESB all showing the same front to the outside.
-This test is deemed basic because it is what an should do, separate the systems integration with each other, stepping in as a ``middle-man'' directing requests on behalf of the systems being integrated making the need for changing the systems minimal and just focus on the ESB. 
-A test like this could simulate a load balancer where the ESB is a front for two or more systems each running an instance of the same service. Another thing this could simulate is different systems handling different (but similar) data, for example one system behind the ESB is handling user registrations and another one is handling user logins. The ESB can then look at the request payload and decide what user interaction is happening and thus mediate the request to the appropriate system.
+In this test the ESB will, depending on the context of an incoming request from the Client, send the request to an appropriate web service which will append some data and return the request to the ESB which will send the response back to the Client (fig.\ref{fig:routing-diagram}).
+This represents the ability to have several systems behind an ESB all showing the same front to the clients.
+This test is deemed basic because it is what an should do, separate the systems integration from each other, stepping in as a ``middle-man'' directing requests on behalf of the systems being integrated making the need for changing the systems minimal and just focus on the ESB. 
+A test like this could simulate a load balancer where the ESB is a front for two or more systems each running an instance of the same service. Another scenario this could simulate is different systems handling different (but similar) data, for example one system behind the ESB is handling user registrations and another one is handling user logins. The ESB can then look at the request payload and decide what user interaction is happening and thus mediate the request to the appropriate system.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[scale=0.43]{img/Routing}}
 	\caption{Routing structural diagram}
+	\label{fig:routing-diagram}
 \end{figure}
 
 \subsection{Message transformation}
-The ESB will convert an incoming request to a different format and send it to a web service which will append some data and return the request to the ESB which will transform it back into the format the Client originally sent it.
-Transformation is a huge deal for any ESB since two systems to be integrated probably will not speak the same language (XML, json etc) and even if they do they may not have the same format. Of course the systems need to be able to communicate with each others, without an ESB this could become cumbersome since all involved systems would have to be changed in order to understand what the others where saying, just imagine an old system written in COBOL or Assembler and making it communicate with a new system like a web service using REST \cite{whatisrest}. Integration like this cost both money and time and probably won't be future friendly with regards to maintenance.
-This could make an ESB invaluable since the ESB would take care of receiving the incoming request in one format, decide where the request is to be sent, transform it to a format which the receiving system can understand, get a response back and transforming it to a format the original system which sent the request will understand.
+The ESB will convert an incoming request to a different format and send it to a web service which will append some data and return the request to the ESB which will transform it back into the format the Client originally sent it (fig.\ref{fig:transform-diagram}).
+Transformation is a big deal for any ESB since two systems to be integrated probably won't speak the same language (XML, json etc) and even if they do they may not have the same data format or structure. Of course the systems need to be able to communicate with each others, without an ESB this would become cumbersome since all involved systems would have to be changed in order to understand what the others where saying, just imagine an old system written in COBOL or Assembler and making it communicate with a new system like a web service using REST \cite{whatisrest}. Integration like this cost both money and time and probably won't be future friendly with regards to maintenance.
+This could make an ESB invaluable since the ESB would take care of receiving the incoming request in one format, decide where the request is to be sent, transform it to a format which the receiving system can understand, get a response back and transforming it to a format the original system which sent the request will understand and this without even touching the code for the two systems talking to each other.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[scale=0.43]{img/transformation}}
 	\caption{Transformation structural diagram}
+	\label{fig:transform-diagram}
 \end{figure}
 
 \subsection{Artifacts and tools}
 \begin{table}[H]
 	\caption{Software and tools}
 	\begin{itemize}
-		\item Client: Grinder \cite{whatisgrinder, kod}
-		\item ESB: Mule \cite{whatismule, kod}
-		\item Web service: Jax-WS \cite{whatisjaxws, kod}
+		\item Client: Grinder \cite{whatisgrinder}
+		\item ESB: Mule \cite{whatismule}
+		\item Web service: Jax-WS \cite{whatisjaxws}
 		\item OS: Windows 7, 6.1.7600 build 7600
 	\end{itemize}
 \end{table}
-In order to minimize the amount of factors that interfere in the tests we consider having at least three similar state of the art computers, connected to a high-speed network, essential.
+In order to minimize the amount of factors that interfere in the tests we recommend having at least three similar state of the art computers, connected to a high-speed network, essential.
 It might not be of the greatest importance that the computers are state of the art but in order to not reach a hardware ceiling while testing, such machines are recommended. 
 What's most important is that one computer is designated to run ESBs, one is designated to generate traffic(called Client) while the others are simple servers responding to the traffic generated (called Web service). 
 
@@ -87,15 +90,15 @@ This separating and designating of roles to machines minimizes different hardwar
 It also means that if other machines are used in other tests the data produced can be compared to ours and as such validate the data or identify faults in the tests. 
 This validation can be done in two ways. 
 First is to run the same software versions and compare the results. 
-They should be similar deviating only in magnitude. The second is if using a newer or old software version the values when put in a graph will either have the same shape or show areas in which performance has changed, 
+They should be similar deviating only in magnitude. The second way is if using a newer or older software version the values when put in a graph will either have the same shape or show areas in which performance has changed, 
 if it is the same shape but the magnitude is higher then that is most likely caused by faster machines being used and vice versa if its the same magnitude except in certain areas then that shows an improvement in the software.
 
 \subsection{Variables and variable control}
-No limitiations has been forseen except for hardware and notwork.
+No limitiations has been forseen except for hardware and network.
 Hardware and network loads should be monitored so they are not close too 100\% as that would mean there is a major bottleneck present. 
 All involved computers a run with the same operating system.
+The three tests have two different focuses. The first is to test scalability with an increasing amount of simulated clients (1, 20, 40, 80, 160) sending concurrent requests with a 100KB payload. 
 \subsection{Experiment schedule and execution sequence}
-The three tests have two different focuses. First is to test scalability with an increasing amount of simulated clients (1, 20, 40, 80, 160) sending concurrent requests. 
 The other is to test load-handling where a single client will send varying sizes of payload, 1KB, 50KB, 100KB, 500KB and 1MB.
 \subsection{Validity threats}
 This section discusses different validity threats.
@@ -109,7 +112,7 @@ By actually providing the source code we have opened up the possibility for impr
 %TODO: fixa bättre start på texten.
 
 This section describes our attempt at running the testing framework with an analysis of the results.
-First up is the hardware specification on the four computers used, the scenarios where run with one computer acting as the client, one as the ESB and three as web services.(see table \ref{table:hw-spec}). 
+First up is the hardware specification on the five computers used, the scenarios where run with one computer acting as the client, one as the ESB and three as web services.(see table \ref{table:hw-spec}). 
 
 \begin{table}[H]
 	\caption{Hardware configuration}
@@ -127,15 +130,14 @@ First up is the hardware specification on the four computers used, the scenarios
 	\end{tabular} 
 \end{table}
 
-The results have been obtained by running each test in a period of 5 minutes, that is, 5 minutes for each data point in each of the following graphs.
+The results have been obtained by running each test in a period of 5 minutes, that is, 5 minutes for shift in test parameters (changing the number of clients and/or the payload size). 
 This showed to be a sufficient amount of time since the amount of requests made in each test ranged from at least 350 to more than 30 000 which was deemed sufficient for liable test results. 
 
 In the following sections the results have been analyzed for each scenario summing it up with an overall analysis of the performed test scenarios.
 
 \subsubsection{Direct proxy results/analysis}
 
-%TODO kolla upp cxf proxy mule skiten.
-The first test for the proxy with a single client sending an increased amount of data. Mule seems to handle this quite well, peaking at about 64 transfers per second (TPS) which seems to be a limit in mule's cxf proxy endpoint which was used. When a single client is sending a very small payload (1KB) it seems like the network is the worst bottleneck since all scenarios where affected by this, limiting the throughput to about two TPS. Overall mule is handling the direct proxy well and it's handling regular sized payloads with ease only beginning to throttle when the payload size is growing beyond 50KB.
+The first test for the proxy with a single client sending an increased amount of data. Mule seems to handle this quite well, peaking at about 64 transfers per second (TPS) which could be to be a limit in mule's cxf proxy endpoint which was used. When a single client is sending a very small payload (1KB) it seems like our mule project implementation does not handle this very well since all scenarios where affected by this, limiting the throughput to about two TPS. Mule is handling the direct proxy well and it's handling regular sized payloads with ease only beginning to throttle when the payload size is growing beyond 50KB.
 
 \begin{figure}[H]
 	\caption{TPS for direct proxy.}
@@ -143,20 +145,20 @@ The first test for the proxy with a single client sending an increased amount of
 	\label{fig:proxy-1-1}
 \end{figure}
 
-The mean response time for the proxy keeps low throughtout the entire test scenario where the largest peak is at the 1KB payload which has been attributed to an unknown network limitation.
 
 \begin{figure}[H]
 	\caption{Mean response time for direct proxy.}
 	\centerline{\includegraphics{img/proxy_fu_ip_resp}}
 	\label{fig:proxy-1-2}
+	The mean response time for the proxy keeps low throughtout the entire test scenario where the largest peak is at the 1KB payload which has been attributed to a limitation or bad configuration in mule.
 \end{figure}
 
-Using a fixed payload of 100KB and an increasing number of clients the throughput is peaking at 98 TPS. Mule handles the increasing number of clients well, keeping up with a reasonable response time only to slow down when the client count increases beyond 160 which resulted in an almost exponential increase in mean response time.
 
 \begin{figure}[H]
 	\caption{TPS for direct proxy.}
 	\centerline{\includegraphics{img/proxy_fp_iu_tps}}
 	\label{fig:proxy-2-1}
+	Using a fixed payload of 100KB and an increasing number of clients the throughput was peaking at 98 TPS. Mule handles the increasing number of clients well, keeping up with a reasonable response time only to slow down when the client count increases beyond 160.
 \end{figure}
 
 \begin{figure}[H]
@@ -165,12 +167,12 @@ Using a fixed payload of 100KB and an increasing number of clients the throughpu
 	\label{fig:proxy-2-2}
 \end{figure}
 
-The content-based routing proxy behaved exactly as the direct proxy just differing in the magnitude which was predictable since it is just making a simple choice by looking at the payload to decide on where to send the request, thus no complex computing is performed by mule.
 
 \begin{figure}[H]
 	\caption{TPS for content-based routing.}
 	\centerline{\includegraphics{img/mediation_fu_ip_tps}}
 	\label{fig:mediation-1-1}
+	The content-based routing proxy behaved exactly as the direct proxy just differing in the magnitude which was predictable since it is just making a simple choice by looking at the payload to decide on where to send the request, thus no complex computing is performed by mule.
 \end{figure}
 
 \begin{figure}[H]
@@ -207,12 +209,12 @@ The only other thing noted was a higher decrease in throughput when the payload 
 	\centerline{\includegraphics{img/transform_fu_ip_resp}}
 \end{figure}
 
-The second test in the transformation scenario shows that sending mule is quite capable of handling transformation of many requests. Note that the throughput is higher for 160 clients with this scenario than in the direct proxy scenario.
-
 \begin{figure}[H]
 	\caption{TPS for content transformation proxy.}
 	\centerline{\includegraphics{img/transform_fp_iu_tps}}
 	\label{fig:transform-2-1}
+	The second test in the transformation scenario shows that sending mule is quite capable of handling transformation of many requests. Note that the throughput is higher for 160 clients with this scenario than in the direct proxy scenario.
+
 \end{figure}
 
 \begin{figure}[H]
@@ -230,11 +232,11 @@ The second test in the transformation scenario shows that sending mule is quite 
 The low throughput seen in all of the tests when a single user is sending a very small amount of data (1KB) is something we found very strange. 
 To get som clarity we ran all tests without involving mule, a direct connection between the client (Grinder) and the web service (EchoService). As seen in Figures \ref{fig:direct-1-1}, \ref{fig:direct-1-2}, \ref{fig:direct-2-1}, \ref{fig:direct-2-2} the test results are quite different where the only similar graphs (ignoring magnitude) being the Mean response time.
 
-Running the direct tests with 160+ users sending 100KB requests throttled the network, therefore the peak is at approximately 400 TPS. As seen in figure \ref{fig:direct-2-3} this network is at around 320 Megabits per second on average (which is only half the network capacity since the web service is echoing everything sent to it instantly doubling the network load).
+Running the direct tests with 160+ users sending 100KB requests was throttled by the network, therefore the peak is at approximately 400 TPS. As seen in figure \ref{fig:direct-2-3} this network is at around 320 Megabits per second on average (which is only half the network capacity since the web service is echoing everything sent to it instantly doubling the network load).
 
 Since the 1 user 1KB test's TPS as shown in figure \ref{fig:direct-1-1} is much higher than in the direct proxy (fig. \ref{fig:proxy-1-1}) our conclusion regarding a limitation/bug in mule seems to fit.
 
-Noting these major differences in test results with and without mule we concluded that it is not necessarily our framework that need refinement but that our skills programming an integration bus is lacking. This is what our framework is about, not about testing the different busses but to delegate the integration bus part to others, with the right competence to integrate with our endpoints (client and web service) in a way that makes optimal use of the ESB.
+Noting these major differences in test results with and without mule we concluded that it is not necessarily our framework that needs refinement but that our skills programming an integration bus is lacking. This is why our framework matters, everyone won't be able to in a small period of time learn to be masters in each and every ESB being tested. Instead we want to delegate the integration bus part to others with the right competence to integrate with our endpoints (client and web service) in a way that makes optimal use of the ESB.
 
 \begin{figure}[H]
 	\caption{Mean response time for client direct to web service.}
@@ -261,7 +263,7 @@ Noting these major differences in test results with and without mule we conclude
 \end{figure}
 
 \begin{figure}[H]
-	\caption{Mean response time for client direct to web service.}
+	\caption{Average network usage for client direct to web service.}
 	\centerline{\includegraphics{img/direct_fp_iu_kbs}}
 	\label{fig:direct-2-3}
 \end{figure}

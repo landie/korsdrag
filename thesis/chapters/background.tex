@@ -8,7 +8,7 @@
 % An overview of the related literature and state-of-the-art research in order to identify the gap and motivate the need for our research.
 
 Enterprise Service Buses (ESB) provides a platform for integration, connecting existing platforms and products with familiar protocols \cite{falko07}.
-Before integration became an integral part of developing systems these now integrated parts where operating on its own without any interaction with other platforms/products. 
+Before integration became an integral part of developing systems these now integrated parts where operating on its own, without any interaction with other platforms/products. 
 This can be viewed as ``independent islands of computing''. 
 The ESBs task is to bring communication between these islands thus integrating them.
 
@@ -38,13 +38,14 @@ There are several different views on what the core functionalities of an ESB are
 			Efficiency is key and as such being able to monitor and manage an ESB is necessary
 	\end{description}
 
+\label{sec:core-functionality}
 From this list we can extract a shorter more concise list of core performance functions.
 
 	\begin{description}
 		\item[Direct proxy] \hfill \\
 			The ability to transfer incoming messages to a specific service.
 		\item[Routing] \hfill \\
-			Being able to look at incoming requests and based on their specifik content forward them to different systems.
+			Being able to look at incoming requests and based on their specific content forward them to different systems.
 		\item[Mediation/Transformation] \hfill \\
 			Translating between different inbound and outbound protocols.
 	\end{description}
