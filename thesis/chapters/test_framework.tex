@@ -109,8 +109,6 @@ By actually providing the source code we have opened up the possibility for impr
 
 \subsection{Test results and analysis}
 
-%TODO: fixa bättre start på texten.
-
 This section describes our attempt at running the testing framework with an analysis of the results.
 First up is the hardware specification on the five computers used, the scenarios where run with one computer acting as the client, one as the ESB and three as web services.(see table \ref{table:hw-spec}). 
 
@@ -227,8 +225,6 @@ The only other thing noted was a higher decrease in throughput when the payload 
 \subsubsection{Overall analysis of performed tests}
 \label{sec:test-final-analysis}
 
-
-%TODO kanske diskutera om hurvida ramverket bör ändras så att 1 usr + 1kb inte längre finns med, om det är värt att testa?
 The low throughput seen in all of the tests when a single user is sending a very small amount of data (1KB) is something we found very strange. 
 To get som clarity we ran all tests without involving mule, a direct connection between the client (Grinder) and the web service (EchoService). As seen in Figures \ref{fig:direct-1-1}, \ref{fig:direct-1-2}, \ref{fig:direct-2-1}, \ref{fig:direct-2-2} the test results are quite different where the only similar graphs (ignoring magnitude) being the Mean response time.
 
