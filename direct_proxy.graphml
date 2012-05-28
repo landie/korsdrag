@@ -19,10 +19,10 @@
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GenericGroupNode configuration="com.yworks.bpmn.Artifact.withShadow">
-              <y:Geometry height="402.5500000000002" width="315.72031249999986" x="167.66132812500015" y="245.0"/>
+              <y:Geometry height="402.5500000000002" width="320.98164062499995" x="136.70000000000005" y="219.5"/>
               <y:Fill color="#FFFFFFE6" transparent="false"/>
               <y:BorderStyle color="#000000" type="dashed_dotted" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="33.337890625" x="141.19121093749996" y="379.8488281250002">Tests<y:LabelModel>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="33.337890625" x="143.82187499999998" y="379.8488281250002">Tests<y:LabelModel>
                   <y:SmartNodeLabelModel distance="4.0"/>
                 </y:LabelModel>
                 <y:ModelParameter>
@@ -37,7 +37,7 @@
               </y:StyleProperties>
               <y:State autoResize="true" closed="false" closedHeight="80.0" closedWidth="100.0"/>
               <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="10" bottomF="9.550000000000182" left="10" leftF="9.738671874999909" right="15" rightF="15.0" top="0" topF="0.0"/>
+              <y:BorderInsets bottom="10" bottomF="9.550000000000182" left="15" leftF="14.999999999999972" right="15" rightF="15.0" top="0" topF="0.0"/>
             </y:GenericGroupNode>
             <y:GenericGroupNode configuration="com.yworks.bpmn.Artifact.withShadow">
               <y:Geometry height="55.0" width="85.0" x="295.01240000000007" y="574.4896"/>
@@ -70,7 +70,7 @@
             <y:ProxyAutoBoundsNode>
               <y:Realizers active="0">
                 <y:GenericGroupNode configuration="com.yworks.bpmn.Artifact.withShadow">
-                  <y:Geometry height="133.75" width="260.98164062499995" x="192.40000000000006" y="414.0"/>
+                  <y:Geometry height="133.75" width="260.98164062499995" x="166.70000000000002" y="388.5"/>
                   <y:Fill color="#FFFFFFE6" transparent="false"/>
                   <y:BorderStyle color="#000000" type="dashed_dotted" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="187.451171875" x="36.765234375000006" y="111.048828125">Increasing payload on single client<y:LabelModel>
@@ -119,7 +119,7 @@
             <node id="n0::n0::n0">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.bpmn.Activity.withShadow">
-                  <y:Geometry height="55.0" width="85.0" x="227.45000000000005" y="437.0"/>
+                  <y:Geometry height="55.0" width="85.0" x="201.75" y="411.5"/>
                   <y:Fill color="#FFFFFFE6" color2="#D4D4D4CC" transparent="false"/>
                   <y:BorderStyle color="#123EA2" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="34.6796875" x="25.16015625" y="18.1494140625">Client<y:LabelModel>
@@ -143,7 +143,7 @@
             <node id="n0::n0::n1">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.bpmn.Artifact.withShadow">
-                  <y:Geometry height="65.0" width="63.262400000000014" x="342.45000000000005" y="437.0"/>
+                  <y:Geometry height="65.0" width="63.262400000000014" x="316.75" y="411.5"/>
                   <y:Fill color="#FFFFFFE6" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="custom" textColor="#000000" visible="true" width="4.0" x="29.631200000000035" y="-8.0">
@@ -167,7 +167,7 @@
             <node id="n0::n0::n2">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.bpmn.Artifact.withShadow">
-                  <y:Geometry height="65.0" width="63.262400000000014" x="351.20000000000005" y="444.5"/>
+                  <y:Geometry height="65.0" width="63.262400000000014" x="325.5" y="419.0"/>
                   <y:Fill color="#FFFFFFE6" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="custom" textColor="#000000" visible="true" width="4.0" x="29.631200000000035" y="-8.0">
@@ -191,7 +191,7 @@
             <node id="n0::n0::n3">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.bpmn.Artifact.withShadow">
-                  <y:Geometry height="65.0" width="63.262400000000014" x="359.95000000000005" y="454.5"/>
+                  <y:Geometry height="65.0" width="63.262400000000014" x="334.25" y="429.0"/>
                   <y:Fill color="#FFFFFFE6" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="b" textColor="#000000" visible="true" width="57.373046875" x="2.9446765625000353" y="42.298828125">1-1000KB</y:NodeLabel>
@@ -212,7 +212,7 @@
             <y:ProxyAutoBoundsNode>
               <y:Realizers active="0">
                 <y:GenericGroupNode configuration="com.yworks.bpmn.Artifact.withShadow">
-                  <y:Geometry height="133.75" width="260.98164062499995" x="192.40000000000006" y="260.0"/>
+                  <y:Geometry height="133.75" width="260.98164062499995" x="166.70000000000002" y="234.5"/>
                   <y:Fill color="#FFFFFFE6" transparent="false"/>
                   <y:BorderStyle color="#000000" type="dashed_dotted" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="254.13671875" x="3.4224609375000057" y="111.048828125">Fixed payload on increasing numbers of clients<y:LabelModel>
@@ -261,7 +261,7 @@
             <node id="n0::n1::n0">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.bpmn.Activity.withShadow">
-                  <y:Geometry height="55.0" width="85.0" x="232.45000000000005" y="289.5"/>
+                  <y:Geometry height="55.0" width="85.0" x="206.75" y="264.0"/>
                   <y:Fill color="#FFFFFFE6" color2="#D4D4D4CC" transparent="false"/>
                   <y:BorderStyle color="#123EA2" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="custom" textColor="#000000" visible="true" width="4.0" x="40.5" y="25.5">
@@ -286,7 +286,7 @@
             <node id="n0::n1::n1">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.bpmn.Activity.withShadow">
-                  <y:Geometry height="55.0" width="85.0" x="239.45000000000005" y="297.5"/>
+                  <y:Geometry height="55.0" width="85.0" x="213.75" y="272.0"/>
                   <y:Fill color="#FFFFFFE6" color2="#D4D4D4CC" transparent="false"/>
                   <y:BorderStyle color="#123EA2" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="custom" textColor="#000000" visible="true" width="4.0" x="40.5" y="25.5">
@@ -311,7 +311,7 @@
             <node id="n0::n1::n2">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.bpmn.Activity.withShadow">
-                  <y:Geometry height="55.0" width="85.0" x="247.45000000000005" y="305.5"/>
+                  <y:Geometry height="55.0" width="85.0" x="221.75" y="280.0"/>
                   <y:Fill color="#FFFFFFE6" color2="#D4D4D4CC" transparent="false"/>
                   <y:BorderStyle color="#123EA2" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="34.6796875" x="25.16015625" y="18.1494140625">Client<y:LabelModel>
@@ -335,7 +335,7 @@
             <node id="n0::n1::n3">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.bpmn.Artifact.withShadow">
-                  <y:Geometry height="65.0" width="48.75" x="388.70000000000005" y="295.5"/>
+                  <y:Geometry height="65.0" width="48.75" x="363.0" y="270.0"/>
                   <y:Fill color="#FFFFFFE6" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="b" textColor="#000000" visible="true" width="43.36328125" x="2.693359375" y="42.298828125">100 KB</y:NodeLabel>
@@ -354,12 +354,12 @@
         <node id="n0::n2">
           <data key="d6">
             <y:GenericNode configuration="com.yworks.bpmn.Artifact.withShadow">
-              <y:Geometry height="55.0" width="103.0" x="192.40000000000006" y="568.0"/>
+              <y:Geometry height="55.0" width="103.0" x="324.681640625" y="542.5"/>
               <y:Fill color="#FFFFFFE6" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="84.0390625" x="9.48046875" y="3.4482421875">Metrics:
-Response time
-Throughput<y:LabelModel>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="69.3671875" x="16.81640625" y="3.4482421875">Bottlenecks:
+CPU
+RAM<y:LabelModel>
                   <y:SmartNodeLabelModel distance="4.0"/>
                 </y:LabelModel>
                 <y:ModelParameter>
@@ -378,12 +378,12 @@ Throughput<y:LabelModel>
         <node id="n0::n3">
           <data key="d6">
             <y:GenericNode configuration="com.yworks.bpmn.Artifact.withShadow">
-              <y:Geometry height="55.0" width="103.0" x="350.38164062500005" y="568.0"/>
+              <y:Geometry height="55.0" width="103.0" x="166.70000000000002" y="542.5"/>
               <y:Fill color="#FFFFFFE6" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="69.3671875" x="16.81640625" y="3.4482421875">Bottlenecks:
-CPU
-RAM<y:LabelModel>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="84.0390625" x="9.48046875" y="3.4482421875">Metrics:
+Response time
+Throughput<y:LabelModel>
                   <y:SmartNodeLabelModel distance="4.0"/>
                 </y:LabelModel>
                 <y:ModelParameter>
@@ -406,7 +406,7 @@ RAM<y:LabelModel>
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GenericGroupNode configuration="com.yworks.bpmn.Artifact.withShadow">
-              <y:Geometry height="402.5500000000002" width="196.30000000000007" x="767.6183593749998" y="245.0"/>
+              <y:Geometry height="402.5500000000002" width="196.30000000000007" x="741.9183593749998" y="219.5"/>
               <y:Fill color="#FFFFFFE6" transparent="false"/>
               <y:BorderStyle color="#000000" type="dashed_dotted" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="70.017578125" x="63.14121093749998" y="379.8488281250002">Web service<y:LabelModel>
@@ -455,7 +455,7 @@ RAM<y:LabelModel>
         <node id="n1::n0">
           <data key="d6">
             <y:GenericNode configuration="com.yworks.bpmn.Activity.withShadow">
-              <y:Geometry height="77.49999999999994" width="111.60000000000002" x="810.6183593749998" y="260.0"/>
+              <y:Geometry height="77.49999999999994" width="111.60000000000002" x="784.9183593749998" y="234.5"/>
               <y:Fill color="#FFFFFFE6" color2="#D4D4D4CC" transparent="false"/>
               <y:BorderStyle color="#123EA2" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="80.025390625" x="15.787304687500068" y="29.3994140625">Web service 1<y:LabelModel>
@@ -479,7 +479,7 @@ RAM<y:LabelModel>
         <node id="n1::n1">
           <data key="d6">
             <y:GenericNode configuration="com.yworks.bpmn.Activity.withShadow">
-              <y:Geometry height="77.49999999999994" width="111.60000000000002" x="810.6183593749998" y="345.0"/>
+              <y:Geometry height="77.49999999999994" width="111.60000000000002" x="784.9183593749998" y="319.5"/>
               <y:Fill color="#FFFFFFE6" color2="#D4D4D4CC" transparent="false"/>
               <y:BorderStyle color="#123EA2" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="80.025390625" x="15.787304687500068" y="29.3994140625">Web service 2<y:LabelModel>
@@ -503,7 +503,7 @@ RAM<y:LabelModel>
         <node id="n1::n2">
           <data key="d6">
             <y:GenericNode configuration="com.yworks.bpmn.Activity.withShadow">
-              <y:Geometry height="77.49999999999994" width="111.60000000000002" x="810.6183593749998" y="430.0"/>
+              <y:Geometry height="77.49999999999994" width="111.60000000000002" x="784.9183593749998" y="404.5"/>
               <y:Fill color="#FFFFFFE6" color2="#D4D4D4CC" transparent="false"/>
               <y:BorderStyle color="#123EA2" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="80.025390625" x="15.787304687500068" y="29.3994140625">Web service 3<y:LabelModel>
@@ -527,7 +527,7 @@ RAM<y:LabelModel>
         <node id="n1::n3">
           <data key="d6">
             <y:GenericNode configuration="com.yworks.bpmn.Artifact.withShadow">
-              <y:Geometry height="55.0" width="165.80000000000007" x="783.1183593749998" y="562.75"/>
+              <y:Geometry height="55.0" width="165.80000000000007" x="757.4183593749998" y="537.25"/>
               <y:Fill color="#FFFFFFE6" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="69.3671875" x="48.21640624999998" y="3.4482421875">Bottlenecks:
@@ -555,10 +555,10 @@ RAM<y:LabelModel>
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GenericGroupNode configuration="com.yworks.bpmn.Artifact.withShadow">
-              <y:Geometry height="402.5500000000002" width="190.72265625" x="526.5386718750001" y="245.0"/>
+              <y:Geometry height="402.5500000000002" width="183.39999999999998" x="508.0999999999999" y="219.5"/>
               <y:Fill color="#FFFFFFE6" transparent="false"/>
               <y:BorderStyle color="#000000" type="dashed_dotted" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="28.01171875" x="81.35546875" y="379.8488281250002">ESB<y:LabelModel>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="28.01171875" x="77.69414062500005" y="379.8488281250002">ESB<y:LabelModel>
                   <y:SmartNodeLabelModel distance="4.0"/>
                 </y:LabelModel>
                 <y:ModelParameter>
@@ -573,7 +573,7 @@ RAM<y:LabelModel>
               </y:StyleProperties>
               <y:State autoResize="true" closed="false" closedHeight="80.0" closedWidth="100.0"/>
               <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="15" bottomF="14.800000000000182" left="2" leftF="2.0" right="0" rightF="0.0" top="159" topF="158.7750000000001"/>
+              <y:BorderInsets bottom="15" bottomF="14.800000000000182" left="0" leftF="0.0" right="15" rightF="15.399999999999977" top="154" topF="153.575"/>
             </y:GenericGroupNode>
             <y:GenericGroupNode configuration="com.yworks.bpmn.Artifact.withShadow">
               <y:Geometry height="55.0" width="85.0" x="447.5" y="234.5"/>
@@ -604,7 +604,7 @@ RAM<y:LabelModel>
         <node id="n2::n0">
           <data key="d6">
             <y:GenericNode configuration="com.yworks.bpmn.Activity.withShadow">
-              <y:Geometry height="55.0" width="85.0" x="578.4" y="418.7750000000001"/>
+              <y:Geometry height="55.0" width="85.0" x="552.6999999999999" y="388.075"/>
               <y:Fill color="#FFFFFFE6" color2="#D4D4D4CC" transparent="false"/>
               <y:BorderStyle color="#123EA2" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="30.009765625" x="27.4951171875" y="18.1494140625">Mule<y:LabelModel>
@@ -628,35 +628,11 @@ RAM<y:LabelModel>
         <node id="n2::n1">
           <data key="d6">
             <y:GenericNode configuration="com.yworks.bpmn.Artifact.withShadow">
-              <y:Geometry height="55.0" width="138.0" x="548.8" y="562.75"/>
+              <y:Geometry height="55.0" width="138.0" x="523.0999999999999" y="537.25"/>
               <y:Fill color="#FFFFFFE6" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="46.0" x="46.0" y="10.798828125">Metrics:
 CPU<y:LabelModel>
-                  <y:SmartNodeLabelModel distance="4.0"/>
-                </y:LabelModel>
-                <y:ModelParameter>
-                  <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                </y:ModelParameter>
-              </y:NodeLabel>
-              <y:StyleProperties>
-                <y:Property class="com.yworks.yfiles.bpmn.view.BPMNTypeEnum" name="com.yworks.bpmn.type" value="ARTIFACT_TYPE_ANNOTATION"/>
-                <y:Property class="java.awt.Color" name="com.yworks.bpmn.icon.line.color" value="#000000"/>
-                <y:Property class="java.awt.Color" name="com.yworks.bpmn.icon.fill" value="#ffffff"/>
-                <y:Property class="java.awt.Color" name="com.yworks.bpmn.icon.fill2" value="#d4d4d4"/>
-              </y:StyleProperties>
-            </y:GenericNode>
-          </data>
-        </node>
-        <node id="n2::n2">
-          <data key="d6">
-            <y:GenericNode configuration="com.yworks.bpmn.Artifact.withShadow">
-              <y:Geometry height="47.5" width="158.5124" x="543.6438" y="485.24999999999994"/>
-              <y:Fill color="#FFFFFFE6" transparent="false"/>
-              <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="158.72265625" x="-0.10512812499996471" y="-0.30175781249994316">Transform incoming protocoll
-into 
-another outbound protocoll<y:LabelModel>
                   <y:SmartNodeLabelModel distance="4.0"/>
                 </y:LabelModel>
                 <y:ModelParameter>
@@ -677,7 +653,7 @@ another outbound protocoll<y:LabelModel>
     <edge id="e0" source="n0" target="n2">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="145.50691266059874" sy="0.0" tx="-29.915080239296497" ty="0.0"/>
+          <y:Path sx="145.50691266059874" sy="0.0" tx="-75.79999999999995" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="standard" target="standard"/>
           <y:BendStyle smoothed="false"/>
