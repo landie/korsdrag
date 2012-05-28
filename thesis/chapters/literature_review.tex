@@ -1,7 +1,7 @@
 ﻿\section{Literature review results}
 \label{sec:litrev}
 
-The literature review has been focused on what the academic world knows and what the industrial world knows. Knowledge in the case of this thesis being focused at performance tests.
+The literature review has been focused on what the academic world knows and what the industrial world knows. Knowledge in this thesis is focused towards performance tests.
 First the academic sources will be presented and their tests summarized, followed by the same procedure focusing on the industry and finally the entire literature review will be concluded in an overarching summary.
 
 % - Present the papers that you have identified as your information source. Describe them, what type of papers they are, from what period; what do they have in common etc.
@@ -10,7 +10,7 @@ First the academic sources will be presented and their tests summarized, followe
 This section will summaries our findings in academia. Beginning with a short presentation of papers found followed by a summary and analysis of the tests found within the papers.
 
 
-"Enterprise Service Bus"\cite{falko07} by Falko Menge is a paper that explains the fundamentals of an ESB as well as introduces Mule with an example. Published in 2007 its example has become obsolete and outdated however the fundamentals still hold true as seen by later papers such as "Research of Enterprise Application Integration Based-on ESB" \cite{Jieming2010} by Jieming Wu and Xiaoli Tao as well as "Integration of Distributed Enterprise Applications: A Survey" \cite{HeIntegration} by Wu He and Li Da Xu these are papers that focus on describing the history and evolution of software integration. They were published in 2010 and give an in depth view on how an ESB  operates.
+"Enterprise Service Bus"\cite{falko07} by Falko Menge is a paper that explains the fundamentals of an ESB as well as introduces Mule with an example. Published in 2007 its example has become obsolete and outdated however the fundamentals still hold true as seen by later papers such as "Research of Enterprise Application Integration Based-on ESB" \cite{Jieming2010} by Jieming Wu and Xiaoli Tao as well as "Integration of Distributed Enterprise Applications: A Survey" \cite{HeIntegration} by Wu He and Li Da Xu. These are papers that focus on describing the history and evolution of software integration. They were published in 2010 and give an in depth view on how an ESB  operates.
 
 
 "An Interoperability  Study  of ESB for C4I  Systems" \cite{Alghamdi2010} by Abdullah Alghamdi, Muhammad Nasir, Iftikhar Ahmad and Khalid A. Nafjan and  "Adopting and Evaluating Service Oriented Architecture in Industry" by Khalid Adam Nasr, Hans-Gerhard Gross and Arie van Deursen are papers showing the importance of ESBs in the modern world. Published in 2010 they represent a modern necessity for ESBs in industry.
@@ -18,15 +18,16 @@ This section will summaries our findings in academia. Beginning with a short pre
 
 "Service-Oriented Performance Modeling the MULE Enterprise Service Bus (ESB) Loan Broker Application " \cite{Brebner2009} by Paul Brebner is a paper from 2009 going trough how the author builds a integration solution and tests it, however the author tests the entire solution which isn't general enough for what we consider a performance test of an ESB. The author does however discuss some aspects of testing that are vital such as how and where to measure.
 
-"Evaluating Open Source Enterprise Service Bus" \cite{Garcia2010} by F. J. Garcia-Jimenez and M. A. Martinez-Carreras, A. F. is the first paper found that performs a performance test however the test is limited in variation and magnitude. The paper was published in 2010 which makes the test outdated since all ESBs in the test has received major updates since 2010.
-%TODO: "...makes the test outdated since..." ska det var testen som är utdaterade i sig eller är det testresultaten?
+"Evaluating Open Source Enterprise Service Bus" \cite{Garcia2010} by F. J. Garcia-Jimenez and M. A. Martinez-Carreras, A. F. is the first paper found that performs a performance test however the test is limited in variation and magnitude. The paper was published in 2010 which makes the test results outdated since all ESBs in the test has received major updates since 2010.
 
 
-"Enterprise Service Bus: A Performance Evaluation" \cite{Sanjay2011} by Sanjay P. Ahuja and Amit Patel  is the only paper found that performs a performance test directly aimed at the different ESBs with a varied test suite and varied measurements. Published in 2011 it is also the most recent paper found however all ESBs tested has received major updates since then and as such needs to be retested.
+"Enterprise Service Bus: A Performance Evaluation" \cite{Sanjay2011} by Sanjay P. Ahuja and Amit Patel  is the only paper found that performs a performance test directly aimed at the different ESBs with a varied test suite and varied measurements. Published in 2011 it is also the most recent paper found however all ESBs tested has received major updates since then and as such needs to be retested. 
+Their test results seem to contain very low numbers when compared with the industrial tests containing numbers above 1000 TPS. 
+This makes us question what system and ESB configuration they have used but there is no way for us to check any errors on their part as they have not published these details.
 
 
 The above papers has as per the literature review design first been identified by its abstract and then read in detail to find those that describe the concept of an ESB and those that test ESBs in various ways. We have selected papers according to three topics. First is a basic ESB understanding and explanation in order to assert an understanding of how an ESB works and its history. We consider this important since in order to understand the importance of a software it is imperative one has a firm understanding of its fundamentals. After that fundamental has been established we concentrated on papers that shows a use for ESBs in real world industry and organizations. This in order to convey a sense of the use and importance of ESBs and research concerning it.
-Finally we focused on papers that performs any kind of tests in order to establish an understanding of the current body of knowledge in the academic world. Most important were papers testing ESBs and not solutions, performance and not overall feature checks.
+Finally we focused on papers that performs any kind of tests in order to establish an understanding of the current body of knowledge in the academic world. Most important were papers testing ESBs and not overall solutions, performance and not subjective feature checks.
 
 
 \subsubsection{Academia summary}
@@ -78,7 +79,8 @@ This section is a summary of tests and scenarios found in our academic sources.
 \end{table}
 
 The fact that we have only found two papers performing tests is a very clear indication that the academic world does not perform performance test/analysis on ESBs. The ones we have found are all considered old in a rapidly changing world and all but one performs a test that we find adequate. 
-It would also seem that Sanjay \cite{Sanjay2011} have looked at the tests performed in the industry as the tests and metrics captured closely align with the industrial tests. 
+It would also seem that Sanjay \cite{Sanjay2011} have looked at the tests performed in the industry as the tests and metrics captured closely align with the industrial tests however the numbers measured are wastly different. 
+This shows the importance of publishing hardware specifications and tools configuration so following papers can reproduce and analyze data more accurately and improve on the testing framework.
 Sanjay have added a CPU measurement on the ESB in order to measure relative performance between ESBs allowing the same throughput per CPU load percentage to be calculated.
 The tests performed by Garcia \cite{Garcia2010} contribute by adding security but the tests themselves doesn't test the core functions enough for us to use them in our own framework. 
 Adding security ontop of tests is a possible addition to the framework in the future but for now its somewhat at a higher technical level then we're aiming for in this thesis.
@@ -162,9 +164,8 @@ It is apparent that the academic world is seriously lacking any kind of performa
 We found one paper by A.P Sanjay \cite{Sanjay2011} that produced a test suite with a good enough scope and focus. 
 It is however becoming outdated due to the fast pace of the industry and there are no collaborating papers supporting the results produced and as such it by itself hold little value. 
 We have also during our own testing found their results very odd and since they have not presented the environment in which they performed the tests it's impossible to figure out why their numbers are strange. 
-Further detail will be given regarding this in our analysis of our own data. %TODO ref till analysen av vår data
-The industry has made a good effort in providing sensible tests that focuses on the basic performance but those results are old, outdated and most importantly biased. 
-% TODO: beskriv hur testen var "biased", inte bara att de var det (annars kommer examinator gnälla :P).
+Further detail will be given regarding this in our analysis of our own data in chapter \ref{sec:test_results_and_analysis}.
+The industry has made a good effort in providing sensible tests that focuses on the basic performance but those results are old, outdated and most importantly biased as the different companies are direct competiters. 
 
 We believe that \cite{Sanjay2011} and \cite{Perera07,Perera07R2,Perera07R3,mulesoft08} still holds some merit in regards to how tests should be performed but the actual results they have produced have not been confirmed by other independent sources and are now to old for reproduction. 
 It is therefore our conclusion in regards to RQ1-2 that the current body of knowledge is very inaccurate and outdated however there is enough history for us to be able to start fresh.
