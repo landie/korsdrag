@@ -1,0 +1,74 @@
+1) Defining the area and a problem (be as dramatic as you can be here don’t exaggerate though).
+
+{``independent islands of computing''}
+	{too expensive to replace}
+	{age}
+	{wastly different technologies and protocols}
+
+{Almost all western companies have legacy systems}
+	{integrate}
+	{buy new}
+
+{point to point}
+	{Spaghetti integration}
+	{No scaling whatsoever}
+	{Extremely complex very fast}
+
+{hub-n-spoke}
+	{Less spaghetti integration}
+	{Somewhat scalable}
+	{Single point of failure}
+
+
+enter the esb. 
+{Enterprise Service Bus}
+	{like hub-n-spoke}
+	{scalable}
+	{no single point of failure}
+
+3) Present research questions and research approach
+
+{Research questions:}
+	{RQ1: What is the current knowledge of ESBs in academica?}
+	{RQ2: What is the current knowledge of ESBs in the industry?}
+	{RQ3: What are the components of a transparent and unbiased ESB solutions comparison framework.}
+
+
+{Literature review}
+{Testing framework}
+{Result analysis}
+
+4) Present your results and findings
+
+{lägg in tabellen på vad industrin gjort}
+
+{academi tabellen}
+
+{sen vårt testresultat}
+{utan esb resultat}
+
+5) Discuss the results, their relation to already existing knowledge, their relevance and contribution. Discuss validity threats.
+
+{RQ1-2}
+	{industry}
+		{old}
+		{biased}
+		{good scenarios}
+	{academia}
+		{non-existent}
+		{questionable results}
+
+{RQ3}
+	{Framework works}
+	{Need ESB specific "experts"}
+	{Faster network}
+
+{Validity}
+	{Missed papers}
+	{Bad code}
+
+6) Improvements and future work.
+
+{Code is on github} {länk kanske?}
+{Getting ESB makers make the esb used in testing}
+{increase complexity of framework}
