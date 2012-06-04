@@ -1,0 +1,60 @@
+Opponering
+
+håkan ###
+
+measurements - 5.1 
+CPU - flaskhalstest, inte viktiga siffror. relativ prestanda om man har flera
+ESB att jämföra mellan.
+
+overall analysis - 
+problem med datan, nya tester utan proxy.. tänkte vi oss några alternativa fel
+som kunde varit?
+kunde varit konfiguration som felat?
+
+Fredrik
+RQ3 - formulering? andra aspekter, specifikt prestanda.
+
+Skriv ner muleverion. :O
+
+förtydliga att testerna körs på mule, tidigt! inte så sent in i texten.
+
+testmiljön - saknas, kort beskrivning på nätverkssetup.
+
+performance - förtydliga att vi fick ut 1Gbps.
+
+### Kari
+
+abstract - problem & contribution OK, förbättra context!
+
+förväntade sig presentation av vilka ESB-lösningar som finns.
+
+Vem riktar sig thesisen till? nämn det nånstans.
+
+RQs - current knowledge... hur kan man besvara den frågan? industry och
+acedemia skilda, survey eller nåt hade varit bättre.
+formulera om frågan - what is the state of art of industry available in
+academical papers? (whaaaaat)
+
+rikta frågan så den blir tydligare, skillnad mellan industry och academia.
+
+förklarande texter till varje table/figure, få ihop dem
+
+"regel": tabell aldrig stå för sig själv
+
+conclusion - sett att relatera starkare hur vårt bidrag i förhållande till
+andra publiceringar, var kommer vi in och vad har vi gjort av värde?
+	underlättar om man ritat upp i intro en karta om hur det ser ut, vem som
+gjort vad osv sen ref:a till det i conclusion.
+
+upprepa core results i conclusion.
+
+Nina
+
+results - blev annorlunda, inte vad som var förväntat.
+	analysera varför det blev så, kan vara kod.
+
+	vil se hur results relaterar till andras arbete, mer konkret hur deras
+	grafer såg ut. jämför.
+
+
+	routing mediation tabellen ska vara transformation
