@@ -58,3 +58,6 @@ results - blev annorlunda, inte vad som var förväntat.
 
 
 	routing mediation tabellen ska vara transformation
+
+Generellt text innan RQ så man slipper vara så specifik i RQ, lite beskrivande
+om vad vi vill åstadkomma
