@@ -27,6 +27,7 @@ enter the esb.
 	{no single point of failure}
 
 3) Present research questions and research approach
+This thesis is focused on performance testing and as such our research questions are aimed for that specific field.
 
 {Research questions:}
 	{RQ1: What is the current knowledge of ESBs in academica?}
