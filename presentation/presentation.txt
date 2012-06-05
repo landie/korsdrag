@@ -31,7 +31,7 @@ This thesis is focused on performance testing and as such our research questions
 
 {Research questions:}
 	{RQ1: What is the state of the art knowledge of ESBs in academic literature publications?}
-	{RQ2: What is the state of the art knowledge of ESBs in industrial literature publications?}
+	{RQ2: What is the state of the art knowledge of ESBs in industrialgi literature publications?}
 	{RQ3: What are the components of a reproducable and accurate ESB performance testing framework.}
 
 
