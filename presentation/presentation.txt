@@ -30,9 +30,9 @@ enter the esb.
 This thesis is focused on performance testing and as such our research questions are aimed for that specific field.
 
 {Research questions:}
-	{RQ1: What is the current knowledge of ESBs in academica?}
-	{RQ2: What is the current knowledge of ESBs in the industry?}
-	{RQ3: What are the components of a transparent and unbiased ESB solutions comparison framework.}
+	{RQ1: What is the state of the art knowledge of ESBs in academic literature publications?}
+	{RQ2: What is the state of the art knowledge of ESBs in industrial literature publications?}
+	{RQ3: What are the components of a reproducable and accurate ESB performance testing framework.}
 
 
 {Literature review}
