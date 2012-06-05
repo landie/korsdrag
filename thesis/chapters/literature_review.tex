@@ -7,7 +7,7 @@ First the academic sources will be presented and their tests summarized, followe
 % - Present the papers that you have identified as your information source. Describe them, what type of papers they are, from what period; what do they have in common etc.
 \subsection{Knowledge in academia}
 \label{sec:academia_section}
-This section will summaries our findings in academia. Beginning with a short presentation of papers found followed by a summary and analysis of the tests found within the papers.
+This section will summarize our findings in academia. It begins with a short presentation of papers found followed by a summary and analysis of the tests found within the papers.
 
 
 "Enterprise Service Bus"\cite{falko07} by Falko Menge is a paper that explains the fundamentals of an ESB as well as introduces Mule with an example. Published in 2007 its example has become obsolete and outdated however the fundamentals still hold true as seen by later papers such as "Research of Enterprise Application Integration Based-on ESB" \cite{Jieming2010} by Jieming Wu and Xiaoli Tao as well as "Integration of Distributed Enterprise Applications: A Survey" \cite{HeIntegration} by Wu He and Li Da Xu. 
@@ -34,7 +34,7 @@ First is a basic ESB understanding and explanation in order to assert an underst
 We consider this important since in order to understand the importance of a software it is imperative one has a firm understanding of its fundamentals. 
 After that fundamental has been established we concentrated on papers that shows a use for ESBs in real world industry and organizations. 
 This in order to convey a sense of the use and importance of ESBs and research concerning it.
-Finally we focused on papers that performs any kind of tests in order to establish an understanding of the current body of knowledge in the academic world. 
+Finally we focused on papers that performs any kind of tests in order to establish an understanding of the current state of the art knowledge in the academic world. 
 Most important were papers testing ESBs and not overall solutions, performance and not subjective feature checks.
 
 \newpage
@@ -93,12 +93,12 @@ This section is a summary of tests and scenarios found in our academic sources.
 	Sanjay \cite{Sanjay2011} tests used a varied amount of users and payload while Garcia \cite{Garcia2010} only tested with an increasing amount of users.
 \end{table}
 
-The fact that we have only found two papers \cite{Sanjay2011,Garcia2010} performing tests is a very clear indication that the academic world does not perform performance test/analysis on ESBs. The ones we have found are all considered old in a rapidly changing world and all but one \cite{Sanjay2011} performs a test that we find adequately focusing on performance. 
+The fact that we have only found two papers \cite{Sanjay2011,Garcia2010} performing tests is a very clear indication that the academic world have room for more performance tests/analysis on ESBs. The ones we have found are all considered old in a rapidly changing world and all but one \cite{Sanjay2011} performs a test that we find adequately focusing on performance. 
 It would also seem that Sanjay \cite{Sanjay2011} have looked at the tests performed in the industry \cite{Perera07,Perera07R2,Perera07R3,mulesoft08} as the tests and metrics captured closely align with the industrial tests however the numbers measured are wastly different. 
 This shows the importance of publishing hardware specifications and tools configuration so following papers can reproduce and analyze data more accurately and improve on the testing framework.
 Sanjay have added a CPU measurement on the ESB in order to measure relative performance between ESBs allowing the same throughput per CPU load percentage to be calculated.
 The tests performed by Garcia \cite{Garcia2010} contribute by adding security but the tests themselves doesn't test the core functions enough for us to use them in our own framework. 
-Adding security ontop of tests is a possible addition to the framework in the future but for now its at a higher technical level then we're aiming for in this thesis.
+Adding security on top of tests is a possible addition to the framework in the future but for now its at a higher technical level then we're aiming for in this thesis.
 
 
 \subsection{Knowledge in industry}
@@ -190,7 +190,7 @@ We have also during our own testing found Sanjays results very odd and since the
 The industry has made a good effort in providing sensible tests that focuses on the basic performance but those results are old, outdated and most importantly biased as the different companies are direct competitors. 
 
 We believe that \cite{Sanjay2011} and \cite{Perera07,Perera07R2,Perera07R3,mulesoft08} still holds some merit in regards to how tests should be performed but the actual results they have produced have not been confirmed by other independent sources and are now to old for reproduction. 
-It is therefore our conclusion in regards to RQ1-2 that the current body of knowledge is very inaccurate and outdated however there is enough history for us to be able to start fresh.
+It is therefore our conclusion in regards to RQ1-2 that the current body of knowledge is inaccurate and outdated however there is enough history for us to be able to start fresh.
 We will focus on the scenarios found in \cite{Perera07,Perera07R2,Perera07R3,mulesoft08,Sanjay2011} as those seem to be focused on the core functionality and that is the best place to start.
 These scenarios should also allow for atleast a comparison against older data and some conclusions regarding improvements in performance might be possible because of that.
 We will in our test framework provide an up to date framework for performing these tests and most importantly we will provide the source code needed to replicate and analyze the tests.

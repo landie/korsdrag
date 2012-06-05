@@ -21,6 +21,9 @@ This section will describe what metrics will be collected and why.\\
 
 It is vital to monitor the overall status of all systems involved in the test in order to detect possible chokepoints like network becoming maxed out thus severly limiting the test results.
 
+CPU usage for the web service is important to measure because the web service should not be bottlenecking anything, it is just there to simulate a real back end application and thus has very little to do with ESB testing except for being there as a helper for the whole integrated system.
+CPU usage for the ESB is important if two or more ESB solutions are tested against each other for when calculating relative performance where CPU usage relative to how much is processed plays a great part.
+
 
 \subsubsection{Response time}
 The amount of time elapsed since a request was sent to the time a response was received. 
@@ -80,6 +83,7 @@ This could make an ESB invaluable since the ESB would take care of receiving the
 
 \subsection{Artifacts and tools}
 \begin{table}[H]
+	\label{table:sw-spec}
 	\caption{Software and tools}
 	\begin{itemize}
 		\item Client: Grinder \cite{whatisgrinder}
@@ -90,7 +94,7 @@ This could make an ESB invaluable since the ESB would take care of receiving the
 \end{table}
 In order to minimize the amount of factors that interfere in the tests we recommend having at least three similar state of the art computers, connected to a high-speed network, essential.
 It might not be of the greatest importance that the computers are state of the art but in order to not reach a hardware ceiling while testing, such machines are recommended. 
-What's most important is that one computer is designated to run ESBs, one is designated to generate traffic(called Client) while the others are simple servers responding to the traffic generated (called Web service). 
+What's most important is that one computer is designated to run ESBs, one is designated to generate traffic(called Client) while the others are simple servers (called Web service) are running a simple application which echoes everything sent to it with an interface using jax-ws to expose the service to soap/XML clients which is the interface used by grinder/the esb to send requests to the web service.
 
 This separating and designating of roles to machines minimizes different hardware affecting test results as the same machines perform the same roles in all tests and the only thing changed is the ESB. 
 
@@ -119,7 +123,8 @@ By actually providing the source code we have opened up the possibility for impr
 \subsection{Test results and analysis}
 
 This section describes our attempt at running the testing framework with an analysis of the results.
-First up is the hardware specification on the five computers used, the scenarios where run with one computer acting as the client, one as the ESB and three as web services.(see table \ref{table:hw-spec}). 
+First up is the hardware specification on the five computers used, the scenarios where run with one computer acting as the client , one as the ESB which in this case was mule  and three as web services (see table \ref{table:hw-spec}). 
+The computers were connected to an isolated network with a 1Gbps speed limit.
 
 \begin{table}[H]
 	\caption{Hardware configuration}
@@ -136,6 +141,8 @@ First up is the hardware specification on the five computers used, the scenarios
 		\hline
 	\end{tabular} 
 \end{table}
+
+As described in table \ref{table:sw-spec}, Grinder (v3.8) was used for simulating clients (users), the ESB in this case was Mule v3.2.1 and the web service running on three different computers used JAX-WS 2.2.
 
 The results have been obtained by running each test in a period of 5 minutes, that is, 5 minutes for shift in test parameters (changing the number of clients and/or the payload size). 
 This showed to be a sufficient amount of time since the amount of requests made in each test ranged from at least 350 to more than 30 000 which was deemed sufficient for liable test results. 
@@ -234,8 +241,10 @@ The only other thing noted was a higher decrease in throughput when the payload 
 \subsubsection{Overall analysis of performed tests}
 \label{sec:test-final-analysis}
 
-The low throughput seen in all of the tests when a single user is sending a very small amount of data (1KB) is something we found very strange. 
+The low throughput seen in all of the tests when a single user is sending a very small amount of data (1KB) is something we found very strange.
 To get som clarity we ran all tests without involving mule, a direct connection between the client (Grinder) and the web service (EchoService). As seen in Figures \ref{fig:direct-1-1}, \ref{fig:direct-1-2}, \ref{fig:direct-2-1}, \ref{fig:direct-2-2} the test results are quite different where the only similar graphs (ignoring magnitude) being the Mean response time.
+
+No conclusion about what caused the low performance when using mule was reached but we speculated about possible user errors or faulty configurations caused by deficient know-how about coding well-performing mule code.
 
 Running the direct tests with 160+ users sending 100KB requests was throttled by the network, therefore the peak is at approximately 400 TPS. As seen in figure \ref{fig:direct-2-3} this network is at around 320 Megabits per second on average (which is only half the network capacity since the web service is echoing everything sent to it instantly doubling the network load).
 
