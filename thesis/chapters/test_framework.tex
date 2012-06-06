@@ -247,8 +247,6 @@ Running the direct tests with 160+ users sending 100KB requests was throttled by
 
 Since the 1 user 1KB test's TPS as shown in figure \ref{fig:direct-1-1} is much higher than in the direct proxy (fig. \ref{fig:proxy-1-1}) our conclusion regarding a limitation/bug in mule seems to fit.
 
-Noting these major differences in test results with and without mule we concluded that it is not necessarily our framework that needs refinement but that our skills programming an integration bus is lacking. This is why our framework matters, everyone won't be able to in a small period of time learn to be masters in each and every ESB being tested. Instead we want to delegate the integration bus part to others with the right competence to integrate with our endpoints (client and web service) in a way that makes optimal use of the ESB.
-
 \newpage
 
 \begin{figure}[H]
@@ -281,3 +279,5 @@ Noting these major differences in test results with and without mule we conclude
 	\label{fig:direct-2-3}
 	As seen in this graph the network is peaking at around 320 Megabits per second on average (which is only half the network capacity since the web service is echoing everything sent to it instantly doubling the network load).
 \end{figure}
+
+Noting these major differences in test results with and without mule we concluded that it is not necessarily our framework that needs refinement but that our skills programming an integration bus is lacking. This is why our framework matters, everyone won't be able to in a small period of time learn to be masters in each and every ESB being tested. Instead we want to delegate the integration bus part to others with the right competence to integrate with our endpoints (client and web service) in a way that makes optimal use of the ESB.
