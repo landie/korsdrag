@@ -1,10 +1,10 @@
-%TODO: Länk till github nånstans... vet inte var den passar bäst in... (länken är för övrigt: https://github.com/Datanizze/korsdrag-thesis-files)
 \section{Testing framework}
 This testing framework aims to answer RQ3. The goal is to produce a transparent and sound way of testing core functionality (see section \ref{sec:core-functionality}) performance of any ESB. 
 % TODO: vet inte hur du tänkte med ref till lit.rev. men lade en ref till background där de tre sakerna listas.
 We have gathered much inspiration from Sanjay \cite{Sanjay2011} regarding what measurements and tests should be performed however an even larger concern of ours is to provide source code and transparency in order for the tests to be repeatable as well as having the ability to discuss how to improve testing which Sanjay misses completely.
 
 \subsection{Measurements}
+\label{sec:measurements}
 This section will describe what metrics will be collected and why.\\
 
 \begin{table}[H]
@@ -124,7 +124,8 @@ First is to run the same software versions and compare the results.
 They should be similar deviating only in magnitude. The second way is if using a newer or older software version the values, when put in a graph, will either have the same shape or show areas in which performance has changed, 
 if it is the same shape but the magnitude is higher then that is most likely caused by faster machines being used and vice versa if its the same magnitude except in certain areas then that shows an improvement in the software.
 
-The configuration files and all source code used can be found on github at https://github.com/Datanizze/korsdrag-thesis-files
+The framework is available for others by simply following the base tests described in section \ref{sec:measurements}. Those test can be considered as a basic starting point and expanding these tests with more complicated ones is more than welcome and is encouraged.
+The configuration files and all source code used in the framework can be found on github at https://github.com/Datanizze/korsdrag-thesis-files
 
 \subsection{Variables and variable control}
 No limitiations has been forseen except for hardware and network.
