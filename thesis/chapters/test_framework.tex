@@ -138,7 +138,7 @@ This section discusses different validity threats.
 \subsubsection{Inefficient code}
 We are not expert in the various programming languages and systems used to perform these tests and as such our code might be inefficient and even wrong. Inefficient code is not a problem as long as the same code is used in all tests. Erroneous code however is unmaintainable code and as such will require to be changed in the future and that will most likely affect the test results and test history. 
 The possibilities of erroneous code has been limited by focusing the tests on very simple and basic functionality that doesn't require expert knowledge of the ESB in order to get results.
-By actually providing the source code we have opened up the possibility for improvements and additions of more advanced tests which we feel is extremely important for a consistent testing framework used in academia and industry.
+By actually providing the source code we have opened upthe possibility for improvements and additions of more advanced tests which we feel is extremely important for a consistent testing framework used in academia and industry.
 
 \subsection{Test results and analysis}
 
@@ -149,7 +149,7 @@ The computers were connected to an isolated network with a 1Gbps speed limit.
 As described in table \ref{table:sw-spec}, Grinder was used for simulating clients (users), the ESB in this case was Mule and the web service running on three different computers used JAX-WS.
 
 The results have been obtained by running each test in a period of 5 minutes, that is, 5 minutes for shift in test parameters (changing the number of clients and/or the payload size). 
-This showed to be a sufficient amount of time since the amount of requests made in each test ranged from at least 350 to more than 30 000 which was deemed sufficient for liable test results. 
+This showed to be a sufficient amount of time since the amount of requests made in each test ranged from at least 350 to more than 30 000 which was deemed sufficient for liable test results. All data collected in the following sections were done by grinder.
 
 In the following sections the results have been analyzed for each scenario summing it up with an overall analysis of the performed test scenarios.
 
@@ -284,4 +284,4 @@ Below are the results from that test followed by an analysis.
 
 Since the 1 user 1KB test's TPS as shown in figure \ref{fig:direct-1-1} is much higher than in the direct proxy (fig. \ref{fig:proxy-1-1}) our suspicion regarding a limitation/bug in mule seems to fit.
 
-Noting these major differences in test results with and without mule we concluded that it is not necessarily our framework that needs refinement but that our skills programming an integration bus is lacking. This is why our framework matters, everyone won't be able to in a small period of time learn to be masters in each and every ESB being tested. Instead we want to delegate the integration bus part to others with the right competence to integrate with our endpoints (client and web service) in a way that makes optimal use of the ESB.
+Noting these major differences in test results with and without mule we concluded that it is not necessarily our framework that needs refinement but that our skills programming an integration bus is lacking. This is why our framework matters, everyone won't be able to in a small period of time learn to be masters in each and every ESB being tested. Instead we want to delegate the integration bus part to others with the right competence to integrate with our endpoints (client and web service) in a way that makes optimal use of the ESB. This fits well with the valdity threat about inefficient code in relation to our tests since we are no experts at developing in mule.
