@@ -28,11 +28,11 @@ CPU usage for the ESB is important if two or more ESB solutions are tested again
 \subsubsection{Response time}
 The amount of time elapsed since a request was sent to the time a response was received. 
 The response time is measured because this is what a single user will be affected by the most, if the response time is very low the user will perceive the system as very fast and vice versa if the response time is too high.
+
+\newpage
 \subsubsection{Throughput}
 The amount of successful transactions performed per second (tps). A transaction is counted as successful if the response matches expected values.
 The value of throughput lies in how many users the system can serve in a specific timeframe. If the throughput is high the system will be able to handle many simultaneous users making the system efficient at handling a high load.
-
-
 
 Response time and throughput are the most interesting numbers to investigate as they are very important for end users and systems. 
 The more users a system can handle and the faster it does so the higher value the system will get in terms of scalability and performance per processing unit which in turn equals a lower operating cost where the system is able to handle a high amount of users whilst keeping the costs down.
@@ -46,18 +46,19 @@ The tests described below are aimed at measuring the very basic roles of any ESB
 The tests are very simple with the specific goal of producing a baseline for future tests. 
 These basic tests have been chosen since anyone with the development knowledge of an ESB should be able to produce an ESB project capable of delivering a runnable project which exposes these basic funtionalities.
 
+\newpage
 \subsection{Pure throughput}
 No manipulation of the data will be done by the ESB in this test. The ESB will simply forward all request to the target web service (as fast as possible) (fig.\ref{fig:proxy-diagram}). 
 This test could simulate a service where the ESB exposes an inbound endpoint for other an system to connect to, modularizing which service is running in the backend thus giving a separation of concern where the requesting client does not have to know about the responding web service, just that a web service is made available by the ESB.
 A comparative test can be performed here as well and that is to not use the ESB which will show what performance impact the ESB adds. 
 
-% TODO: ny bild där det inte står RAM i metrics för ESBn.
 \begin{figure}[H]
 	\centerline{\includegraphics[scale=0.43]{img/direct_proxy}}
 	\caption{Direct proxy structural diagram}
 	\label{fig:proxy-diagram}
 \end{figure}
 
+\newpage
 \subsection{Routing}
 In this test the ESB will check the incoming request from the Client and dependning on the context, send the request to an appropriate web service which will append some data and return the request to the ESB which will send the response back to the Client (fig.\ref{fig:routing-diagram}).
 This represents the ability to have several systems behind an ESB all showing the same front to the clients.
@@ -70,6 +71,7 @@ A test like this could simulate a load balancer where the ESB is a front for two
 	\label{fig:routing-diagram}
 \end{figure}
 
+\newpage
 \subsection{Message transformation}
 The ESB will convert an incoming request to a different protocoll and send it to a web service which will append some data and return the request to the ESB which will transform it back into the format the Client originally sent it (fig.\ref{fig:transform-diagram}).
 Transformation is a big deal for any ESB since two systems to be integrated probably won't speak the same language (XML, json etc) and even if they do they may not have the same data format or structure. Of course the systems need to be able to communicate with each others, without an ESB this would become cumbersome since all involved systems would have to be changed in order to understand what the others where saying, just imagine an old system written in COBOL or Assembler and making it communicate with a new system like a web service using REST \cite{whatisrest}. Integration like this cost both money and time and probably won't be future friendly with regards to maintenance.
@@ -81,10 +83,11 @@ This could make an ESB invaluable since the ESB would take care of receiving the
 	\label{fig:transform-diagram}
 \end{figure}
 
+\newpage
 \subsection{Artifacts and tools}
 \begin{table}[H]
-	\label{table:sw-spec}
 	\caption{Software and tools}
+	\label{table:sw-spec}
 	\begin{itemize}
 		\item Client: Grinder \cite{whatisgrinder}
 		\item ESB: Mule \cite{whatismule}
@@ -151,76 +154,72 @@ In the following sections the results have been analyzed for each scenario summi
 
 \subsubsection{Direct proxy results/analysis}
 
-The first test for the proxy with a single client sending an increased amount of data. Mule seems to handle this quite well, peaking at about 64 transfers per second (TPS) which could be to be a limit in mule's cxf proxy endpoint which was used. When a single client is sending a very small payload (1KB) it seems like our mule project implementation does not handle this very well since all scenarios where affected by this, limiting the throughput to about two TPS. Mule is handling the direct proxy well and it's handling regular sized payloads with ease only beginning to throttle when the payload size is growing beyond 50KB.
+The first test for the proxy with a single client sending an increased amount of datai (Fig. \ref{fig:proxy-1-1}). Mule seems to handle this quite well, peaking at about 64 transfers per second (TPS) which could be to be a limit in mule's cxf proxy endpoint which was used. When a single client is sending a very small payload (1KB) it seems like our mule project implementation does not handle this very well since all scenarios where affected by this, limiting the throughput to about two TPS. Mule is handling the direct proxy well and it's handling regular sized payloads with ease only beginning to throttle when the payload size is growing beyond 50KB (Fig. \ref{fig:proxy-2-1}).
 
+\newpage
 \begin{figure}[H]
 	\caption{TPS for direct proxy.}
 	\centerline{\includegraphics{img/proxy_fu_ip_tps}}
 	\label{fig:proxy-1-1}
-\end{figure}
+	As seen in this figure mule is having problems when the single user is sending a small amount (1KB) of data. 
+	As the payload increases a bit (10-50KB) a peak at 64 TPS is reached and is then decreased when the payload reaches 100KB.
+	When the payload size reaches 500KB mule is having som difficulties keeping up only giving a TPS of 5.
 
-
-\begin{figure}[H]
 	\caption{Mean response time for direct proxy.}
 	\centerline{\includegraphics{img/proxy_fu_ip_resp}}
 	\label{fig:proxy-1-2}
 	The mean response time for the proxy keeps low throughtout the entire test scenario where the largest peak is at the 1KB payload which has been attributed to a limitation or bad configuration in mule.
+	It is only when the payload size reaches 500KB and beyond an increase in mean response time occurs.
 \end{figure}
-
 
 \begin{figure}[H]
 	\caption{TPS for direct proxy.}
 	\centerline{\includegraphics{img/proxy_fp_iu_tps}}
 	\label{fig:proxy-2-1}
-	Using a fixed payload of 100KB and an increasing number of clients the throughput was peaking at 98 TPS. Mule handles the increasing number of clients well, keeping up with a reasonable response time only to slow down when the client count increases beyond 160.
-\end{figure}
+	Using a fixed payload of 100KB and an increasing number of clients the throughput was peaking at 98 TPS and then decreasing at 320 concurrent users.
 
-\begin{figure}[H]
 	\caption{Mean response time for direct proxy.}
 	\centerline{\includegraphics{img/proxy_fp_iu_resp}}
 	\label{fig:proxy-2-2}
+	 Mule handles the increasing number of clients well, keeping up with a reasonable response time only to slow down when the client count increases beyond 160.
 \end{figure}
-
 
 \begin{figure}[H]
 	\caption{TPS for content-based routing.}
 	\centerline{\includegraphics{img/mediation_fu_ip_tps}}
 	\label{fig:mediation-1-1}
-	The content-based routing proxy behaved exactly as the direct proxy just differing in the magnitude which was predictable since it is just making a simple choice by looking at the payload to decide on where to send the request, thus no complex computing is performed by mule.
-\end{figure}
+	As seen here in the content based routing scenario the behavior of mule is similar to the direct proxy (Fig. \ref{fig:proxy-1-1}), starting off slow again at 1KB to increase again at 10-50KB peaking at around 65 TPS and then going down again to about a third in TPS finishing off with 5 TPS at 500KB and 2 TPS at 1MB.
 
-\begin{figure}[H]
 	\caption{Mean response time for content-based routing.}
 	\centerline{\includegraphics{img/mediation_fu_ip_resp}}
 	\label{fig:mediation-1-2}
+	Similar to the mean response time seen in the direct proxy scenario (Fig. \ref{proxy-1-2}) with the exception of being slightly higher at 500KB and 1MB caused by the fact that mule has to look at each request and make a decision of which web service to send the request to.
 \end{figure}
 
 \begin{figure}[H]
 	\caption{TPS for content-based routing.}
 	\centerline{\includegraphics{img/mediation_fp_iu_tps}}
 	\label{fig:mediation-2-1}
-\end{figure}
+	As with the direct proxy (Fig. \ref{fig:proxy-2-1}) a single user sending 100KB is limited by the fact that a single user can only send so much requests in a short time frame. The content based routing scenario almost mirrors the direct proxy in this test as would be expected since mule is in addition to proxying just taking a look at a small payload to decide where to send it thus no major processing is done by mule.
 
-\begin{figure}[H]
 	\caption{Mean response time for content-based routing.}
 	\centerline{\includegraphics{img/mediation_fp_iu_resp}}
 	\label{fig:mediation-2-2}
+	The mean response time for this test scenario almost mirrors the same test scenario for the direct proxy (Fig \ref{fig:proxy-2-2}). An almost linear increas in response time can be seen as the number of concurrent users increases only to deviate when the user count peaks at 320 users.
 \end{figure}
-
-The first test with a single client sending an increasing amount of data in the transformation scenario almost mirrors the direct proxy except for when the client was sending a 25KB data payload. The 25KB part of this test was rerun three times with the same result.
-A conclusion was reached that this might be a bug in the mule software since the throughtput went up again when the payload was increased to 50KB.
-The only other thing noted was a higher decrease in throughput when the payload reached the larger sizes, this was concluded to be caused by mule having a hard time transforming such large amounts of data from json to xml and back again.
 
 \begin{figure}[H]
 	\caption{TPS for content transformation proxy.}
 	\centerline{\includegraphics{img/transform_fu_ip_tps}}
 	\label{fig:transform-1-1}
-\end{figure}
+	The first test with a single client sending an increasing amount of data in the transformation scenario almost mirrors the direct proxy except for when the client was sending a 25KB data payload. The 25KB part of this test was rerun three times with the same result.
+	A conclusion was reached that this might be a bug in the mule software since the throughtput went up again when the payload was increased to 50KB.
+	The only other thing noted was a higher decrease in throughput when the payload reached the larger sizes, this was concluded to be caused by mule having a hard time transforming such large amounts of data from json to xml and back again.
 
-\begin{figure}[H]
 	\label{fig:transform-1-2}
 	\caption{Mean response time for content transformation proxy.}
 	\centerline{\includegraphics{img/transform_fu_ip_resp}}
+	The graph here follows the earlier test scenario graphs (Fig. \ref{fig:proxy-1-2} and \ref{fig:mediation-1-2}) with the exception of the odd 25KB behavior.
 \end{figure}
 
 \begin{figure}[H]
@@ -229,55 +228,56 @@ The only other thing noted was a higher decrease in throughput when the payload 
 	\label{fig:transform-2-1}
 	The second test in the transformation scenario shows that sending mule is quite capable of handling transformation of many requests. Note that the throughput is higher for 160 clients with this scenario than in the direct proxy scenario.
 
-\end{figure}
-
-\begin{figure}[H]
 	\caption{Mean response time for content transformation proxy.}
 	\centerline{\includegraphics{img/transform_fp_iu_resp}}
 	\label{fig:transform-2-2}
+	Mule is handling the transformation between JSON and XML well, mirroring the behavior of earlier response time results (Fig. \ref{fig:proxy-2-2} and \ref{fig:mediation-2-2}) when not accounting for magnitude.
 \end{figure}
-
 
 \subsubsection{Overall analysis of performed tests}
 \label{sec:test-final-analysis}
 
-The low throughput seen in all of the tests when a single user is sending a very small amount of data (1KB) is something we found very strange.
+The low throughput seen in all of the tests when a single user is sending a very small amount of data (1KB) (Fig. \ref{fig:proxy-1-1}, \ref{fig:-mediation-1-1} and \ref{fig:transform-1-1}) is something we found very strange.
 To get som clarity we ran all tests without involving mule, a direct connection between the client (Grinder) and the web service (EchoService). As seen in Figures \ref{fig:direct-1-1}, \ref{fig:direct-1-2}, \ref{fig:direct-2-1}, \ref{fig:direct-2-2} the test results are quite different where the only similar graphs (ignoring magnitude) being the Mean response time.
 
-No conclusion about what caused the low performance when using mule was reached but we speculated about possible user errors or faulty configurations caused by deficient know-how about coding well-performing mule code.
+% something for future work?
+No absolute conclusion about what caused the low performance when using mule was reached but we speculated about possible user errors or faulty configurations caused by deficient know-how about coding well-performing mule code.
 
-Running the direct tests with 160+ users sending 100KB requests was throttled by the network, therefore the peak is at approximately 400 TPS. As seen in figure \ref{fig:direct-2-3} this network is at around 320 Megabits per second on average (which is only half the network capacity since the web service is echoing everything sent to it instantly doubling the network load).
+Running the direct tests with 160+ users sending 100KB requests was throttled by the network, therefore the peak is at approximately 400 TPS. 
 
 Since the 1 user 1KB test's TPS as shown in figure \ref{fig:direct-1-1} is much higher than in the direct proxy (fig. \ref{fig:proxy-1-1}) our conclusion regarding a limitation/bug in mule seems to fit.
 
 Noting these major differences in test results with and without mule we concluded that it is not necessarily our framework that needs refinement but that our skills programming an integration bus is lacking. This is why our framework matters, everyone won't be able to in a small period of time learn to be masters in each and every ESB being tested. Instead we want to delegate the integration bus part to others with the right competence to integrate with our endpoints (client and web service) in a way that makes optimal use of the ESB.
 
+\newpage
+
 \begin{figure}[H]
-	\caption{Mean response time for client direct to web service.}
+	\caption{TPS for client direct to web service.}
 	\centerline{\includegraphics{img/direct_fu_ip_tps}}
 	\label{fig:direct-1-1}
-\end{figure}
+	This graph is what one would expect in throughput wehere a small payload gives a high throughput and a larger payload decreases the throughput.
 
-\begin{figure}[H]
-	\caption{TPS for client direct to web service.}
+	\caption{Mean response time for client direct to web service.}
 	\centerline{\includegraphics{img/direct_fu_ip_resp}}
 	\label{fig:direct-1-2}
-\end{figure}
-
-\begin{figure}[H]
-	\caption{Mean response time for client direct to web service.}
-	\centerline{\includegraphics{img/direct_fp_iu_tps}}
-	\label{fig:direct-2-1}
+	An abysmal mean repsonse time can be seen here when the payload size is 100KB and below. The response time increased many tenfold after that but is still well below 100ms.
 \end{figure}
 
 \begin{figure}[H]
 	\caption{TPS for client direct to web service.}
+	\centerline{\includegraphics{img/direct_fp_iu_tps}}
+	\label{fig:direct-2-1}
+	When the test scenario with a fixed payload of 100KB and an increasing amount of users were run we note that a much higher throughput is reached without mule than with. The graph peaks very early on because of network limitations.
+
+	\caption{Mean response time for client direct to web service.}
 	\centerline{\includegraphics{img/direct_fp_iu_resp}}
 	\label{fig:direct-2-2}
+	A mean response time below 200ms was kept up until 160 concurrent users. When the user count reached 320 the network got overloaded and thus could not keep up with all requests being sent at a proficient rate making the response time increase by a factor of eight.
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
 	\caption{Average network usage for client direct to web service.}
 	\centerline{\includegraphics{img/direct_fp_iu_kbs}}
 	\label{fig:direct-2-3}
+	As seen in this graph the network is peaking at around 320 Megabits per second on average (which is only half the network capacity since the web service is echoing everything sent to it instantly doubling the network load).
 \end{figure}
