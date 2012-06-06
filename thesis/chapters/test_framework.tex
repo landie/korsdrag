@@ -89,12 +89,29 @@ This could make an ESB invaluable since the ESB would take care of receiving the
 	\caption{Software and tools}
 	\label{table:sw-spec}
 	\begin{itemize}
-		\item Client: Grinder \cite{whatisgrinder}
-		\item ESB: Mule \cite{whatismule}
-		\item Web service: Jax-WS \cite{whatisjaxws}
+		\item Client: Grinder (v3.8) \cite{whatisgrinder}
+		\item ESB: Mule (v3.2.1)\cite{whatismule}
+		\item Web service: Jax-WS (v2.2) \cite{whatisjaxws}
 		\item OS: Windows 7, 6.1.7600 build 7600
 	\end{itemize}
 \end{table}
+
+\begin{table}[H]
+	\caption{Hardware configuration}
+	\label{table:hw-spec}
+	\begin{tabular}{c l}
+		Component & Specification \\ 
+		\hline
+		CPU & Intel Core i7 920 @ 2.67GHz  \\
+		RAM &  6,00 GB Triple-Channel DDR3 @ 533MHz (7-7-7-20) \\
+		Network &  Intel(R) 82567LM-2 Gigabit Network Connection \\
+		Motherboard &  Intel Corporation DX58SO (J1PR) \\
+		Graphics &  256MB GeForce 7600 GS (MSI) \\
+		Hard Drive &  488GB Western Digital WDC WD5001AALS-00L3B2 ATA Device (SATA) \\
+		\hline
+	\end{tabular} 
+\end{table}
+
 In order to minimize the amount of factors that interfere in the tests we recommend having at least three similar state of the art computers, connected to a high-speed network, essential.
 It might not be of the greatest importance that the computers are state of the art but in order to not reach a hardware ceiling while testing, such machines are recommended. 
 What's most important is that one computer is designated to run ESBs, one is designated to generate traffic(called Client) while the others are simple servers (called Web service) are running a simple application which echoes everything sent to it with an interface using jax-ws to expose the service to soap/XML clients which is the interface used by grinder/the esb to send requests to the web service.
@@ -129,23 +146,7 @@ This section describes our attempt at running the testing framework with an anal
 First up is the hardware specification on the five computers used, the scenarios where run with one computer acting as the client , one as the ESB which in this case was mule  and three as web services (see table \ref{table:hw-spec}). 
 The computers were connected to an isolated network with a 1Gbps speed limit.
 
-\begin{table}[H]
-	\caption{Hardware configuration}
-	\label{table:hw-spec}
-	\begin{tabular}{c l}
-		Component & Specification \\ 
-		\hline
-		CPU & Intel Core i7 920 @ 2.67GHz  \\
-		RAM &  6,00 GB Triple-Channel DDR3 @ 533MHz (7-7-7-20) \\
-		Network &  Intel(R) 82567LM-2 Gigabit Network Connection \\
-		Motherboard &  Intel Corporation DX58SO (J1PR) \\
-		Graphics &  256MB GeForce 7600 GS (MSI) \\
-		Hard Drive &  488GB Western Digital WDC WD5001AALS-00L3B2 ATA Device (SATA) \\
-		\hline
-	\end{tabular} 
-\end{table}
-
-As described in table \ref{table:sw-spec}, Grinder (v3.8) was used for simulating clients (users), the ESB in this case was Mule v3.2.1 and the web service running on three different computers used JAX-WS 2.2.
+As described in table \ref{table:sw-spec}, Grinder was used for simulating clients (users), the ESB in this case was Mule and the web service running on three different computers used JAX-WS.
 
 The results have been obtained by running each test in a period of 5 minutes, that is, 5 minutes for shift in test parameters (changing the number of clients and/or the payload size). 
 This showed to be a sufficient amount of time since the amount of requests made in each test ranged from at least 350 to more than 30 000 which was deemed sufficient for liable test results. 
