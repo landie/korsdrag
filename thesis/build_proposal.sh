@@ -21,8 +21,8 @@ echo "Fourth run! Last cross referencing and finalizing..."
 #Fixar sista cross references och skapar en fin pdf med allt färdigt
 pdflatex thesis > /dev/null 2>&1
 
-echo "Removing aux, bbl, blg and log files..."
+echo "Removing aux, bbl, blg, out and log files..."
 #tar bort alla tramsiga filer skapade av latex som inte behövs om allt går om det ska
-rm thesis.aux thesis.bbl thesis.blg thesis.log
+rm thesis.aux thesis.bbl thesis.blg thesis.log thesis.out
 
 echo "PDF generated but I have no idea if it was successful. You'll have to check that for yourself you lazy bum!"
