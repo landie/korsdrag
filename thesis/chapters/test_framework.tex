@@ -141,8 +141,13 @@ We are not expert in the various programming languages and systems used to perfo
 The possibilities of erroneous code has been limited by focusing the tests on very simple and basic functionality that doesn't require expert knowledge of the ESB in order to get results.
 By actually providing the source code we have opened upthe possibility for improvements and additions of more advanced tests which we feel is extremely important for a consistent testing framework used in academia and industry.
 
-\subsection{Misconfigured tools}
+\subsubsection{Misconfigured tools}
 Tools such as grinder and our webservice could most certainly be configured better. Especially grinder should be looked at as there are more subtle parameters that can be set that could impact testing results such as sleepTime that pauses the client slightly before sending a new request.
+
+\subsubsection{Different operating systems}
+Different operating could alter the results of the framework slightly. We used a Windows 7 OS that is not optimized for network traffic like a tweaked *nix system could be.
+This shouldn't be that much of a problem as long as the tests are performed using the same machine with the same optimized OS. 
+It could make it harder to compare results to previous research but it would not comprise the framework as long as the OS configuration is published with the testing results.
 
 \subsection{Test results and analysis}
 
