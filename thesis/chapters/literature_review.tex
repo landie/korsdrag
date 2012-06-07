@@ -7,7 +7,7 @@ First the academic sources will be presented and their tests summarized, followe
 % - Present the papers that you have identified as your information source. Describe them, what type of papers they are, from what period; what do they have in common etc.
 \subsection{Knowledge in academia}
 \label{sec:academia_section}
-This section will summarize our findings in academia. It begins with a short presentation of papers found followed by a summary and analysis of the tests found within the papers.
+This section summarizes our findings in academia. It begins with a short presentation of papers found followed by a summary and analysis of the tests found within the papers.
 
 
 "Enterprise Service Bus"\cite{falko07} by Falko Menge is a paper that explains the fundamentals of an ESB as well as introduces Mule with an example. Published in 2007 its example has become obsolete and outdated however the fundamentals still hold true as seen by later papers such as "Research of Enterprise Application Integration Based-on ESB" \cite{Jieming2010} by Jieming Wu and Xiaoli Tao as well as "Integration of Distributed Enterprise Applications: A Survey" \cite{HeIntegration} by Wu He and Li Da Xu. 
@@ -180,17 +180,17 @@ There also seems to be quite alot of rivalry in the different tests.
 It seems WSO2 started by doing a series of performance tests \cite{Perera07,Perera07R2,Perera07R3}  where Mule did not perform as well as Mule themselves think they should and such they did their own test \cite{mulesoft08} where the results pointed in their favour.
 This shows a need for a independent third party to perform the testing as it will otherwise turn in to a slugfest where no results can be trusted. 
 
-\subsection{Literature review conclusion}
+\subsection{Literature review results}
 In this section we will answer RQ 1 and 2 aswell as provide a foundation for answering RQ3.
 
-It is apparent that the academic world is seriously lacking any kind of performance tests regarding the ESB field of software engineering. 
+It is apparent that the academic world is lacking performance tests regarding the ESB field of software engineering. 
 We found one paper by Sanjay \cite{Sanjay2011} that produced a test suite with a good enough scope and focus. 
 It is however becoming outdated due to the fast pace of the industry and there are no collaborating papers supporting the results produced and as such it by itself hold little value. 
-We have also during our own testing found Sanjays results very odd and since they have not presented the environment in which they performed the tests it's impossible to figure out why their numbers are strange. 
+We have also during our own testing found Sanjays results quite odd and since they have not presented the environment in which they performed the tests it's impossible to figure out why their numbers are strange. 
 The industry has made a good effort in providing sensible tests that focuses on the basic performance but those results are old, outdated and most importantly biased as the different companies are direct competitors. 
 
 We believe that \cite{Sanjay2011} and \cite{Perera07,Perera07R2,Perera07R3,mulesoft08} still holds some merit in regards to how tests should be performed but the actual results they have produced have not been confirmed by other independent sources and are now to old for reproduction. 
-It is therefore our conclusion in regards to RQ1-2 that the current body of knowledge is inaccurate and outdated however there is enough history for us to be able to start fresh.
+It is therefore our conclusion in regards to RQ1-2 that the current state of the art knowledge is inaccurate and outdated however there is enough history for us to be able to start fresh.
 We will focus on the scenarios found in \cite{Perera07,Perera07R2,Perera07R3,mulesoft08,Sanjay2011} as those seem to be focused on the core functionality and that is the best place to start.
 These scenarios should also allow for atleast a comparison against older data and some conclusions regarding improvements in performance might be possible because of that.
 We will in our test framework provide an up to date framework for performing these tests and most importantly we will provide the source code needed to replicate and analyze the tests.
