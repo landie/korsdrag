@@ -1,4 +1,4 @@
-\section{Testing framework}
+§\section{Testing framework}
 This testing framework aims to answer RQ3. The goal is to produce a transparent and sound way of testing core functionality (see section \ref{sec:core-functionality}) performance of any ESB. 
 % TODO: vet inte hur du tänkte med ref till lit.rev. men lade en ref till background där de tre sakerna listas.
 We have gathered much inspiration from Sanjay \cite{Sanjay2011} regarding what measurements and tests should be performed however an even larger concern of ours is to provide source code and transparency in order for the tests to be repeatable as well as having the ability to discuss how to improve testing which Sanjay misses completely.
@@ -155,7 +155,7 @@ This showed to be a sufficient amount of time since the amount of requests made 
 In the following sections the results have been analyzed for each scenario summing it up with an overall analysis of the performed test scenarios.
 
 \subsubsection{Direct proxy results/analysis}
-
+\label{test:results}
 The first test for the proxy with a single client sending an increased amount of datai (Fig. \ref{fig:proxy-1-1}). Mule seems to handle this quite well, peaking at about 64 transfers per second (TPS) which could be to be a limit in mule's cxf proxy endpoint which was used. When a single client is sending a very small payload (1KB) it seems like our mule project implementation does not handle this very well since all scenarios where affected by this, limiting the throughput to about two TPS. Mule is handling the direct proxy well and it's handling regular sized payloads with ease only beginning to throttle when the payload size is growing beyond 50KB (Fig. \ref{fig:proxy-2-1}).
 
 \newpage
@@ -255,20 +255,20 @@ Below are the results from that test followed by an analysis.
 	\caption{TPS for client direct to web service.}
 	\centerline{\includegraphics{img/direct_fu_ip_tps}}
 	\label{fig:direct-1-1}
-	This graph is what one would expect in throughput wehere a small payload gives a high throughput and a larger payload decreases the throughput.
-	Running the direct tests with 160+ users sending 100KB requests was throttled by the network, therefore the peak is at approximately 400 TPS. 
+	This graph is what one would expect in throughput where a small payload gives a high throughput and a larger payload decreases the throughput.
 
 	\caption{Mean response time for client direct to web service.}
 	\centerline{\includegraphics{img/direct_fu_ip_resp}}
 	\label{fig:direct-1-2}
-	An abysmal mean repsonse time can be seen here when the payload size is 100KB and below. The response time increased many tenfold after that but is still well below 100ms.
+	A very good mean repsonse time can be seen here when the payload size is 100KB and below. The response time increased many tenfold after that but is still well below 100ms.
 \end{figure}
 
 \begin{figure}[H]
 	\caption{TPS for client direct to web service.}
 	\centerline{\includegraphics{img/direct_fp_iu_tps}}
 	\label{fig:direct-2-1}
-	When the test scenario with a fixed payload of 100KB and an increasing amount of users were run we note that a much higher throughput is reached without mule than with. The graph peaks very early on because of network limitations.
+	When the test scenario with a fixed payload of 100KB and an increasing amount of users were run we note that a much higher throughput is reached without Mule.
+	Running the direct tests with 160+ users sending 100KB requests was throttled by the network, therefore the peak is at approximately 400 TPS. 
 
 	\caption{Mean response time for client direct to web service.}
 	\centerline{\includegraphics{img/direct_fp_iu_resp}}
