@@ -1,8 +1,10 @@
 \section{Conclusion}
 
 %1: answer RQs
-The current body of knowledge is severely lacking in both academia and industry. We found only two papers \cite{Sanjay2011,Garcia2010} doing performance tests in academia and a larger number of outdated and biased industrial papers \cite{Perera07,Perera07R2,Perera07R3,mulesoft08}.
-There is enough papers for us to at least get a foundation of testing to build upon which is what we do in our test framework. The framework consists of a series of scenarios aimed at testing the core functionality of any ESB and we have used Mule ESB as verification that the framework works as expected. 
+The current body of knowledge is severely lacking in both academia and industry. 
+We found only two papers \cite{Sanjay2011,Garcia2010} doing performance tests in academia and a larger number of outdated and biased industrial papers \cite{Perera07,Perera07R2,Perera07R3,mulesoft08}.
+There is enough papers for us to at least get a foundation of testing to build upon which is what we do in our test framework. 
+The framework consists of a series of scenarios aimed at testing the core functionality of any ESB and we have used Mule ESB as verification that the framework works as expected. 
 
 %2:	our contribution
 The largest conclusion done in this thesis is that the current body of knowledge seems to be severly lacking in both industry and academia. 
@@ -10,16 +12,14 @@ Most importantly the paper we have found \cite{Sanjay2011} lack a reproducibilit
 We have also started a humble attempt at creating a testing framework that could serve as a foundation for future tests. 
 Below is an analysis of some of the other tests performed byt others and how they compare to our results.
 
-
-\newpage
-
 \begin{figure}[H]
 	\caption{Image taken from WSO2s test \cite{Perera07R3} showing their content based routing measurements.}
 	\centerline{\includegraphics[scale=0.43]{img/WSO2_cbr_chart}}
 	\label{fig:wso2_cbr}
 	Payload is increasing (0.5KB, 1KB and 5KB) and the X-axis is numbers of clients sending data. 
 	All values seem to be above 500TPS with some tests not being able to complete on all ESB solutions.
-
+\end{figure}
+\begin{figure}[H]
 	\caption{Image taken from Mules test \cite{mulesoft08} showing their content based routing measurements.}
 	\centerline{\includegraphics[scale=1]{img/MULE_cbr_chart}}
 	\label{fig:mule_cbr}
@@ -34,7 +34,6 @@ If we look at the second "20" mark on the x-axis which is 1KB sent by 20 concurr
 Even without an ESB we could not achieve such high numbers which could mean that the configuration of grinder or the webservice needs to be finetuned.
 
 \newpage
-
 \begin{figure}[H]
 	\caption{Image taken from Sanjay \cite{Sanjay2011} showing their fixed payload content based routing measurements.}
 	\centerline{\includegraphics[scale=0.43]{img/Sanjay_cbr_fixed_payload}}
