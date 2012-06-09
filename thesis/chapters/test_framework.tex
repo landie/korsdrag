@@ -45,6 +45,8 @@ Although this might not be the case in real world scenarios the aim is not to ca
 The tests described below are aimed at measuring the very basic roles of any ESB. 
 The tests are very simple with the specific goal of producing a baseline for future tests. 
 These basic tests have been chosen since anyone with the development knowledge of an ESB should be able to produce an ESB project capable of delivering a runnable project which exposes these basic funtionalities.
+Each of these tests have been run in two different ways. The first one is by letting a single user (client) send a payload which is increased each run where they payload size varies, 1KB, 50KB, 100KB, 500KB and 1MB.
+The other way is having a fixed payload size of 100KB and a varying amount of concurrent users (clients) in the steps 1, 20, 40, 80, 160 and 320 users.
 
 \newpage
 \subsection{Pure throughput}
@@ -132,10 +134,7 @@ The configuration files and all source code used in the framework can be found o
 \subsection{Variables and variable control}
 No limitiations has been forseen except for hardware and network.
 Hardware and network loads should be monitored so they are not close too 100\% as that would mean there is a major bottleneck present. 
-All involved computers running the same operating system.
-\subsection{Experiment schedule and execution sequence}
-The other is to test load-handling where a single client will send varying sizes of payload, 1KB, 50KB, 100KB, 500KB and 1MB.
-
+All involved computers were running the same operating system.
 
 \subsection{Validity threats}
 This section discusses different validity threats.
