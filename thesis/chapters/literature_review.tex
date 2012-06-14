@@ -94,7 +94,7 @@ This section is a summary of tests and scenarios found in our academic sources.
 \end{table}
 
 The fact that we have only found two papers \cite{Sanjay2011,Garcia2010} performing tests is a very clear indication that the academic world have room for more performance tests/analysis on ESBs. The ones we have found are all considered old in a rapidly changing world and all but one \cite{Sanjay2011} performs a test that we find adequately focusing on performance. 
-It would also seem that Sanjay \cite{Sanjay2011} have looked at the tests performed in the industry \cite{Perera07,Perera07R2,Perera07R3,mulesoft08} as the tests and metrics captured closely align with the industrial tests however the numbers measured are wastly different. 
+It would also seem that Sanjay \cite{Sanjay2011} have looked at the tests performed in the industry \cite{Perera07,Perera07R2,Perera07R3,mulesoft08} as the tests and metrics captured closely align with the industrial tests however the numbers measured are vastly different. 
 This shows the importance of publishing hardware specifications and tools configuration so following papers can reproduce and analyze data more accurately and improve on the testing framework.
 Sanjay have added a CPU measurement on the ESB in order to measure relative performance between ESBs allowing the same throughput per CPU load percentage to be calculated.
 The tests performed by Garcia \cite{Garcia2010} contribute by adding security but the tests themselves doesn't test the core functions enough for us to use them in our own framework. 
@@ -115,7 +115,7 @@ In 2007 WSO2 started with a series of three performance tests against other lead
 Mule has published a few articles that are not performance test but instead some kind of sales comparison with a number of other ESBs\cite{mulevsjboss,mulevsglassfish,mulevsservicemix}.
 But we feel its important to include this anyway as we feel it shows a direction from doing performance tests to doing some sort of vague sales pitch without any numbers to back up their claims.
 
-And finally we have read the Forrester report \cite{forrester11} from 2011 which is a industry initiated report that further visualizes the need for ESBs in modern software development, It is not performance oriented and includes non open-source ESBs.
+And finally we have read the Forrester report \cite{forrester11} from 2011 which is a industry initiated report that further visualizes the need for ESBs in modern software development, It is not performance oriented and includes non open source ESBs.
 
 \newpage
 \subsubsection{Industry summary}
@@ -176,13 +176,13 @@ This section is a summary of tests and scenarios found in our industrial sources
 \end{table}
 
 The industry seem to have a good understanding of how to test their products however they do not seem to update their results and as such they hold little value.
-There also seems to be quite alot of rivalry in the different tests. 
-It seems WSO2 started by doing a series of performance tests \cite{Perera07,Perera07R2,Perera07R3}  where Mule did not perform as well as Mule themselves think they should and such they did their own test \cite{mulesoft08} where the results pointed in their favour.
+There also seems to be quite a lot of rivalry in the different tests. 
+It seems WSO2 started by doing a series of performance tests \cite{Perera07,Perera07R2,Perera07R3}  where Mule did not perform as well as Mule themselves think they should and such they did their own test \cite{mulesoft08} where the results pointed in their favor.
 This shows a need for a independent third party to perform the testing as it will otherwise turn in to a slugfest where no results can be trusted. 
 
 \subsection{Literature review results}
 \label{sec:litrev_results}
-In this section we will answer RQ 1 and 2 aswell as provide a foundation for answering RQ3.
+In this section we will answer RQ 1 and 2 as well as provide a foundation for answering RQ3.
 
 It is apparent that the academic world is lacking performance tests regarding the ESB field of software engineering. 
 We found one paper by Sanjay \cite{Sanjay2011} that produced a test suite with a good enough scope and focus. 
@@ -193,5 +193,5 @@ The industry has made a good effort in providing sensible tests that focuses on 
 We believe that \cite{Sanjay2011} and \cite{Perera07,Perera07R2,Perera07R3,mulesoft08} still holds some merit in regards to how tests should be performed but the actual results they have produced have not been confirmed by other independent sources and are now to old for reproduction. 
 It is therefore our conclusion in regards to RQ1-2 that the current state of the art knowledge is inaccurate and outdated however there is enough history for us to be able to start fresh.
 We will focus on the scenarios found in \cite{Perera07,Perera07R2,Perera07R3,mulesoft08,Sanjay2011} as those seem to be focused on the core functionality and that is the best place to start.
-These scenarios should also allow for atleast a comparison against older data and some conclusions regarding improvements in performance might be possible because of that.
+These scenarios should also allow for at least a comparison against older data and some conclusions regarding improvements in performance might be possible because of that.
 We will in our test framework provide an up to date framework for performing these tests and most importantly we will provide the source code needed to replicate and analyze the tests.

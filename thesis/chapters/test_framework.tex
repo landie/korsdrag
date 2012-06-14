@@ -19,7 +19,7 @@ This section will describe what metrics will be collected and why.\\
 	\end{tabular} \\
 \end{table}
 
-It is vital to monitor the overall status of all systems involved in the test in order to detect possible chokepoints like network becoming maxed out thus severly limiting the test results.
+It is vital to monitor the overall status of all systems involved in the test in order to detect possible chokepoints like network becoming maxed out thus severely limiting the test results.
 
 CPU usage for the web service is important to measure because the web service should not be bottlenecking anything, it is just there to simulate a real back end application and thus has very little to do with ESB testing except for being there as a helper for the whole integrated system.
 CPU usage for the ESB is important if two or more ESB solutions are tested against each other for when calculating relative performance where CPU usage relative to how much is processed plays a great part.
@@ -32,7 +32,7 @@ The response time is measured because this is what a single user will be affecte
 \newpage
 \subsubsection{Throughput}
 The amount of successful transactions performed per second (tps). A transaction is counted as successful if the response matches expected values.
-The value of throughput lies in how many users the system can serve in a specific timeframe. If the throughput is high the system will be able to handle many simultaneous users making the system efficient at handling a high load.
+The value of throughput lies in how many users the system can serve in a specific time frame. If the throughput is high the system will be able to handle many simultaneous users making the system efficient at handling a high load.
 
 Response time and throughput are the most interesting numbers to investigate as they are very important for end users and systems. 
 The more users a system can handle and the faster it does so the higher value the system will get in terms of scalability and performance per processing unit which in turn equals a lower operating cost where the system is able to handle a high amount of users whilst keeping the costs down.
@@ -44,14 +44,14 @@ Although this might not be the case in real world scenarios the aim is not to ca
 \section{Test walktrough}
 The tests described below are aimed at measuring the very basic roles of any ESB. 
 The tests are very simple with the specific goal of producing a baseline for future tests. 
-These basic tests have been chosen since anyone with the development knowledge of an ESB should be able to produce an ESB project capable of delivering a runnable project which exposes these basic funtionalities.
+These basic tests have been chosen since anyone with the development knowledge of an ESB should be able to produce an ESB project capable of delivering a runnable project which exposes these basic functionalities.
 Each of these tests have been run in two different ways. The first one is by letting a single user (client) send a payload which is increased each run where they payload size varies, 1KB, 50KB, 100KB, 500KB and 1MB.
 The other way is having a fixed payload size of 100KB and a varying amount of concurrent users (clients) in the steps 1, 20, 40, 80, 160 and 320 users.
 
 \newpage
 \subsection{Pure throughput}
 No manipulation of the data will be done by the ESB in this test. The ESB will simply forward all request to the target web service (as fast as possible) (fig.\ref{fig:proxy-diagram}). 
-This test could simulate a service where the ESB exposes an inbound endpoint for other an system to connect to, modularizing which service is running in the backend thus giving a separation of concern where the requesting client does not have to know about the responding web service, just that a web service is made available by the ESB.
+This test could simulate a service where the ESB exposes an inbound endpoint for other an system to connect to, modularizing which service is running in the back-end thus giving a separation of concern where the requesting client does not have to know about the responding web service, just that a web service is made available by the ESB.
 A comparative test can be performed here as well and that is to not use the ESB which will show what performance impact the ESB adds. 
 
 \begin{figure}[H]
@@ -62,10 +62,10 @@ A comparative test can be performed here as well and that is to not use the ESB 
 
 \newpage
 \subsection{Routing}
-In this test the ESB will check the incoming request from the Client and dependning on the context, send the request to an appropriate web service which will append some data and return the request to the ESB which will send the response back to the Client (fig.\ref{fig:routing-diagram}).
+In this test the ESB will check the incoming request from the Client and depending on the context, send the request to an appropriate web service which will append some data and return the request to the ESB which will send the response back to the Client (fig.\ref{fig:routing-diagram}).
 This represents the ability to have several systems behind an ESB all showing the same front to the clients.
 This test is deemed basic because it is what a ESB should do, separate the integrated systems from each other, stepping in as a ``middle-man'' directing requests on behalf of the systems being integrated making the need for changing the systems minimal and just focus on the ESB. 
-A test like this could simulate a load balancer where the ESB is a front for two or more systems each running an instance of the same service. Another scenario this could simulate is different systems handling different (but similar) data, for example one system behind the ESB is handling user registrations and another one is handling user logins. The ESB can then look at the request payload and decide what user interaction is happening and thus route the request to the appropriate system.
+A test like this could simulate a load balancer where the ESB is a front for two or more systems each running an instance of the same service. Another scenario this could simulate is different systems handling different (but similar) data, for example one system behind the ESB is handling user registrations and another one is handling user login. The ESB can then look at the request payload and decide what user interaction is happening and thus route the request to the appropriate system.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[scale=0.43]{img/Routing}}
@@ -75,9 +75,9 @@ A test like this could simulate a load balancer where the ESB is a front for two
 
 \newpage
 \subsection{Message transformation}
-The ESB will convert an incoming request to a different protocoll and send it to a web service which will append some data and return the request to the ESB which will transform it back into the format the Client originally sent it (fig.\ref{fig:transform-diagram}).
+The ESB will convert an incoming request to a different protocol and send it to a web service which will append some data and return the request to the ESB which will transform it back into the format the Client originally sent it (fig.\ref{fig:transform-diagram}).
 Transformation is a big deal for any ESB since two systems to be integrated probably won't speak the same language (XML, json etc) and even if they do they may not have the same data format or structure. Of course the systems need to be able to communicate with each others, without an ESB this would become cumbersome since all involved systems would have to be changed in order to understand what the others where saying, just imagine an old system written in COBOL or Assembler and making it communicate with a new system like a web service using REST \cite{whatisrest}. Integration like this cost both money and time and probably won't be future friendly with regards to maintenance.
-This could make an ESB invaluable since the ESB would take care of receiving the incoming request in one protocoll, decide where the request is to be sent, transform it to a protocoll which the receiving system can understand, get a response back and transforming it to a protocoll the original system which sent the request will understand and this without even touching the code for the two systems talking to each other.
+This could make an ESB invaluable since the ESB would take care of receiving the incoming request in one protocol, decide where the request is to be sent, transform it to a protocol which the receiving system can understand, get a response back and transforming it to a protocol the original system which sent the request will understand and this without even touching the code for the two systems talking to each other.
 
 \begin{figure}[H]
 	\centerline{\includegraphics[scale=0.43]{img/transformation}}
@@ -87,7 +87,7 @@ This could make an ESB invaluable since the ESB would take care of receiving the
 
 \newpage
 \subsection{Artifacts and tools}
-This section describes the artifacts and tools used to produce test loads and capture metrics aswell as other hardware environments.
+This section describes the artifacts and tools used to produce test loads and capture metrics as well as other hardware environments.
 
 \begin{table}[H]
 	\caption{Software and tools}
@@ -132,7 +132,7 @@ The framework is available for others by simply following the base tests describ
 The configuration files and all source code used in the framework can be found on github at https://github.com/Datanizze/korsdrag-thesis-files
 
 \subsection{Variables and variable control}
-No limitiations has been forseen except for hardware and network.
+No limitations has been foreseen except for hardware and network.
 Hardware and network loads should be monitored so they are not close too 100\% as that would mean there is a major bottleneck present. 
 All involved computers were running the same operating system.
 
@@ -141,10 +141,10 @@ This section discusses different validity threats.
 \subsubsection{Inefficient code}
 We are not expert in the various programming languages and systems used to perform these tests and as such our code might be inefficient and even wrong. Inefficient code is not a problem as long as the same code is used in all tests. Erroneous code however is unmaintainable code and as such will require to be changed in the future and that will most likely affect the test results and test history. 
 The possibilities of erroneous code has been limited by focusing the tests on very simple and basic functionality that doesn't require expert knowledge of the ESB in order to get results.
-By actually providing the source code we have opened upthe possibility for improvements and additions of more advanced tests which we feel is extremely important for a consistent testing framework used in academia and industry.
+By actually providing the source code we have opened up the possibility for improvements and additions of more advanced tests which we feel is extremely important for a consistent testing framework used in academia and industry.
 
 \subsubsection{Misconfigured tools}
-Tools such as grinder and our webservice could most certainly be configured better. Especially grinder should be looked at as there are more subtle parameters that can be set that could impact testing results such as sleepTime that pauses the client slightly before sending a new request.
+Tools such as grinder and our web service could most certainly be configured better. Especially grinder should be looked at as there are more subtle parameters that can be set that could impact testing results such as sleepTime that pauses the client slightly before sending a new request.
 
 \subsubsection{Different operating systems}
 Different operating could alter the results of the framework slightly. We used a Windows 7 OS that is not optimized for network traffic like a tweaked *nix system could be.
@@ -185,7 +185,7 @@ The first test for the proxy with a single client sending an increased amount of
 	\caption{Mean response time for direct proxy.}
 	\centerline{\includegraphics{img/proxy_fu_ip_resp}}
 	\label{fig:proxy-1-2}
-	The mean response time for the proxy keeps low throughtout the entire test scenario where the largest peak is at the 1KB payload which has been attributed to a limitation or bad configuration in mule.
+	The mean response time for the proxy keeps low throughout the entire test scenario where the largest peak is at the 1KB payload which has been attributed to a limitation or bad configuration in mule.
 	It is only when the payload size reaches 500KB and beyond an increase in mean response time occurs.
 \end{figure}
 
@@ -222,7 +222,7 @@ The first test for the proxy with a single client sending an increased amount of
 	\caption{Mean response time for content-based routing.}
 	\centerline{\includegraphics{img/mediation_fp_iu_resp}}
 	\label{fig:mediation-2-2}
-	The mean response time for this test scenario almost mirrors the same test scenario for the direct proxy (Fig \ref{fig:proxy-2-2}). An almost linear increas in response time can be seen as the number of concurrent users increases only to deviate when the user count peaks at 320 users.
+	The mean response time for this test scenario almost mirrors the same test scenario for the direct proxy (Fig \ref{fig:proxy-2-2}). An almost linear increase in response time can be seen as the number of concurrent users increases only to deviate when the user count peaks at 320 users.
 \end{figure}
 
 \begin{figure}[H]
@@ -230,7 +230,7 @@ The first test for the proxy with a single client sending an increased amount of
 	\centerline{\includegraphics{img/transform_fu_ip_tps}}
 	\label{fig:transform-1-1}
 	The first test with a single client sending an increasing amount of data in the transformation scenario almost mirrors the direct proxy except for when the client was sending a 25KB data payload. The 25KB part of this test was rerun three times with the same result.
-	A conclusion was reached that this might be a bug in the mule software since the throughtput went up again when the payload was increased to 50KB.
+	A conclusion was reached that this might be a bug in the mule software since the throughput went up again when the payload was increased to 50KB.
 	The only other thing noted was a higher decrease in throughput when the payload reached the larger sizes, this was concluded to be caused by mule having a hard time transforming such large amounts of data from json to xml and back again.
 
 	\label{fig:transform-1-2}
@@ -260,7 +260,7 @@ To get some clarity we ran all tests without involving mule, a direct connection
 % something for future work?
 No absolute conclusion about what caused the low performance when using mule was reached but we speculated about possible user errors or faulty configurations caused by deficient know-how about coding well-performing mule code.
 
-We decided to run the direct proxy scenario without an ESB in order to see wether the low performance is because of hardware limitations or because of our ESB implementation.
+We decided to run the direct proxy scenario without an ESB in order to see whether the low performance is because of hardware limitations or because of our ESB implementation.
 
 Below are the results from that test followed by an analysis.
 
@@ -275,7 +275,7 @@ Below are the results from that test followed by an analysis.
 	\caption{Mean response time for client direct to web service.}
 	\centerline{\includegraphics{img/direct_fu_ip_resp}}
 	\label{fig:direct-1-2}
-	A very good mean repsonse time can be seen here when the payload size is 100KB and below. The response time increased many tenfold after that but is still well below 100ms.
+	A very good mean response time can be seen here when the payload size is 100KB and below. The response time increased many tenfold after that but is still well below 100ms.
 \end{figure}
 
 \begin{figure}[H]
@@ -300,4 +300,4 @@ Below are the results from that test followed by an analysis.
 
 Since the 1 user 1KB test's TPS as shown in figure \ref{fig:direct-1-1} is much higher than in the direct proxy (fig. \ref{fig:proxy-1-1}) our suspicion regarding a limitation/bug in mule seems to fit.
 
-Noting these major differences in test results with and without mule we concluded that it is not necessarily our framework that needs refinement but that our skills programming an integration bus is lacking. This is why our framework matters, everyone won't be able to in a small period of time learn to be masters in each and every ESB being tested. Instead we want to delegate the integration bus part to others with the right competence to integrate with our endpoints (client and web service) in a way that makes optimal use of the ESB. This fits well with the valdity threat about inefficient code in relation to our tests since we are no experts at developing in mule.
+Noting these major differences in test results with and without mule we concluded that it is not necessarily our framework that needs refinement but that our skills programming an integration bus is lacking. This is why our framework matters, everyone won't be able to in a small period of time learn to be masters in each and every ESB being tested. Instead we want to delegate the integration bus part to others with the right competence to integrate with our endpoints (client and web service) in a way that makes optimal use of the ESB. This fits well with the validity threat about inefficient code in relation to our tests since we are no experts at developing in mule.
