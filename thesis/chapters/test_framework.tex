@@ -171,7 +171,7 @@ In the following sections the results have been analyzed for each scenario summi
 
 \subsubsection{Direct proxy results/analysis}
 \label{test:results}
-The first test for the proxy with a single client sending an increased amount of datai (Fig. \ref{fig:proxy-1-1}). Mule seems to handle this quite well, peaking at about 64 transfers per second (TPS) which could be to be a limit in mule's cxf proxy endpoint which was used. When a single client is sending a very small payload (1KB) it seems like our mule project implementation does not handle this very well since all scenarios where affected by this, limiting the throughput to about two TPS. Mule is handling the direct proxy well and it's handling regular sized payloads with ease only beginning to throttle when the payload size is growing beyond 50KB (Fig. \ref{fig:proxy-2-1}).
+The first test for the proxy with a single client sending an increased amount of data (Fig. \ref{fig:proxy-1-1}). Mule seems to handle this quite well, peaking at about 64 transfers per second (TPS) which could be to be a limit in mule's cxf proxy endpoint which was used. When a single client is sending a very small payload (1KB) it seems like our mule project implementation does not handle this very well since all scenarios where affected by this, limiting the throughput to about two TPS. Mule is handling the direct proxy well and it's handling regular sized payloads with ease only beginning to throttle when the payload size is growing beyond 50KB (Fig. \ref{fig:proxy-2-1}).
 
 \newpage
 \begin{figure}[H]
@@ -210,7 +210,7 @@ The first test for the proxy with a single client sending an increased amount of
 	\caption{Mean response time for content-based routing.}
 	\centerline{\includegraphics{img/mediation_fu_ip_resp}}
 	\label{fig:mediation-1-2}
-	Similar to the mean response time seen in the direct proxy scenario (Fig. \ref{proxy-1-2}) with the exception of being slightly higher at 500KB and 1MB caused by the fact that mule has to look at each request and make a decision of which web service to send the request to.
+	Similar to the mean response time seen in the direct proxy scenario (Fig. \ref{fig:proxy-1-2}) with the exception of being slightly higher at 500KB and 1MB caused by the fact that mule has to look at each request and make a decision of which web service to send the request to.
 \end{figure}
 
 \begin{figure}[H]
@@ -254,8 +254,8 @@ The first test for the proxy with a single client sending an increased amount of
 \subsubsection{Overall analysis of performed tests}
 \label{sec:test-final-analysis}
 
-The low throughput seen in all of the tests when a single user is sending a very small amount of data (1KB) (Fig. \ref{fig:proxy-1-1}, \ref{fig:-mediation-1-1} and \ref{fig:transform-1-1}) is something we found very strange.
-To get som clarity we ran all tests without involving mule, a direct connection between the client (Grinder) and the web service (EchoService). As seen in Figures \ref{fig:direct-1-1}, \ref{fig:direct-1-2}, \ref{fig:direct-2-1}, \ref{fig:direct-2-2} the test results are quite different where the only similar graphs (ignoring magnitude) being the Mean response time.
+The low throughput seen in all of the tests when a single user is sending a very small amount of data (1KB) (Fig. \ref{fig:proxy-1-1}, \ref{fig:mediation-1-1} and \ref{fig:transform-1-1}) is something we found very strange.
+To get some clarity we ran all tests without involving mule, a direct connection between the client (Grinder) and the web service (EchoService). As seen in Figures \ref{fig:direct-1-1}, \ref{fig:direct-1-2}, \ref{fig:direct-2-1}, \ref{fig:direct-2-2} the test results are quite different where the only similar graphs (ignoring magnitude) being the Mean response time.
 
 % something for future work?
 No absolute conclusion about what caused the low performance when using mule was reached but we speculated about possible user errors or faulty configurations caused by deficient know-how about coding well-performing mule code.
