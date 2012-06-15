@@ -46,6 +46,12 @@
 	morekeywords={*,...}               % if you want to add more keywords to the set
 }
 
+% make a proper TOC despite llncs
+\setcounter{tocdepth}{2}
+\makeatletter
+\renewcommand*\l@author[2]{}
+\renewcommand*\l@title[2]{}
+\makeatletter
 
 	\title{Examining current academic and industry Enterprise service bus knowledge and
 	what an up-to-date testing framework could look like}
@@ -60,6 +66,8 @@
 
 	\begin{document}
 	\input{cover.tex}
+	\newpage
+	\tableofcontents
 	\newpage
 	\setcounter{page}{1}
 	\pagestyle{plain}
