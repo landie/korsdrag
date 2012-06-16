@@ -7,9 +7,10 @@ There is enough papers for us to at least get a foundation of testing to build u
 The framework consists of a series of scenarios aimed at testing the core functionality of any ESB and we have used Mule ESB as verification that the framework works as expected. 
 
 %2:	our contribution
-The largest conclusion done in this thesis is that the current body of knowledge seems to be severly lacking in both industry and academia. 
-Most importantly the paper we have found \cite{Sanjay2011} lack a reproducibility which is, possibly, even more important than an unbiased test. 
-We have also started a humble attempt at creating a testing framework that could serve as a foundation for future tests. 
+The largest conclusion done in this thesis is that the current body of knowledge seems to be severly lacking in both industry and academia (as presented in section \ref{sec:litrev_results}. 
+Most importantly the paper we have found \cite{Sanjay2011} lack a reproducability which is, possibly, even more important than an unbiased test. 
+We have tried to correct this lack of performance oriented testing by providing a humble attempt at creating a testing framework that could serve as a foundation for future tests. 
+This testing framework is our most important contribution to the current state of the art knowledge regarding ESB performance.
 Below is an analysis of some of the tests performed by the industry and academic sources found.
 
 \begin{figure}[H]
@@ -52,9 +53,13 @@ Even without the knowledge of the previous tests by WSO2 and Mule their numbers 
 It doesn't help that they have not published their hardware setup nor their configuration and ESB source code which means that we can't even begin to hypothesize regarding their data. 
 
 
+The framework presented in sections \ref{sec:test_framework} and \ref{sec:test_walktrough} is a first attempt to produce a framework that could be used to measure performance in ESBs.
+The framework consists of a series of scenarios that are meant to test the core functionality of ESBs and it also consists of a set of tools used to measure the performance. 
 Our results as seen in chapter \ref{test:results} indicate to us that the framework needs more finetuning but that is a good start for future work. 
+The framework is right now showing figures that are not replicated in any other paper that we have found although it is closer to Sanjay \cite{Sanjay2011} than that of our industrial sources \cite{Perera07,Perera07R2,Perera07R3,mulesoft08}.
 It is also a good indication that without professional help it is very hard to setup an ESB that performs as well as the ESB manufacturers claim, we reach this conclusion since we have 6months of ESB deployment experience in a student project and still our implementation is far from the results in figure \ref{fig:mule_cbr}. 
 The largest contribution done in this thesis is that this could be a starting point for making a testing framework that gives reproducable results and a unified way of testing ESB performance.
+Having such a framework would allow the focus of the discussion to be on the results and not on how the results were achieved which is either a large factor \cite{mulesoft08} or not present at all \cite{Sanjay2011}.
 
 
 %3: future work

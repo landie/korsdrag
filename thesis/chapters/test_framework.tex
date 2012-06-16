@@ -1,4 +1,5 @@
 \section{Testing framework}
+\label{sec:test_framework}
 This testing framework aims to answer RQ3. The goal is to produce a transparent and sound way of testing core functionality (see section \ref{sec:core-functionality}) performance of any ESB. 
 % TODO: vet inte hur du tänkte med ref till lit.rev. men lade en ref till background där de tre sakerna listas.
 We have gathered much inspiration from Sanjay \cite{Sanjay2011} regarding what measurements and tests should be performed however an even larger concern of ours is to provide source code and transparency in order for the tests to be repeatable as well as having the ability to discuss how to improve testing which Sanjay misses completely.
@@ -42,6 +43,7 @@ The CPU on the web service is only collected to make sure that it doesn't act as
 Although this might not be the case in real world scenarios the aim is not to cap any hardware limitations because that would not give fair test results since the hardware would limit the performance of the system being tested and since the framework is supposed to give the involved system(s) free roam hardware limitations would be in straight contrast to what the framework is about.
 
 \section{Test walktrough}
+\label{sec:test_walktrough}
 The tests described below are aimed at measuring the very basic roles of any ESB. 
 The tests are very simple with the specific goal of producing a baseline for future tests. 
 These basic tests have been chosen since anyone with the development knowledge of an ESB should be able to produce an ESB project capable of delivering a runnable project which exposes these basic functionalities.
